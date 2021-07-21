@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -11,36 +14,6 @@
 |
 */
 
-Route::group([
-    'namespace' => 'Api'
-], function () {
-
-    Route::post('users/login', 'AuthController@login')->name('user.login');
-    Route::post('users', 'AuthController@register')->name('user.register');
-
-    Route::get('user', 'UserController@index')->name('user.index');
-    Route::match(['put', 'patch'], 'user', 'UserController@update')->name('user.update');
-
-    Route::get('profiles/{user}', 'ProfileController@show')->name('profiles.login');
-    Route::post('profiles/{user}/follow', 'ProfileController@follow')->name('profiles.follow');
-    Route::delete('profiles/{user}/follow', 'ProfileController@unFollow')->name('profiles.unFollow');
-
-    Route::get('articles/feed', 'FeedController@index')->name('articles.feed.index');
-    Route::post('articles/{article}/favorite', 'FavoriteController@add')->name('articles.favorite.add');
-    Route::delete('articles/{article}/favorite', 'FavoriteController@remove')->name('articles.favorite.remove');
-
-    Route::resource('articles', 'ArticleController', [
-        'except' => [
-            'create', 'edit'
-        ]
-    ]);
-
-    Route::resource('articles/{article}/comments', 'CommentController', [
-        'only' => [
-            'index', 'store', 'destroy'
-        ]
-    ]);
-
-    Route::get('tags', 'TagController@index')->name('tags.index');
-
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
