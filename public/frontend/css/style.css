@@ -1,0 +1,51 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: #fff;
+	color: #636b6f;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	margin: 0;
+}
+li, ol, ul {
+	margin: 0 0 10px 0;
+	padding: 0;
+	list-style-position: inside;
+	display: block;
+}
+p {
+	line-height: 1.6;
+}
+img {
+	max-width: 100%;
+}
+p {
+	font-size: 15px;
+	line-height: 1.6;
+	margin-bottom: 1rem;
+}
+a, a:focus, a:hover {
+	text-decoration: none;
+	transition: .3s;
+}
+a:hover {
+	color: #eaa659!important;
+}
+::placeholder {
+	color: #444;
+}
+::-webkit-scrollbar {
+	width: 8px;
+	background-color: #fff;
+	transition: .5s;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+	background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 0;
+	background: #c3c3c3;
+}
