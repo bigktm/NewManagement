@@ -5633,6 +5633,7 @@ a.compare-link.added{
     letter-spacing: 6px;
     text-indent: 6px;
     line-height: 60px;
+    color: #fff;
 }
 .form-newsletter form .submit-form:hover{
     background: #dc9814;
@@ -6733,9 +6734,12 @@ a.compare-link.added{
     box-shadow: 0px -5px 20px 0px rgba(0, 0, 0, 0.1);
 }
 .h3-banner-adv .banner-info {
-    top: 85px;
-    left: 70px;
-    right: 70px;
+    top: 55px;
+    left: 45px;
+    right: 45px;
+    bottom: auto;
+    background: rgb(0 0 0 / 25%);
+    padding: 1rem;
 }
 .h3-banner-adv h3.title24{
     margin-bottom: 7px;
@@ -6752,7 +6756,7 @@ a.compare-link.added{
 }
 
 .content-info {
-    margin-bottom: 25px;
+    margin-bottom: 0;
 }
 .h3-title h3.title24{
     margin-bottom: 2px;

@@ -256,6 +256,22 @@ input:hover {
   margin: 0;
   padding: 0;
 }
+.list-none .float {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.list-none .float i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-right: 10px;
+}
 .list-inline-block {
   margin: 0;
   padding: 0;

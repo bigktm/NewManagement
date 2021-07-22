@@ -133,385 +133,114 @@
             </div>
         </div>
         <div id="main-content">
-            <div class="banner-slider banner-slider-3 ">
-                <div class="wrap-item sv-slider  pagi-nav-style owl-carousel owl-theme" data-item="1" data-speed="5000" data-itemres="" data-animation="fade" data-navigation="" data-pagination="pagi-nav-style" data-prev="" data-next="">
-                    <div class="item-slider  item-slider-3 ">
-                        <div class="banner-thumb">
-                            <a href="#">
-                                <img width="1920" height="950" src="{{asset('public/frontend/images/4.jpg')}}" class="attachment-full size-full" alt=""/>
-                            </a>
-                        </div>
-                        <div class="banner-info">
-                            <div class="container">
-                                <div class="slider-content-text  text-left text-uppercase" data-animated="">
-                                    <h3 class="juliussans-font title60 text-uppercase black">Floor Lamp</h3>
-                                    <p class="title24 text-upercase font-bold black">laser cutter</p>
-                                    <div class="button">
-                                        <a class="title14 more black" href="https://vollemobel.7uptheme.net/product/lipzor-light-3/">Discover now</a>
+            @yield('layout')
+        </div>
+        <div id="footer" class="footer-page">
+            <div class="vc_row row footer-newsletter">
+                <div class="col-sm-12">
+                    <div class="block-element newsletter-form text-center  sv-mailchimp-form" data-placeholder="Nhập địa chỉ email của bạn" data-submit="Đăng ký">
+                        <h3 class="title24 font-bold text-uppercase">Nhận thông tin khuyễn mãi</h3>
+                        <p class="mail-desc desc">Đăng ký để nhận thông tin cập nhật hàng mới về, ưu đãi đặc biệt và thông tin giảm giá khác.</p>
+                        <div class="form-newsletter">
+                            <form id="" class="mc4wp-form mc4wp-form-482" method="post" data-id="" data-name="Mailchimp">
+                                <div class="mc4wp-form-fields">
+                                    <input type="email" name="EMAIL" placeholder="Nhập địa chỉ email của bạn" required="">
+                                    <div class="submit-form">
+                                        <input type="submit" value="Đăng ký">
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item-slider  item-slider-3 ">
-                        <div class="banner-thumb">
-                            <a href="#"><img width="1920" height="950" src="{{asset('public/frontend/images/10.jpg')}}" /></a>
-                        </div>
-                        <div class="banner-info">
-                            <div class="container">
-                                <div class="slider-content-text  text-left text-uppercase" data-animated="">
-                                    <h3 class="juliussans-font title60 text-uppercase black">Diamond gold</h3>
-                                    <p class="title24 text-upercase font-bold black">Diamond lamp is modern</p>
-                                    <div class="button"><a class="title14 more black" href="https://vollemobel.7uptheme.net/product/light-classic-2/">Discover now</a></div>                                
-                                </div>
-                            </div>
+                                <input type="hidden" name="_mc4wp_timestamp" value="1626961490">
+                                <input type="hidden" name="_mc4wp_form_id" value="482">
+                                <input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1">
+                                <div class="mc4wp-response"></div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
+
             <div class="container">
-                <div class="row wpb_row h3-banner-wrap mb150">
-                    <div class="col-sm-4 col-xs-12">
-                        <div class="banner-advs h3-banner-adv res767-mb50  zoom-image">
-                            <a href="https://vollemobel.7uptheme.net/product/engage-task-stool-3/" class="adv-thumb-link">    
-                                <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-1.png')}}"> 
-                            </a>            
-                            <div class="banner-info ">
-                                <h3 class="title24 font-bold text-uppercase black">Thời trang nam</h3>
-                                <p class="desc">Bộ sưu tập thu đông</p>
-                                <p><a class="title14 text-uppercase more black" href="#">Xem thêm</a></p>
+                <div class="vc_row row footer-top pt50">
+                    <div class="col-sm-12 col-md-3 col-xs-12">
+                        <div class="logo footer-logo">
+                            <div class="text-logo">
+                                <h1 class="color">             
+                                    <a href="https://vollemobel.7uptheme.net/">
+                                        <img class="alignnone size-full wp-image-991" src="https://vollemobel.7uptheme.net/wp-content/uploads/2017/11/logo.png" alt="" width="35" height="39"><strong>HT Store</strong>            
+                                    </a>
+                                </h1>     
+                            </div>
+                        </div>
+                        <div class="content-editor footer-contact ">
+                            <div class="content-info ">
+                                <ul class="list-none">
+                                    <li>
+                                        <p class="desc">666 Ngô Quyền - P.An Hải Bắc - Q. Sơn Trà - TP. Đà Nẵng
+                                        </p>
+                                    </li>
+                                    <li><a href="tel:+84989177556">037 4466 344</a></li>
+                                    <li><a href="tel:+844378311160">035 9812 063</a></li>
+                                    <li><a href="mailto:hoanganh94cit@gmail.com">hoanganh94cit@gmail.com</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-xs-12">
-                        <div class="banner-advs h3-banner-adv h3-banner-adv2 res767-mb50  zoom-image">
-                            <a href="https://vollemobel.7uptheme.net/product/wall-light/" class="adv-thumb-link">    
-                                <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-2.png')}}">   
-                            </a>            
-                            <div class="banner-info ">
-                                <h3 class="title24 font-bold text-uppercase white">Khuyễn mãi 20%</h3>
-                                <p class="desc white">Nhân dịp khai trương</p>
-                                <p><a class="title14 text-uppercase more white" href="#">Mua ngay</a></p>
+                    <div class="col-sm-4 col-md-3 col-xs-12">
+                        <div class="content-editor footer-box ">
+                            <div class="content-info ">
+                                <h3 class="title14 font-bold text-uppercase">Thông tin thêm</h3>
+                                <ul class="list-none">
+                                    <li><a href="#">Về chúng tôi</a></li>
+                                    <li><a href="#">Liên Hệ</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Điều khoản & Điều kiện</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-xs-12">
-                        <div class="banner-advs h3-banner-adv  zoom-image">
-                            <a href="https://vollemobel.7uptheme.net/product/table-living-dining/" class="adv-thumb-link">    
-                                <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-3.png')}}">   
-                            </a>            
-                            <div class="banner-info ">
-                                <h3 class="title24 font-bold text-uppercase black">Thời trang nữ</h3>
-                                <p class="desc">Mẫu mã theo xu hướng</p>
-                                <p><a class="title14 text-uppercase more black" href="#">Xem thêm</a></p>
+                    <div class="col-sm-4 col-md-3 col-xs-12">
+                        <div class="content-editor footer-box ">
+                            <div class="content-info ">
+                                <h3 class="title14 font-bold text-uppercase">Dịch Vụ</h3>
+                                <ul class="list-none">
+                                    <li><a href="#">Chính sách vận chuyển</a></li>
+                                    <li><a href="#">Thông tin giao hàng</a></li>
+                                    <li><a href="#">F.A.Q.'s</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-xs-12">
+                        <div class="content-editor footer-box ">
+                            <div class="content-info ">
+                                <h3 class="title14 font-bold text-uppercase">Liên kết </h3>
+                                <ul class="list-none">
+                                    <li><a class="float" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> <span class="text-hidden">Facebook</span></a></li>
+                                    <li><a class="float" href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><i class="fab fa-google-plus-g"></i> <span class="text-hidden">Google</span></a></li>
+                                    <li><a class="float" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> <span class="text-hidden">Instagram</span></a></li>
+                                    <li><a class="float" href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i> <span class="text-hidden">Twitter</span></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row wpb_row mb150">
-                    <div class="col-sm-12">
-                        <div class="content-editor h3-title ">
+                <div class="vc_row row footer-bottom ">
+                    <div class="col-sm-8 col-md-8 col-xs-12">
+                        <div class="content-editor footer-copyright">
                             <div class="content-info ">
-                                <h3 class="title24 font-bold text-uppercase">Sản phẩm mới</h3>
-                            </div>
-                        </div>
-                        <div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">
-                            <div class="vc_tta-panel-body">
-                                <div class="block-element  product-slider-view  slider filter- js-content-wrap">
-                                    <span class="found_posts hidden">23 <span class="lb">items</span></span>
-                                    <div class="list-product-wrap">
-                                        <div class="wrap-item smart-slider js-content-main clearfix group-navi " data-item="4" data-speed="" data-itemres="" data-prev="" data-next=""  data-pagination="" data-navigation="group-navi">
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/15.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/5.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Otis T-Shirt</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/1.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="price-sale">650,000 đ</span>
-                                                                <span class="Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-                                                            </div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/3.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/5.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <p class="desc">Copyright <a class="color2" href="{{URL::to('/')}}">HT Store</a> 2021.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row wpb_row mb150">
-                    <div class="col-sm-12">
-                        <div class="content-editor h3-title ">
+                    <div class="col-sm-4 col-md-4 col-xs-12">
+                        <div class="content-editor footer-payment text-right ">
                             <div class="content-info ">
-                                <h3 class="title24 font-bold text-uppercase">Sản phẩm bán chạy</h3>
-                            </div>
-                        </div>
-                        <div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">
-                            <div class="vc_tta-panel-body">
-                                <div class="block-element  product-slider-view  slider filter- js-content-wrap">
-                                    <span class="found_posts hidden">23 <span class="lb">items</span></span>
-                                    <div class="list-product-wrap">
-                                        <div class="wrap-item smart-slider js-content-main clearfix group-navi " data-item="4" data-speed="" data-itemres="" data-prev="" data-next=""  data-pagination="" data-navigation="group-navi">
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/15.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/5.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Otis T-Shirt</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/1.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="price-sale">650,000 đ</span>
-                                                                <span class="Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-                                                            </div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/3.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item">  
-                                                <div class="product type-product status-publish has-post-thumbnail">
-                                                    <div class="item-product item-product-grid item-product-style2">
-                                                        <div class="product-thumb">
-                                                            <a href="#">
-                                                                <img width="252" height="288" src="{{asset('/public/frontend/images/5.png')}}" alt="" />
-                                                            </a>        
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <h3 class="title14 product-title">
-                                                                <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                            </h3>
-                                                            <div class="product-price price variable">
-                                                                <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span></div>         
-                                                            <div class="product-extra-link">
-                                                                <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <ul class="list-inline-block">
+                                    <li><a class="float" href="#"><img class="alignnone size-full wp-image-1092" src="https://vollemobel.7uptheme.net/wp-content/uploads/2018/09/paymethod1.jpg" alt="" width="100" height="40"></a></li>
+                                    <li><a class="float" href="#"><img class="alignnone size-full wp-image-1093" src="https://vollemobel.7uptheme.net/wp-content/uploads/2018/09/paymethod2.jpg" alt="" width="100" height="40"></a></li>
+                                    <li><a class="float" href="#"><img class="alignnone size-full wp-image-1094" src="https://vollemobel.7uptheme.net/wp-content/uploads/2018/09/paymethod3.jpg" alt="" width="100" height="40"></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
