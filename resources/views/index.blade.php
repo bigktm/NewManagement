@@ -166,8 +166,8 @@
                         <div class="logo footer-logo">
                             <div class="text-logo">
                                 <h1 class="color">             
-                                    <a href="https://vollemobel.7uptheme.net/">
-                                        <img class="alignnone size-full wp-image-991" src="https://vollemobel.7uptheme.net/wp-content/uploads/2017/11/logo.png" alt="" width="35" height="39"><strong>HT Store</strong>            
+                                    <a href="{{URL::to('/')}}">
+                                        <img class="alignnone size-full wp-image-991" src="{{asset('public/frontend/images/logo.png')}}" alt="" width="35" height="39"><strong>HT Store</strong>            
                                     </a>
                                 </h1>     
                             </div>
