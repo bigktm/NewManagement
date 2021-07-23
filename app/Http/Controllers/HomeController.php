@@ -12,4 +12,7 @@ class HomeController extends Controller
     public function ProductDetail() {
     	return view('template.product-detail');
     }
+    public function Shop() {
+    	return view('template.shop_list_view');
+    }
 }

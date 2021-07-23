@@ -45,37 +45,37 @@
     <div class="row wpb_row h3-banner-wrap mb150">
         <div class="col-sm-4 col-xs-12">
             <div class="banner-advs h3-banner-adv res767-mb50  zoom-image">
-                <a href="https://vollemobel.7uptheme.net/product/engage-task-stool-3/" class="adv-thumb-link">    
+                <a href="{{URL::to('/shop')}}" class="adv-thumb-link">    
                     <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-1.png')}}"> 
                 </a>            
                 <div class="banner-info ">
                     <h3 class="title24 font-bold text-uppercase white">Thời trang nam</h3>
                     <p class="desc white">Bộ sưu tập thu đông</p>
-                    <p><a class="title14 text-uppercase more white" href="#">Xem thêm</a></p>
+                    <p><a class="title14 text-uppercase more white" href="{{URL::to('/shop')}}">Xem thêm</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-4 col-xs-12">
             <div class="banner-advs h3-banner-adv h3-banner-adv2 res767-mb50  zoom-image">
-                <a href="https://vollemobel.7uptheme.net/product/wall-light/" class="adv-thumb-link">    
+                <a href="{{URL::to('/shop')}}" class="adv-thumb-link">    
                     <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-2.png')}}">   
                 </a>            
                 <div class="banner-info ">
                     <h3 class="title24 font-bold text-uppercase white">Khuyễn mãi 20%</h3>
                     <p class="desc white">Nhân dịp khai trương</p>
-                    <p><a class="title14 text-uppercase more white" href="#">Mua ngay</a></p>
+                    <p><a class="title14 text-uppercase more white" href="{{URL::to('/shop')}}">Mua ngay</a></p>
                 </div>
             </div>
         </div>
         <div class="col-sm-4 col-xs-12">
             <div class="banner-advs h3-banner-adv  zoom-image">
-                <a href="https://vollemobel.7uptheme.net/product/table-living-dining/" class="adv-thumb-link">    
+                <a href="{{URL::to('/shop')}}" class="adv-thumb-link">    
                     <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-3.png')}}">   
                 </a>            
                 <div class="banner-info ">
                     <h3 class="title24 font-bold text-uppercase white">Thời trang nữ</h3>
                     <p class="desc white">Mẫu mã theo xu hướng</p>
-                    <p><a class="title14 text-uppercase more white" href="#">Xem thêm</a></p>
+                    <p><a class="title14 text-uppercase more white" href="{{URL::to('/shop')}}">Xem thêm</a></p>
                 </div>
             </div>
         </div>
@@ -97,9 +97,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="{{URL::to('/product/id=123')}}">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/15.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/5.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>       
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -120,9 +121,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/5.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/5.png')}}" alt="" />
+                                                </a>       
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -143,9 +145,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/1.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/1.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/3.png')}}" alt="" />
+                                                </a>      
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -167,9 +170,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/3.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>      
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -190,9 +194,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/3.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/1.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>      
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -213,9 +218,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/5.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>    
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -267,9 +273,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/15.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/1.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>   
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -290,9 +297,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/5.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/3.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>   
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -313,9 +321,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/1.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>   
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -337,9 +346,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/5.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>     
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -360,9 +370,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/3.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/5.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -383,9 +394,10 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
-                                                    <img width="252" height="288" src="{{asset('/public/frontend/images/5.png')}}" alt="" />
-                                                </a>        
+                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
+                                                    <img  src="{{asset('/public/frontend/images/5.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                </a>       
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
@@ -398,7 +410,6 @@
                                                     <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>

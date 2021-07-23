@@ -5761,13 +5761,17 @@ a.compare-link.added{
     margin: 0 0 46px;
     display: inline-block;
     width: 100%;
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
+    align-items: center;
 }
-.woocommerce .woocommerce-result-count{
+.title-box p{
     margin: 0;
     height: 50px;
     line-height: 50px;
     padding: 0 20px;
+}
+.justify-between {
+    justify-content: space-between;
 }
 .widget_s7upf_category_list.widget ul.children{
     display: none;

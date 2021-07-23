@@ -21,8 +21,6 @@ img {
 }
 a {
   color: #333;
-  transition: all 0.4s ease-out 0s;
-  -webkit-transition: all 0.4s ease-out 0s;
   text-decoration: none;
 }
 a:hover,
@@ -1871,8 +1869,7 @@ div.table .product-info .product-title {
 .sort-pagi-bar > li {
   margin: 0 15px;
 }
-.sort-pagi-bar {
-}
+.sort-pagi-bar {background: #f1f1f1;}
 .show-by > .dropdown-link > span.gray,
 .view-type > span.gray {
   margin: 0 15px 0 0;
@@ -2259,8 +2256,7 @@ div.table .product-info .product-title {
   height: 36px;
 }
 .sort-by .select-box::after {
-  font-family: LineAwesome;
-  content: "\f30c";
+  font-family: "Font Awesome 5 Pro";
   position: absolute;
   right: 10px;
   top: 50%;
