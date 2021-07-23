@@ -1054,12 +1054,12 @@ li.menu-item-has-children:hover > .sub-menu {
   height: 13px;
   line-height: 13px;
   width: 98px;
-  font-family: star;
-  font-weight: 400;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 600;
   font-size: 12px;
 }
 .product-rate:before{
-  content: '\53\53\53\53\53';
+  content: '\f005\f005\f005\f005\f005';
   position: absolute;
   float: left;
   top: 0;
@@ -1076,11 +1076,11 @@ li.menu-item-has-children:hover > .sub-menu {
   padding-top: 13px;
 }
 .product-rating:before{
-  content: '\53\53\53\53\53';
+  content: '\f005\f005\f005\f005\f005';
   position: absolute;
   top: 0;
   left: 0;
-  color: #dc9814;    
+  color: #f1af51;
   letter-spacing: 8px;
 }
 .product-rate.style2,
@@ -2460,7 +2460,7 @@ div.table .product-info .product-title {
   display: block;
   text-align: left;
   right: 0;
-  font-size: 18px;
+  font-size: 15px;
 }
 .detail-qty a.qty-up {
   top: 7px;
@@ -2477,7 +2477,7 @@ div.table .product-info .product-title {
   text-align: center;
 }
 .detail-info .product-desc {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   color: #333;
   line-height: 24px;
 }
@@ -2519,6 +2519,34 @@ div.table .product-info .product-title {
 }
 .product-detail {
   margin-bottom: 50px;
+}
+.product-intro-wrapper {
+    position: relative;
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+    margin-bottom: 2rem;
+}
+.banner-footer-item {
+    padding: 1rem;
+    border-left: 5px solid #f1af51 !important;
+}
+
+.banner-footer-item i {
+    width: 70px;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid;
+    height: 70px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    margin-right: 1rem;
+}
+
+.banner-footer-item-info p {
+    margin-bottom: 10px;
+    color: #777;
 }
 .woocommerce div.product div.images{
   margin-bottom: 0;

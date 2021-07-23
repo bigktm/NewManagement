@@ -1,5 +1,10 @@
 @extends('index')
 @section('layout')
+<style>
+    .header-page {
+        position: absolute;
+    }
+</style>
 <div class="banner-slider banner-slider-3 ">
     <div class="wrap-item sv-slider  pagi-nav-style owl-carousel owl-theme" data-item="1" data-speed="5000" data-itemres="" data-animation="fade" data-navigation="" data-pagination="pagi-nav-style" data-prev="" data-next="">
         <div class="item-slider  item-slider-3 ">
@@ -79,7 +84,7 @@
         <div class="col-sm-12">
             <div class="content-editor h3-title ">
                 <div class="content-info ">
-                    <h3 class="title24 font-bold text-uppercase">Sản phẩm mới</h3>
+                    <h3 class="title24 font-bold text-uppercase mb-4">Sản phẩm mới</h3>
                 </div>
             </div>
             <div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">
@@ -92,13 +97,13 @@
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
-                                                <a href="#">
+                                                <a href="{{URL::to('/product/id=123')}}">
                                                     <img width="252" height="288" src="{{asset('/public/frontend/images/15.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
                                                 </a>        
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
-                                                    <a title="Laborum Chair" href="#">Laborum Chair</a>
+                                                    <a title="Laborum Chair" href="{{URL::to('/product/id=123')}}">Áo khoác mới 2021</a>
                                                 </h3>
                                                 <div class="product-price price variable">
                                                     <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
@@ -249,7 +254,7 @@
         <div class="col-sm-12">
             <div class="content-editor h3-title ">
                 <div class="content-info ">
-                    <h3 class="title24 font-bold text-uppercase">Sản phẩm bán chạy</h3>
+                    <h3 class="title24 font-bold text-uppercase mb-4">Sản phẩm bán chạy</h3>
                 </div>
             </div>
             <div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">

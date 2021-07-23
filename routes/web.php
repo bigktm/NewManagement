@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'HomeController@Index' );
+Route::get('/product/id=123', 'HomeController@ProductDetail' );
