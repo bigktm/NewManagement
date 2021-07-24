@@ -1,6 +1,14 @@
 @extends('index')
 @section('layout')
 <div class="container">
+	<div class="wrap-bread-crumb">
+		<div class="bread-crumb"> 
+			<div class="bread-crumb-wrap">
+				<span><a href="{{URL::to('/')}}"><i class="fad fa-home mr-3"></i> Home</a></span>
+				<span>Shops</span>       		
+			</div>
+		</div>
+	</div>
 	<div class="row mt-4">
 		<div class="col-md-3 col-sm-4 col-xs-12">
 			<div class="sidebar sidebar-right">

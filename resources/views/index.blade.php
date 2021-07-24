@@ -64,7 +64,7 @@
                                                 <div class="logo ">
                                                     <div class="text-logo">
                                                         <h1 class="color">             
-                                                            <a href="#">
+                                                            <a href="{{URL::to('/')}}">
                                                                 <img class="alignnone wp-image-991" src="{{asset('/public/frontend/images/logo.png')}}" alt="" width="35" height="39">
                                                                 <strong>HT STORE</strong>
                                                             </a>
@@ -105,16 +105,44 @@
                                                         <span class="mini-cart-number set-cart-number">0</span>
                                                     </a>
                                                     <div class="mini-cart-content dropdown-list text-left">
-                                                        <h2 class="title18 font-bold"><span class="set-cart-number">0</span> items</h2>
                                                         <div class="mini-cart-main-content">
-
-                                                            <div class="mini-cart-empty">
+                                                            <div class="mini-cart-empty" style="display: none;">
                                                                 <i class="fal fa-shopping-cart title120 empty-icon"></i>
-                                                                <h5 class="desc text-uppercase font-semibold">No products in the cart.</h5>
+                                                                <h5 class="desc text-uppercase font-semibold">Giỏ hàng đang trống</h5>
                                                                 <p class="title14 return-to-shop woocommerce">
-                                                                    <a class="button wc-backward" href="#">
-                                                                    Go Shop                </a>
+                                                                    <a class="button wc-backward" href="#">Tiếp tục mua sắm</a>
                                                                 </p>
+                                                            </div>
+                                                            <div class="mini-cart-has-product">
+                                                                <div class="product-mini-cart list-mini-cart-item">
+                                                                    <div class="item-info-cart product-mini-cart table-custom mini_cart_item">
+                                                                        <div class="product-thumb">
+                                                                            <a href="{{URL::to('/product/id=123')}}">
+                                                                                <img width="100" height="100" src="{{asset('/public/frontend/images/3.png')}}" alt="">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="product-info">
+                                                                            <h3 class="title14 product-title">
+                                                                                <a href="{{URL::to('/product/id=123')}}">Áo thun trơn</a>
+                                                                            </h3>
+                                                                            <div class="mini-cart-qty">
+                                                                                <span><span class="qty-num">1</span> x <span class="color">450,000 đ</span></span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="product-delete text-right">
+                                                                            <a href="javascript:;" class="remove-product"><i class="fad fa-trash"></i></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <input class="get-cart-number" type="hidden" value="1">
+                                                                <div class="mini-cart-total text-uppercase title18 clearfix">
+                                                                    <span class="pull-left">Tông tiền</span>
+                                                                    <strong class="pull-right color mini-cart-total-price get-cart-price">450,000 đ</strong>
+                                                                </div>
+                                                                <div class="mini-cart-button">
+                                                                    <a href="{{URL::to('/cart')}}" class="button wc-forward">Xem giỏ hàng</a>
+                                                                    <a href="" class="button checkout wc-forward">Thanh Toán</a>    
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <span class="close-minicart"><i class="fal fa-times"></i></span>

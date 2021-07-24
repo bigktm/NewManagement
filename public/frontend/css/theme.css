@@ -3085,6 +3085,19 @@ div.table .product-info .product-title {
   z-index: 1;
   background: #fff;
 }
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.mini-cart-total-price {
+    line-height: 22px;
+    font-weight: 600;
+    font-size: 16px;
+}
 .mini-cart-box.aside-box .product-mini-cart.table-custom .product-delete {
   padding: 0 15px;
 }
@@ -3136,6 +3149,9 @@ div.table .product-info .product-title {
 }
 .detail-countdown .time_circles > div:last-child::after {
   display: none;
+}
+.color {
+    color: #f1af51;
 }
 /*******************************************************************************************************************
                         Pages 

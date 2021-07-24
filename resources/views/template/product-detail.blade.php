@@ -4,7 +4,7 @@
 	<div class="wrap-bread-crumb">
 		<div class="bread-crumb"> 
 			<div class="bread-crumb-wrap">
-				<span><a href="{{URL::to('/')}}">Home</a></span>
+				<span><a href="{{URL::to('/')}}"><i class="fad fa-home mr-3"></i> Home</a></span>
 				<span><a href="#">Category</a></span>
 				<span>Product Detail</span>       		
 			</div>

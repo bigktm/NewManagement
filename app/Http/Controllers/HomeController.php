@@ -15,4 +15,7 @@ class HomeController extends Controller
     public function Shop() {
     	return view('template.shop_list_view');
     }
+    public function Cart() {
+    	return view('template.cart');
+    }
 }

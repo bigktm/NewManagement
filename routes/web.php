@@ -14,3 +14,4 @@
 Route::get('/', 'HomeController@Index' );
 Route::get('/product/id=123', 'HomeController@ProductDetail' );
 Route::get('/shop', 'HomeController@Shop' );
+Route::get('/cart', 'HomeController@Cart' );

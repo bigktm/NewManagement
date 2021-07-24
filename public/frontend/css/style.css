@@ -866,8 +866,8 @@ input.button{
     display: inline-block;
     height: 60px;
     line-height: 60px;
-    padding: 0px 48px;
-    letter-spacing: 3px;
+    padding: 0px 25px;
+    letter-spacing: 1px;
     border: none;
     border-radius: 0px;
     text-transform: uppercase;
@@ -875,6 +875,7 @@ input.button{
     color: #fff;
     font-size: 14px;
     font-weight: normal;
+    width: 100%;
 }
 .woocommerce.widget .woocommerce-widget-layered-nav-dropdown__submit:hover,
 .yith-wcwl-add-button a:hover,
@@ -1482,6 +1483,13 @@ a.added_to_cart:hover,
     z-index: -1;
 }
 /*Woocommerce Page css*/
+.your-cart .shop_table {
+    width: 100%;
+}
+
+.your-cart .shop_table th, .your-cart .shop_table td {
+    padding: 10px 15px;
+}
 .woocommerce-cart-form .qty-label{
     display: none;
 }
@@ -1505,6 +1513,18 @@ td.product-thumbnail {
 }
 .woocommerce button.button:disabled{
     padding: 0 48px!important;
+}
+.cart-collaterals {
+    max-width: 45%;
+    margin-left: auto;
+}
+
+.your-cart .cart_totals table, .your-cart .cart_totals table th, .your-cart .cart_totals table td {
+    padding: 15px;
+}
+
+.wc-proceed-to-checkout .button {
+    text-align: center;
 }
 /*End Woocommerce page css*/
 
@@ -8606,4 +8626,25 @@ body.wpb-js-composer .p-collapse.vc_tta.vc_general .vc_tta-panel .vc_tta-panel-t
     -ms-flex-align: center;
     align-items: center;
     text-align: center;
+}
+.mr-3 {
+    margin-right: 0.5rem;
+}
+.table-actions .coupon {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.table-actions .coupon input {
+    border-color: #e5e5e5;
+    padding: 0 20px;
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    letter-spacing: 3px;
+    text-indent: 6px;
+    text-transform: uppercase;
+    min-width: 250px;
+    margin-right: 5px;
 }
