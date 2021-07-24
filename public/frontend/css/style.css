@@ -3311,10 +3311,6 @@ body.page-content-box [data-vc-full-width] [data-vc-full-width]{
 .account-manager .dropdown-list li i{
     min-width: 20px;
 }
-.account-manager .dropdown-list{
-    width: 160px;
-}
-
 /* Vendor page*/
 .vendor-page .entry-content .title-page h2{
     margin: 0 0 10px;
@@ -4694,10 +4690,50 @@ a.dm-color.active{
     z-index: initial;
 }
 .header-right .wpb_wrapper > div.account-manager{
-    max-width: 130px;
+    /* max-width: 130px; */
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+}
+.icon-dropdown {
+  font-size: 20px;
+  color: #f1af51;
+}
+.header-right .wpb_wrapper > div.account-manager .dropdown-username {
+    text-transform: capitalize;
+    background: #000000;
+    color: #fff;
+    line-height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    border-radius: 4px;
+}
+.header-right .wpb_wrapper > div.account-manager .dropdown .fa-angle-down {
+    line-height: 35px;
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.dropdown-menu {
+    transition: .3s;
+    border: 0;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 10px;
+    transform: translateY(20px);
+    right: 0;
+}
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 .s-icon, .mini-cart-link, .open-login-form{
     font-size: 20px;
@@ -4904,13 +4940,6 @@ a.dm-color.active{
     opacity: 1;
     visibility: visible;
 
-}
-.account-manager .dropdown-list{
-    display: none;
-}
-.logged-in .account-manager .dropdown-list{
-    display: block;
-    z-index: 1;
 }
 .account-manager > .color{
     display: inline-block;

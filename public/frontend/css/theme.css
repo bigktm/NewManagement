@@ -1317,11 +1317,10 @@ div.table .product-info .product-title {
 }
 .dropdown-list {
   background: #fff;
-  margin-top: 30px;
+  margin-top: 10px;
   opacity: 0;
+  right: 0;
   position: absolute;
-  left: 0;
-  top: 100%;
   visibility: hidden;
   width: 130px;
   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
@@ -1331,7 +1330,7 @@ div.table .product-info .product-title {
 .dropdown-box:hover .dropdown-list {
   opacity: 1;
   visibility: visible;
-  margin-top: 0;
+  transform: translateY(0);
 }
 .language-box .dropdown-list li a span,
 .currency-box .dropdown-list li a span {
@@ -1886,7 +1885,6 @@ div.table .product-info .product-title {
   height: 40px;
   line-height: 40px;
   padding: 0px 15px;
-  background: #f9f9f9;
   border-bottom: 1px solid #fff;
 }
 .dropdown-list li a:hover {

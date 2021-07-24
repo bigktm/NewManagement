@@ -54,6 +54,9 @@
 	    		if($(this).hasClass('lostpass-popup')) $('.lostpass-link').trigger('click');
 	    	}
     	})
+    	$('.account-manager .dropdown').on('click',function(event){
+			$('.dropdown-menu').toggleClass('active');
+		});
     	$('.close-login-form,.popup-overlay').on('click',function(e){
     		e.preventDefault();
     		$('.login-popup-content-wrap').fadeOut('slow');

@@ -6,16 +6,26 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function Index() {
-    	return view('template.home');
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function Index()
+    {
+        return view('site.home');
     }
-    public function ProductDetail() {
-    	return view('template.product-detail');
+    public function ProductDetail()
+    {
+        return view('site.product-detail');
     }
-    public function Shop() {
-    	return view('template.shop_list_view');
+    public function Shop()
+    {
+        return view('site.shop_list_view');
     }
-    public function Cart() {
-    	return view('template.cart');
+    public function Cart()
+    {
+        return view('site.cart');
     }
 }

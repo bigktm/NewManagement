@@ -1,4 +1,5 @@
 @extends('index')
+@section('title', 'Trang Chủ')
 @section('layout')
 <style>
     .header-page {
