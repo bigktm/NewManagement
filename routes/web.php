@@ -14,6 +14,10 @@
 Auth::routes();
 
 Route::get('/dashboard', 'AdminController@Index');
+Route::get('/orders', 'AdminController@Orders');
+Route::get('/orders/order-detail', 'AdminController@ViewOrders');
+Route::get('/product-list', 'AdminController@ProductList');
+Route::get('/product/add', 'AdminController@AddProduct');
 
 
 Route::get('/', 'HomeController@Index' );

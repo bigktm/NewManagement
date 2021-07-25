@@ -48,6 +48,10 @@ $(function () {
             that.closest('tr').removeClass('tr-selected');
         }
     });
+    $('.menu-sidebar li a').on('click',function(event){
+        $('.menu-sidebar li a').removeClass('active');
+        $(this).addClass('active');
+    });
 
     function totalSales() {
         if ($('#total-sales').length) {
