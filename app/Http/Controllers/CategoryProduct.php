@@ -12,4 +12,7 @@ class CategoryProduct extends Controller
     public function AllCategory () {
     	return view('admin.template.category.all_category_product');
     }
+    public function save_category_product(Request $request){
+        
+    }
 }

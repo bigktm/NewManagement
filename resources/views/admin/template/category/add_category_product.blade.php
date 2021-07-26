@@ -20,6 +20,13 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="panel-body mb-4">
+                <?php
+                $message = Session::get('message');
+                if($message){
+                    echo '<span class="text-alert">'.$message.'</span>';
+                    Session::put('message',null);
+                }
+                ?>
                 <div class="position-center col-md-12">
                     <form role="form " class="row" action="{{URL::to('/save-category-product')}}" method="post">
                         {{ csrf_field() }}

@@ -25,37 +25,39 @@
                 <div class="position-center col-md-12">
                     <form role="form " class="row" action="{{URL::to('/save-category-product')}}" method="post">
                         {{ csrf_field() }}
-                        <div class="col-md-5 "></div>
-                        <div class="col-md-7 ">
-                            <div class="form-group  col-md-6">
-                                <label for="category_name">Tên danh mục</label>
+                        <div class="col-md-5 ">
+                            <h3>Thông tin cơ bản</h3>
+                            <div class="form-group">
+                                <label for="category_name">Tên sản phẩm</label>
                                 <input type="text"  class="form-control" onkeyup="ChangeToSlug();" name="category_product_name"  id="category_name" placeholder="Danh mục" >
                             </div>
-                            <div class="form-group  col-md-6">
-                                <label for="convert_slug">Đường dẫn</label>
-                                <input type="text" name="slug_category_product" class="form-control" id="convert_slug" placeholder="Tên danh mục">
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="exampleInputPassword1">Mô tả danh mục</label>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Mô tả sản phẩm</label>
                                 <textarea style="resize: none" rows="4" class="form-control" name="category_product_desc" id="exampleInputPassword1" placeholder="Mô tả danh mục"></textarea>
                             </div>
-                            <div class="form-group col-md-12">
-                                <label for="exampleInputPassword1">Từ khóa danh mục</label>
-                                <textarea style="resize: none" rows="4" class="form-control" name="category_product_keywords" id="exampleInputPassword1" placeholder="Mô tả danh mục"></textarea>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Từ khóa sản phẩm</label>
+                                <input type="text"  class="form-control" name="category_product_name"  id="category_name" placeholder="Từ khóa sản phẩm" >
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group">
                                 <label for="exampleInputPassword1">Thuộc danh mục</label>
                                 <select name="category_parent" class="form-control input-sm m-bot15">
                                     <option value="0">---Danh mục cha---</option>
                                     <option value=""></option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="exampleInputPassword1">Hiển thị</label>
-                                <select name="category_product_status" class="form-control input-sm m-bot15">
-                                    <option value="0">Hiển thị</option>
-                                    <option value="1">Ẩn</option>
-                                </select>
+                        </div>
+                        <div class="col-md-7 ">
+                            <h3>Thông tin bán hàng</h3>
+                            <div class="row">
+                                <div class="form-group  col-md-6">
+                                    <label for="category_name">Giá bán</label>
+                                    <input type="text"  class="form-control" onkeyup="ChangeToSlug();" name="category_product_name"  id="category_name" placeholder="Danh mục" >
+                                </div>
+                                <div class="form-group  col-md-6">
+                                    <label for="convert_slug">Giá khuyễn mãi</label>
+                                    <input type="text" name="slug_category_product" class="form-control" id="convert_slug" placeholder="Tên danh mục">
+                                </div>
                             </div>
                         </div>
                         <div class="form-group col-md-4">

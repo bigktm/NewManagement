@@ -26,6 +26,7 @@ Route::get('/add-new-product', 'ProductController@AddProduct');
 // Category Product
 Route::get('/add-category-product', 'CategoryProduct@AddCategory');
 Route::get('/all-category-product', 'CategoryProduct@AllCategory');
+Route::post('/save-category-product', 'CategoryProduct@save_category_product');
 
 
 Route::get('/', 'HomeController@Index' );
