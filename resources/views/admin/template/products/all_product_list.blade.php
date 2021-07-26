@@ -47,8 +47,8 @@
                             </form>
                         </div>
                         <div class="dropdown ms-auto">
-                            <a href="{{URL::to('/product/add')}}" class="btn btn-primary btn-icon">
-                                <i class="bi bi-plus-circle"></i> Add Product
+                            <a href="{{URL::to('/add-new-product')}}" class="btn btn-primary btn-icon">
+                                <i class="bi bi-plus-circle"></i> Thêm sản phẩm mới
                             </a>
                         </div>
                     </div>

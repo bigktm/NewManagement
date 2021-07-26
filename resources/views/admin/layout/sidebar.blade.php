@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{URL::to('/product-list')}}">
+                <a href="{{URL::to('/all-product-list')}}">
                     <span class="nav-link-icon">
                         <i class="bi bi-box"></i>
                     </span>
@@ -51,10 +51,10 @@
                 </a>
                 <ul>
                     <li>
-                        <a  href="{{URL::to('/product/add')}}">Thêm sản phẩm</a>
+                        <a  href="{{URL::to('/add-new-product')}}">Thêm sản phẩm</a>
                     </li>
                     <li>
-                        <a  href="{{URL::to('/product-list')}}">Danh sách sản phẩm</a>
+                        <a  href="{{URL::to('/all-product-list')}}">Danh sách sản phẩm</a>
                     </li>
                 </ul>
             </li>
@@ -67,10 +67,10 @@
                 </a>
                 <ul>
                     <li>
-                        <a  href="product-list.html">Thêm danh mục sản phẩm</a>
+                        <a  href="{{URL::to('/add-category-product')}}">Thêm danh mục sản phẩm</a>
                     </li>
                     <li>
-                        <a  href="product-grid.html">Danh sách danh mục</a>
+                        <a  href="{{URL::to('/all-category-product')}}">Danh sách danh mục</a>
                     </li>
                 </ul>
             </li>

@@ -14,10 +14,18 @@
 Auth::routes();
 
 Route::get('/dashboard', 'AdminController@Index');
+
+// Orders
 Route::get('/orders', 'AdminController@Orders');
 Route::get('/orders/order-detail', 'AdminController@ViewOrders');
-Route::get('/product-list', 'AdminController@ProductList');
-Route::get('/product/add', 'AdminController@AddProduct');
+
+// Products
+Route::get('/all-product-list', 'ProductController@AllProduct');
+Route::get('/add-new-product', 'ProductController@AddProduct');
+
+// Category Product
+Route::get('/add-category-product', 'CategoryProduct@AddCategory');
+Route::get('/all-category-product', 'CategoryProduct@AllCategory');
 
 
 Route::get('/', 'HomeController@Index' );
