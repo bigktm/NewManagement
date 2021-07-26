@@ -6201,16 +6201,6 @@ a.compare-link.added{
 .single-list-social li a i.fa-share-alt{
     color: #cb0909;
 }
-.product-remove a.remove {
-    font-size: 0px;
-    width: 25px;
-}
-.product-remove a.remove:before{
-    font-family: "LineAwesome";
-    content: "\f34d";
-    font-size: 14px;
-    color: #333;
-}
 .product-remove a.remove:hover:before{
     color: #dc9814;
 }
