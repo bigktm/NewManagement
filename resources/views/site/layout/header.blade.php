@@ -40,8 +40,7 @@
                                             <div class="text-logo">
                                                 <h1 class="color">             
                                                     <a href="{{URL::to('/')}}">
-                                                        <img class="alignnone wp-image-991" src="{{asset('/public/frontend/images/logo.png')}}" alt="" width="35" height="39">
-                                                        <strong>HT STORE</strong>
+                                                        <img class="alignnone wp-image-991" src="{{asset('/public/frontend/images/logo.png')}}" alt="" height="50px">
                                                     </a>
                                                 </h1> 
                                             </div>
@@ -110,7 +109,7 @@
                                                         </div>
                                                         <div class="mini-cart-button">
                                                             <a href="{{URL::to('/cart')}}" class="button wc-forward">Xem giỏ hàng</a>
-                                                            <a href="" class="button checkout wc-forward">Thanh Toán</a>    
+                                                            <a href="{{URL::to('/checkout')}}" class="button checkout wc-forward">Thanh Toán</a>    
                                                         </div>
                                                     </div>
                                                 </div>

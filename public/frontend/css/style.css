@@ -934,10 +934,11 @@ input[type=email],
 input[type=text]{
     border: 1px solid #e5e5e5;
     border-radius: 0px;
-    height: 40px;
+    /* height: 40px; */
     line-height: 40px;
     padding: 0 8px;
     width: 100%;
+    border-radius: 5px;
 }
 textarea{
     border: 1px solid #e5e5e5;
@@ -1526,6 +1527,192 @@ td.product-thumbnail {
 .wc-proceed-to-checkout .button {
     text-align: center;
 }
+.formCheckOut {
+    padding: 5rem 2rem;
+    min-height: 100vh;
+} 
+.main-header {
+    margin-bottom: 2rem;
+}
+.main-header .logo {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.main-header .logo img {
+    height: 100%;
+}
+.main-content {
+    position: relative;
+}
+
+.section {
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+}
+
+.tp_title {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.payment_box {
+    display: flex;
+    align-items: center;
+}
+.radio-wrapper {
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 1.5rem;
+}
+
+.radio-input {
+    margin-right: 10px;
+}
+.step-footer {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.tp_button {
+    width: auto;
+    letter-spacing: 0 !important;
+}
+
+.step-footer-previous-link {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+    color: #929292;
+    font-weight: 400;
+}
+.field {
+    margin-bottom: 15px;
+}
+
+.field-label {
+    margin-bottom: 5px;
+}
+.field-input-wrapper {
+    position: relative;
+}
+
+.field-input {
+    transition: all .2s ease-out;
+    background-color: #fff;
+    color: #333;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: .94em 2.8em .94em .8em;
+    word-break: normal;
+}
+.field-input-wrapper select.field-input {
+    padding-top: 1.5em;
+    padding-bottom: .38em;
+    padding-left: 4px;
+    font-size: 14px;
+}
+
+.label-location {
+    position: absolute;
+    font-size: 12px;
+    color: #a2a2a2;
+    top: 5px;
+    left: 9px;
+}
+.field-input-btn-wrapper button.tp_button {
+    width: 35%;
+    padding: 0 10px;
+    text-transform: capitalize;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 4px;
+}
+
+.field-input-btn-wrapper input {
+    height: 42px !important;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    width: 60%;
+    margin-right: 10px;
+}
+
+.total-line-table {
+    width: 100%;
+    border: 0;
+}
+.total-line td {
+    padding-top: .75em;
+    border: 0;
+}
+.sidebar-checkout .sidebar-content .order-summary .order-summary-emphasis {
+    font-weight: 500;
+    color: #4b4b4b;
+}
+.total-line-table-footer .total-line td {
+    padding-top: 3em;
+    position: relative;
+}
+.total-line-table-footer .total-line td:before {
+    background-color: #e1e1e1;
+    content: '';
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    width: 100%;
+    height: 1px;
+}
+.payment-due-label .payment-due-label-total {
+    font-size: 1.14286em;
+    color: #4b4b4b;
+}
+.payment-due .payment-due-price {
+    font-size: 1.71429em;
+    font-weight: 500;
+    letter-spacing: -.04em;
+    color: #4b4b4b;
+    line-height: 1em;
+}
+
+.total-line-table .total-line td:last-child {
+    text-align: right;
+}
+.sidebar-checkout .sidebar-content .order-summary .order-summary-sections .order-summary-section {
+    border-top: 1px solid;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    border-color: #e1e1e1;
+}
+.sidebar-checkout  .sidebar-content .order-summary .order-summary-sections .order-summary-section:first-child {
+    border-top:0
+}
+.sidebar-checkout {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.sidebar-checkout:after {
+    content: "";
+    display: block;
+    width: 300%;
+    position: absolute;
+    top: -5rem;
+    bottom: -5rem;
+    background: #fafafa;
+    z-index: -1;
+    left: 0;
+    background-position: left top;
+    box-shadow: 1px 0 0 #e1e1e1 inset;
+}
+
 /*End Woocommerce page css*/
 
 .entry-content,
@@ -4635,8 +4822,7 @@ a.dm-color.active{
     height: 80px;
 }
 .text-logo img{
-    max-width: 35px;
-    margin-right: 10px;
+    height: 42px;
 }
 .text-logo,
 .text-logo a{
@@ -8648,6 +8834,9 @@ body.wpb-js-composer .p-collapse.vc_tta.vc_general .vc_tta-panel .vc_tta-panel-t
 }
 .mr-3 {
     margin-right: 0.5rem;
+}
+.form-group {
+    margin-bottom: 15px;
 }
 .table-actions .coupon {
     display: flex;

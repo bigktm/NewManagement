@@ -28,4 +28,8 @@ class HomeController extends Controller
     {
         return view('site.cart');
     }
+    public function Checkout()
+    {
+        return view('site.checkout');
+    }
 }
