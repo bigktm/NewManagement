@@ -43,13 +43,26 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($all_category_product as $key => $cat_pro)
                         <tr>
                             <td>
-                                <a href="#">#1</a>
+                                <a href="#">{{$cat_pro->category_id}}</a>
                             </td>
-                            <td>Áo Polo</td>
-                            <td>Hiển thị</td>
-                            <td>02/03/2021</td>
+                            <td>{{$cat_pro->category_name}}</td>
+                            <td>
+                                @if($cat_pro->category_status == '0')
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                </div>
+                                @else
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+                                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                </div>
+                                @endif
+                            </td>
+                            <td>{{$cat_pro->created_at}}</td>
                             <td class="text-end">
                                 <div class="d-flex">
                                     <div class="dropdown ms-auto">
@@ -62,82 +75,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <a href="#">#2</a>
-                            </td>
-                            <td>Áo Thun</td>
-                            <td>Hiển thị</td>
-                            <td>02/03/2021</td>
-                            <td class="text-end">
-                                <div class="d-flex">
-                                    <div class="dropdown ms-auto">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="#" class="dropdown-item">Sửa</a>
-                                            <a href="#" class="dropdown-item">Xoá</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">#3</a>
-                            </td>
-                            <td>Áo Sơ Mi</td>
-                            <td>Hiển thị</td>
-                            <td>02/03/2021</td>
-                            <td class="text-end">
-                                <div class="d-flex">
-                                    <div class="dropdown ms-auto">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="#" class="dropdown-item">Sửa</a>
-                                            <a href="#" class="dropdown-item">Xoá</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">#5</a>
-                            </td>
-                            <td>Quần Jeans</td>
-                            <td>Hiển thị</td>
-                            <td>02/03/2021</td>
-                            <td class="text-end">
-                                <div class="d-flex">
-                                    <div class="dropdown ms-auto">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="#" class="dropdown-item">Sửa</a>
-                                            <a href="#" class="dropdown-item">Xoá</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">#6</a>
-                            </td>
-                            <td>Suit</td>
-                            <td>Hiển thị</td>
-                            <td>02/03/2021</td>
-                            <td class="text-end">
-                                <div class="d-flex">
-                                    <div class="dropdown ms-auto">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="#" class="dropdown-item">Sửa</a>
-                                            <a href="#" class="dropdown-item">Xoá</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach 
                     </tbody>
                 </table>
             </div>

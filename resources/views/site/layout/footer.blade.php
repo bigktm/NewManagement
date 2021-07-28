@@ -30,7 +30,7 @@
                     <div class="text-logo">
                         <h1 class="color">             
                             <a href="{{URL::to('/')}}">
-                                <img class="alignnone size-full wp-image-991" src="{{asset('public/frontend/images/logo.png')}}" alt="" width="35" height="39"><strong>HT Store</strong>            
+                                <img class="alignnone size-full wp-image-991" src="{{asset('public/frontend/images/logo.png')}}" alt=""></strong>            
                             </a>
                         </h1>     
                     </div>

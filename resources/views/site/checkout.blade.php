@@ -163,12 +163,10 @@
 											<div class="section-content">
 												<div class="content-box">
 													<div class="radio-wrapper content-box-row at-home">
-														<label class="radio-label payment_box">
-															<div class="radio-input">
-																<input type="radio" id="rdPaymentMethodCod" name="paymentMethod" class="input-radio validate[required] cod" value="1" checked="checked">
-															</div>
-															<span class="radio-label-primary">Thanh toán tại nhà (COD)</span>
-														</label>
+														<div class="pure-radio-css"> 
+															<input class="form-check-input" name="paymentMethod" value="1" type="radio"  id="flexRadioDefault1" checked="checked">
+															<label for="flexRadioDefault1">Thanh toán tại nhà (COD)</label>   
+														</div>  
 													</div>
 												</div>
 											</div>
@@ -216,7 +214,7 @@
 											</div>
 										</div>
 									</div>
-									<p>nhập mã " <span style="color:#FF0000;"><strong>HTStore</strong></span> " Giảm thêm 5% cho đơn hàng ( &gt; 200k )</p>
+									<p>Nhập mã " <span style="color:#f1af51;"><strong>HTStore</strong></span> " Giảm thêm 5% cho đơn hàng ( &gt; 200k )</p>
 								</div>
 							</div>
 							<div class="order-summary-section order-summary-section-total-lines">

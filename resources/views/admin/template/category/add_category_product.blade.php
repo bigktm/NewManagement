@@ -23,7 +23,7 @@
                 <?php
                 $message = Session::get('message');
                 if($message){
-                    echo '<span class="text-alert">'.$message.'</span>';
+                    echo '<div class="alert alert-success"><span class="text-alert">'.$message.'</span></div>';
                     Session::put('message',null);
                 }
                 ?>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group  col-md-6">
                             <label for="convert_slug">Đường dẫn</label>
-                            <input type="text" name="slug_category_product" class="form-control" id="convert_slug" placeholder="Tên danh mục">
+                            <input type="text" name="category_product_slug" class="form-control" id="convert_slug" placeholder="Tên danh mục">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="exampleInputPassword1">Mô tả danh mục</label>
@@ -50,14 +50,16 @@
                             <label for="exampleInputPassword1">Thuộc danh mục</label>
                             <select name="category_parent" class="form-control input-sm m-bot15">
                                 <option value="0">---Danh mục cha---</option>
-                                <option value=""></option>
+                                @foreach($category as $key => $val)
+                                <option value="{{$val->category_id}}">{{$val->category_name}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword1">Hiển thị</label>
                             <select name="category_product_status" class="form-control input-sm m-bot15">
-                                <option value="0">Hiển thị</option>
-                                <option value="1">Ẩn</option>
+                                <option value="0">Ẩn</option>
+                                <option value="1">Hiển thị</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">

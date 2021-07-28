@@ -8856,3 +8856,41 @@ body.wpb-js-composer .p-collapse.vc_tta.vc_general .vc_tta-panel .vc_tta-panel-t
     min-width: 250px;
     margin-right: 5px;
 }
+
+/* Custom radio buttons */
+.pure-radio-css input[type="radio"] + label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 30px;
+  margin-right: 15px;
+  font-size: 14px;
+}
+.pure-radio-css input[type="radio"] + label:before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin-right: 14px;
+  position: absolute;
+  top: -3px;
+  left: 0;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.pure-radio-css input[type="radio"] {
+  display: none !important;
+  *display: inline;
+}
+.pure-radio-css input[type="radio"]:checked + label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #f1af51;
+}
