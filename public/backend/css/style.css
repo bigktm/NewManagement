@@ -17,3 +17,10 @@
 .form-group label {
     margin-bottom: 5px;
 }
+.span-stt {
+	display: inline-flex;
+	padding: 0 10px;
+	line-height: 20px;
+	border-radius: 4px;
+	font-size: 12px;
+}

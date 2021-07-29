@@ -32,12 +32,21 @@
                 </div>
             </div>
             <div class="table-responsive">
+                <?php
+                $message = Session::get('message');
+                if($message){
+                    echo '<div class="alert alert-success mt-4"><span class="text-alert">'.$message.'</span></div>';
+                    Session::put('message',null);
+                }
+                ?>
                 <table class="table table-custom table-lg mb-0" id="products">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Tên danh mục sản phẩm</th>
-                            <th>Hiển thị</th>
+                            <th>Trạng thái</th>
+                            <th>Mô tả</th>
+                            <th>Từ khoá</th>
                             <th>Ngày thêm</th>
                             <th class="text-end"></th>
                         </tr>
@@ -51,25 +60,21 @@
                             <td>{{$cat_pro->category_name}}</td>
                             <td>
                                 @if($cat_pro->category_status == '0')
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                </div>
+                                <a href="{{URL::to('/active-category-product/'. $cat_pro->category_id)}}" data-bs-toggle="tooltip" title="Hiển thị danh mục"><span class="bg-danger text-white span-stt">Ẩn</span></a>
                                 @else
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                </div>
+                                <a href="{{URL::to('/inactive-category-product/'. $cat_pro->category_id)}}"><span class="bg-success text-white span-stt" data-bs-toggle="tooltip" title="Ẩn danh mục">Hiện thị</span></a>
                                 @endif
                             </td>
+                            <td>{{$cat_pro->category_desc}}</td>
+                            <td>{{$cat_pro->category_keyworks}}</td>
                             <td>{{$cat_pro->created_at}}</td>
                             <td class="text-end">
                                 <div class="d-flex">
                                     <div class="dropdown ms-auto">
                                         <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="#" class="dropdown-item">Sửa</a>
-                                            <a href="#" class="dropdown-item">Xoá</a>
+                                            <a href="{{URL::to('/edit-category-product/'.$cat_pro->category_id)}}" class="dropdown-item">Sửa</a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteCategoryConfirm" class="dropdown-item">Xoá</a>
                                         </div>
                                     </div>
                                 </div>
@@ -100,4 +105,23 @@
     </div>
 </div>
 <!-- ./ content -->
+
+<div class="modal fade" id="deleteCategoryConfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" action="{{URL::to('/delete-category-product/'. $cat_pro->category_id)}}" method="post">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <div class="text-center pd-3">
+                        <p>Bạn có muốn xoá danh mục này không?</p>
+                    </div>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Xoá danh mục</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
