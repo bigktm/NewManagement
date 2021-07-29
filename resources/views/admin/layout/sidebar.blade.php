@@ -26,7 +26,7 @@
         </div>
         <ul class="menu-sidebar">
             <li class="menu-divider">Menu</li>
-            <li>
+            <li class="">
                 <a class="active" href="{{URL::to('/dashboard')}}">
                     <span class="nav-link-icon">
                         <i class="bi bi-bar-chart"></i>
@@ -83,10 +83,10 @@
                 </a>
                 <ul>
                     <li>
-                        <a  href="product-list.html">Thêm thương hiệu</a>
+                        <a  href="{{URL::to('/add-brand-product')}}">Thêm thương hiệu</a>
                     </li>
                     <li>
-                        <a  href="product-grid.html">Danh sách thương hiệu</a>
+                        <a  href="{{URL::to('/all-brand-product')}}">Danh sách thương hiệu</a>
                     </li>
                 </ul>
             </li>

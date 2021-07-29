@@ -36,6 +36,23 @@ Route::post('/delete-category-product/{category_product_id}', 'CategoryProduct@d
 Route::get('/active-category-product/{category_product_id}', 'CategoryProduct@active_category_product');
 Route::get('/inactive-category-product/{category_product_id}', 'CategoryProduct@inactive_category_product');
 
+// Brands Product
+Route::get('/add-brand-product', 'BrandProduct@AddBrand');
+Route::get('/all-brand-product', 'BrandProduct@AllBrand');
+Route::post('/save-brand-product', 'BrandProduct@save_brand_product');
+
+Route::get('/edit-brand-product/{brand_product_id}', 'BrandProduct@edit_brand_product');
+Route::get('/add-brand-product/{brand_product_id}', 'BrandProduct@delete_brand_product');
+Route::post('/update-brand-product/{brand_product_id}', 'BrandProduct@update_brand_product');
+Route::post('/delete-brand-product/{brand_product_id}', 'BrandProduct@delete_brand_product');
+
+Route::get('/active-brand-product/{brand_product_id}', 'BrandProduct@active_brand_product');
+Route::get('/inactive-brand-product/{brand_product_id}', 'BrandProduct@inactive_brand_product');
+
+
+
+
+// Front End
 Route::get('/', 'HomeController@Index' );
 Route::get('/product/id=123', 'HomeController@ProductDetail' );
 Route::get('/shop', 'HomeController@Shop' );

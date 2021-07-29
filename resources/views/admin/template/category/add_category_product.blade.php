@@ -32,7 +32,7 @@
                         {{ csrf_field() }}
                         <div class="form-group  col-md-6">
                             <label for="category_name">Tên danh mục</label>
-                            <input type="text"  class="form-control" onkeyup="ChangeToSlug();" name="category_product_name"  id="category_name" placeholder="Danh mục" >
+                            <input type="text"  class="form-control" onkeyup="ChangeToSlug();" name="category_product_name"  id="name" placeholder="Danh mục" >
                         </div>
                         <div class="form-group  col-md-6">
                             <label for="convert_slug">Đường dẫn</label>

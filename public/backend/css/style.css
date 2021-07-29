@@ -24,3 +24,7 @@
 	border-radius: 4px;
 	font-size: 12px;
 }
+.flex-end {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
