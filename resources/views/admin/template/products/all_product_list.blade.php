@@ -94,7 +94,7 @@
                                 <img src="{{asset('public/uploads/products/'.$product->product_image)}}" class="rounded" width="40"
                                 alt="...">
                             </td>
-                            <td><a href="{{URL::to('add-gallery/'.$product->product_id)}}">Thêm thư viện ảnh</a></td>
+                            <td><a href="#">Thêm thư viện ảnh</a></td>
                             <td>{{$product->product_name}}</td>
                             <td>{{$product->category_name}}</td>
                             <td>{{$product->brand_name}}</td>
