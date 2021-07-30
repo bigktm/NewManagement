@@ -18,13 +18,103 @@
     margin-bottom: 5px;
 }
 .span-stt {
-	display: inline-flex;
-	padding: 0 10px;
-	line-height: 20px;
-	border-radius: 4px;
-	font-size: 12px;
+    display: inline-flex;
+    padding: 0 10px;
+    line-height: 20px;
+    border-radius: 4px;
+    font-size: 12px;
 }
 .flex-end {
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+#upload {
+    opacity: 0;
+}
+
+#upload-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+}
+
+.image-area {
+    border: 2px dashed rgb(237 237 237);
+    padding: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.image-area img {
+    z-index: 2;
+    position: relative;
+    max-height: 200px;
+}
+.pl-5 {
+    padding-left: 5rem;
+}
+
+/*
+ * bootstrap-tagsinput v0.8.0
+ * 
+ */
+
+.bootstrap-tagsinput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  display: block;
+  padding: .675rem 1.25rem;
+  color: #555;
+  vertical-align: middle;
+  border-radius: .5rem;
+  max-width: 100%;
+  line-height: 1;
+  cursor: text;
+  font-size: .875rem;
+}
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 6px;
+  margin: 0;
+  width: auto;
+  max-width: inherit;
+}
+.bootstrap-tagsinput.form-control input::-moz-placeholder {
+  color: #777;
+  opacity: 1;
+}
+.bootstrap-tagsinput.form-control input:-ms-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
+  color: #777;
+}
+.bootstrap-tagsinput input:focus {
+  border: none;
+  box-shadow: none;
+}
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: white;
+  background: #f1af51;
+}
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:after {
+  content: "×";
+  padding: 0px 2px;
+  font-size: 17px;
+}
+select.form-control {
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 20px) 18px, calc(100% - 15px) 18px, calc(100% - 2.5em) 11px;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
 }

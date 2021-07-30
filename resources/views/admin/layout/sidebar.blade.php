@@ -77,7 +77,7 @@
             <li>
                 <a href="{{URL::to('/brand-list')}}">
                     <span class="nav-link-icon">
-                        <i class="bi bi-wallet2"></i>
+                        <i class="fal fa-bookmark"></i>
                     </span>
                     <span>Thương Hiệu</span>
                 </a>

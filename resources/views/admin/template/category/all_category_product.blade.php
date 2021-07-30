@@ -44,6 +44,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Tên danh mục sản phẩm</th>
+                            <th>Thuộc danh mục</th>
                             <th>Trạng thái</th>
                             <th>Mô tả</th>
                             <th>Từ khoá</th>
@@ -59,6 +60,21 @@
                             </td>
                             <td>{{$cat_pro->category_name}}</td>
                             <td>
+                              @if($cat_pro->category_parent==0)
+                                <span style="color:red;">Danh mục cha</span>
+                              @else 
+
+                              @foreach($category_product as $key => $cate_sub_pro)
+
+                              @if($cate_sub_pro->category_id==$cat_pro->category_parent)
+                                <span style="color:green;">{{$cate_sub_pro->category_name}}</span>
+                              @endif
+
+                              @endforeach
+
+                              @endif
+                          </td>
+                            <td>
                                 @if($cat_pro->category_status == '0')
                                 <a href="{{URL::to('/active-category-product/'. $cat_pro->category_id)}}" data-bs-toggle="tooltip" title="Hiển thị danh mục"><span class="bg-danger text-white span-stt">Ẩn</span></a>
                                 @else
@@ -66,7 +82,7 @@
                                 @endif
                             </td>
                             <td>{{$cat_pro->category_desc}}</td>
-                            <td>{{$cat_pro->category_keyworks}}</td>
+                            <td>{{$cat_pro->category_keywords}}</td>
                             <td>{{$cat_pro->created_at}}</td>
                             <td class="text-end">
                                 <div class="d-flex">

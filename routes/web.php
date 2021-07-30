@@ -19,9 +19,6 @@ Route::get('/dashboard', 'AdminController@Index');
 Route::get('/orders', 'AdminController@Orders');
 Route::get('/orders/order-detail', 'AdminController@ViewOrders');
 
-// Products
-Route::get('/all-product-list', 'ProductController@AllProduct');
-Route::get('/add-new-product', 'ProductController@AddProduct');
 
 // Category Product
 Route::get('/add-category-product', 'CategoryProduct@AddCategory');
@@ -49,8 +46,14 @@ Route::post('/delete-brand-product/{brand_product_id}', 'BrandProduct@delete_bra
 Route::get('/active-brand-product/{brand_product_id}', 'BrandProduct@active_brand_product');
 Route::get('/inactive-brand-product/{brand_product_id}', 'BrandProduct@inactive_brand_product');
 
+// Products
+Route::get('/add-new-product', 'ProductController@AddProduct');
+Route::get('/all-product-list', 'ProductController@AllProduct');
+Route::post('/save-product', 'ProductController@save_product');
 
-
+Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
+Route::post('/update-product/{product_id}', 'ProductController@update_product');
+Route::post('/delete-product/{product_id}', 'ProductController@delete_product');
 
 // Front End
 Route::get('/', 'HomeController@Index' );
