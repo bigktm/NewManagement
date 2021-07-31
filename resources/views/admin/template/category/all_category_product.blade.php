@@ -60,19 +60,15 @@
                             </td>
                             <td>{{$cat_pro->category_name}}</td>
                             <td>
-                              @if($cat_pro->category_parent==0)
-                                <span style="color:red;">Danh mục cha</span>
-                              @else 
-
-                              @foreach($category_product as $key => $cate_sub_pro)
-
-                              @if($cate_sub_pro->category_id==$cat_pro->category_parent)
+                                @if($cat_pro->category_parent==0)
+                                <span style="color:orange;">Danh mục gốc</span>
+                                @else
+                                @foreach($category_product as $key => $cate_sub_pro)
+                                @if($cate_sub_pro->category_id==$cat_pro->category_parent)
                                 <span style="color:green;">{{$cate_sub_pro->category_name}}</span>
-                              @endif
-
-                              @endforeach
-
-                              @endif
+                                @endif
+                                @endforeach 
+                                @endif
                           </td>
                             <td>
                                 @if($cat_pro->category_status == '0')
@@ -89,8 +85,8 @@
                                     <div class="dropdown ms-auto">
                                         <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="{{URL::to('/edit-category-product/'.$cat_pro->category_id)}}" class="dropdown-item">Sửa</a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteCategoryConfirm" class="dropdown-item">Xoá</a>
+                                            <a href="{{URL::to('/edit-category-product/'.$cat_pro->category_id)}}" class="dropdown-item">Sửa Danh Mục</a>
+                                            <a data-id="{{$cat_pro->category_id}}" data-action="{{URL::to('/delete-category-product/'.$cat_pro->category_id)}}" class="dropdown-item delete-product">Xoá Danh Mục</a>
                                         </div>
                                     </div>
                                 </div>
@@ -117,26 +113,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
-    </div>
-</div>
-<!-- ./ content -->
-
-<div class="modal fade" id="deleteCategoryConfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form role="form" action="{{URL::to('/delete-category-product/'. $cat_pro->category_id)}}" method="post">
-                {{ csrf_field() }}
-                <div class="modal-body">
-                    <div class="text-center pd-3">
-                        <p>Bạn có muốn xoá danh mục này không?</p>
-                    </div>
-                </div>
-                <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Huỷ</button>
-                    <button type="submit" class="btn btn-primary">Xoá danh mục</button>
-                </div>
-            </form>
         </div>
     </div>
 </div>

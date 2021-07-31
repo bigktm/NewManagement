@@ -28,7 +28,7 @@ Route::post('/save-category-product', 'CategoryProduct@save_category_product');
 Route::get('/edit-category-product/{category_product_id}', 'CategoryProduct@edit_category_product');
 Route::get('/add-category-product/{category_product_id}', 'CategoryProduct@delete_category_product');
 Route::post('/update-category-product/{category_product_id}', 'CategoryProduct@update_category_product');
-Route::post('/delete-category-product/{category_product_id}', 'CategoryProduct@delete_category_product');
+Route::get('/delete-category-product/{category_product_id}', 'CategoryProduct@delete_category_product');
 
 Route::get('/active-category-product/{category_product_id}', 'CategoryProduct@active_category_product');
 Route::get('/inactive-category-product/{category_product_id}', 'CategoryProduct@inactive_category_product');
@@ -41,7 +41,7 @@ Route::post('/save-brand-product', 'BrandProduct@save_brand_product');
 Route::get('/edit-brand-product/{brand_product_id}', 'BrandProduct@edit_brand_product');
 Route::get('/add-brand-product/{brand_product_id}', 'BrandProduct@delete_brand_product');
 Route::post('/update-brand-product/{brand_product_id}', 'BrandProduct@update_brand_product');
-Route::post('/delete-brand-product/{brand_product_id}', 'BrandProduct@delete_brand_product');
+Route::get('/delete-brand-product/{brand_product_id}', 'BrandProduct@delete_brand_product');
 
 Route::get('/active-brand-product/{brand_product_id}', 'BrandProduct@active_brand_product');
 Route::get('/inactive-brand-product/{brand_product_id}', 'BrandProduct@inactive_brand_product');
@@ -53,7 +53,20 @@ Route::post('/save-product', 'ProductController@save_product');
 
 Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
 Route::post('/update-product/{product_id}', 'ProductController@update_product');
-Route::post('/delete-product/{product_id}', 'ProductController@delete_product');
+Route::get('/delete-product/{product_id}', 'ProductController@delete_product');
+
+
+// Slider
+Route::get('/add-slider', 'SliderController@add_slider');
+Route::get('/all-slider', 'SliderController@all_slider');
+Route::post('/save-slider', 'SliderController@save_slider');
+
+Route::get('/edit-slider/{slider_id}', 'SliderController@edit_slider');
+Route::post('/update-slider/{slider_id}', 'SliderController@update_slider');
+Route::get('/delete-slider/{slider_id}', 'SliderController@delete_slider');
+
+
+
 
 // Front End
 Route::get('/', 'HomeController@Index' );

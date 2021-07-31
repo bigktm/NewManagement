@@ -35,6 +35,22 @@
                 </a>
             </li>
             <li>
+                <a href="#">
+                    <span class="nav-link-icon">
+                        <i class="fal fa-images"></i>
+                    </span>
+                    <span>Slider Gallery</span>
+                </a>
+                <ul>
+                    <li>
+                        <a  href="{{URL::to('/add-slider')}}">Thêm slider</a>
+                    </li>
+                    <li>
+                        <a  href="{{URL::to('/all-slider')}}">Danh sách slider</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="{{URL::to('/orders')}}">
                     <span class="nav-link-icon">
                         <i class="bi bi-receipt"></i>
@@ -43,7 +59,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{URL::to('/all-product-list')}}">
+                <a href="#">
                     <span class="nav-link-icon">
                         <i class="bi bi-box"></i>
                     </span>
@@ -59,7 +75,7 @@
                 </ul>
             </li>
             <li>
-                <a href="{{URL::to('/category-list')}}">
+                <a href="#">
                     <span class="nav-link-icon">
                         <i class="bi bi-wallet2"></i>
                     </span>
@@ -75,7 +91,7 @@
                 </ul>
             </li>
             <li>
-                <a href="{{URL::to('/brand-list')}}">
+                <a href="#">
                     <span class="nav-link-icon">
                         <i class="fal fa-bookmark"></i>
                     </span>

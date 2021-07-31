@@ -451,25 +451,51 @@ $(function () {
 /*  ==========================================
     SHOW UPLOADED IMAGE NAME
 * ========================================== */
-var input = document.getElementById( 'upload' );
-var infoArea = document.getElementById( 'upload-label' );
-
-input.addEventListener( 'change', showFileName );
-function showFileName( event ) {
-  var input = event.srcElement;
-  var fileName = input.files[0].name;
-  infoArea.textContent = 'File name: ' + fileName;
-}
-
 
 $(document).ready(function () {
 
     $(".tagsinput-example").tagsinput('items');
+    
+    var input = document.getElementById( 'upload' );
+    var infoArea = document.getElementById( 'upload-label' );
 
-    $('.select2-example').select2({
-        placeholder: 'Select'
-    });
+    input.addEventListener( 'change', showFileName );
+    function showFileName( event ) {
+      var input = event.srcElement;
+      var fileName = input.files[0].name;
+      infoArea.textContent = 'File name: ' + fileName;
+  }
+
+
 });
 
 
-ClassicEditor.create(document.querySelector('#editor'))
+ClassicEditor.create(document.querySelector('#editor'));
+
+$(document).ready(function(){
+    $(".delete-product").click(function(){
+        var current_object = $(this);
+        swal({
+            title: "Bạn có chắc muốn xoá sản phẩm này?",
+            text: "Sản phẩm này sẽ bị xoá khi bạn đồng ý",
+            type: "error",
+            showCancelButton: true,
+            dangerMode: true,
+            cancelButtonClass: '#DD6B55',
+            confirmButtonColor: '#dc3545',
+            confirmButtonText: 'Xoá sản phẩm',
+        },function (result) {
+            if (result) {
+                var action = current_object.attr('data-action');
+                var token = jQuery('meta[name="csrf-token"]').attr('content');
+                var id = current_object.attr('data-id');
+
+                $('.content').html("<form class='form-inline remove-form' method='get' action='"+action+"'></form>");
+                $('.content').find('.remove-form').append('<input name="_method" type="hidden" value="delete">');
+                $('.content').find('.remove-form').append('<input name="_token" type="hidden" value="'+token+'">');
+                $('.content').find('.remove-form').append('<input name="id" type="hidden" value="'+id+'">');
+                $('.content').find('.remove-form').submit();
+            }
+        });
+    });
+});

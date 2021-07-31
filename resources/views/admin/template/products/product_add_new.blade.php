@@ -54,6 +54,14 @@
                                 <label for="">Mô tả sản phẩm</label>
                                 <textarea style="resize: none" rows="4" class="form-control" name="product_desc"  placeholder="Mô tả danh mục"></textarea>
                             </div>
+                            <div class="form-group">
+                                <label for="">Loại sản phẩm</label>
+                                <select name="product_type" class="form-control input-sm m-bot15"> 
+                                    <option value="0">Sản phẩm mới</option>
+                                    <option value="1">Sản phẩm khuyễn mãi</option>
+                                    <option value="2">Sản phẩm đặc biệt</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-7 pl-5">
                             <h3 class="mb-4">Thông tin bán hàng</h3>

@@ -16,4 +16,7 @@ class CategoryProductModel extends Model
  	public function product(){
  		return $this->hasMany('App\Product');
  	}
+ 	public function slider() {
+ 		return $this->hasMany('App\Slider', 'category_id', 'category_id');
+ 	}
 }

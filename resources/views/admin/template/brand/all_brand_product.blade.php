@@ -71,8 +71,8 @@
                                     <div class="dropdown ms-auto">
                                         <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="{{URL::to('/edit-brand-product/'.$brand_pro->brand_id)}}" class="dropdown-item">Sửa</a>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteCategoryConfirm" class="dropdown-item">Xoá</a>
+                                            <a href="{{URL::to('/edit-brand-product/'.$brand_pro->brand_id)}}" class="dropdown-item">Sửa Thương Hiệu</a>
+                                            <a data-id="{{$brand_pro->brand_id}}" data-action="{{URL::to('/delete-brand-product/'.$brand_pro->brand_id)}}" class="dropdown-item delete-product">Xoá Thương Hiệu</a>
                                         </div>
                                     </div>
                                 </div>
@@ -103,23 +103,4 @@
     </div>
 </div>
 <!-- ./ content -->
-
-<div class="modal fade" id="deleteCategoryConfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form role="form" action="{{URL::to('/delete-brand-product/'. $brand_pro->brand_id)}}" method="post">
-                {{ csrf_field() }}
-                <div class="modal-body">
-                    <div class="text-center pd-3">
-                        <p>Bạn có muốn xoá thương hiệu này không?</p>
-                    </div>
-                </div>
-                <div class="modal-footer text-center">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Huỷ</button>
-                    <button type="submit" class="btn btn-primary">Xoá thương hiệu</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 @endsection

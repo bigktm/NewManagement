@@ -8,38 +8,26 @@
 </style>
 <div class="banner-slider banner-slider-3 ">
     <div class="wrap-item sv-slider  pagi-nav-style owl-carousel owl-theme" data-item="1" data-speed="5000" data-itemres="" data-animation="fade" data-navigation="" data-pagination="pagi-nav-style" data-prev="" data-next="">
+        @foreach($slider_list as $key => $slide)
         <div class="item-slider  item-slider-3 ">
             <div class="banner-thumb">
                 <a href="#">
-                    <img width="1920" height="950" src="{{asset('public/frontend/images/4.jpg')}}" class="attachment-full size-full" alt=""/>
+                    <img width="1920" height="950" src="{{asset('public/uploads/sliders/'. $slide->slider_image)}}" class="attachment-full size-full" alt=""/>
                 </a>
             </div>
             <div class="banner-info">
                 <div class="container">
                     <div class="slider-content-text  text-left text-uppercase" data-animated="">
-                        <h3 class="juliussans-font title60 text-uppercase black">Floor Lamp</h3>
-                        <p class="title24 text-upercase font-bold black">laser cutter</p>
+                        <h3 class="juliussans-font title60 text-uppercase black">{{$slide->slider_title}}</h3>
+                        <p class="title24 text-upercase font-bold black">{{$slide->slider_subtitle}}</p>
                         <div class="button">
-                            <a class="title14 more black" href="https://vollemobel.7uptheme.net/product/lipzor-light-3/">Discover now</a>
+                            <a class="title14 more black" href="{{URL::to('#')}}">Xem Thêm</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="item-slider  item-slider-3 ">
-            <div class="banner-thumb">
-                <a href="#"><img width="1920" height="950" src="{{asset('public/frontend/images/10.jpg')}}" /></a>
-            </div>
-            <div class="banner-info">
-                <div class="container">
-                    <div class="slider-content-text  text-left text-uppercase" data-animated="">
-                        <h3 class="juliussans-font title60 text-uppercase black">Diamond gold</h3>
-                        <p class="title24 text-upercase font-bold black">Diamond lamp is modern</p>
-                        <div class="button"><a class="title14 more black" href="https://vollemobel.7uptheme.net/product/light-classic-2/">Discover now</a></div>                                
-                    </div>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
 <div class="container">

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Slider;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,8 @@ class HomeController extends Controller
      */
     public function Index()
     {
-        return view('site.home');
+        $slider_list = Slider::join('tbl_category_product','tbl_category_product.category_id','=','tbl_slider.category_id')->orderby('tbl_slider.slider_id','desc')->get();
+        return view('site.home', compact('slider_list'));
     }
     public function ProductDetail()
     {

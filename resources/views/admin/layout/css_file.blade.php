@@ -9,5 +9,6 @@
 <link href="{{asset('/public/backend/css/bootstrap.min.css')}}" rel="stylesheet"> 
 <link href="{{asset('/public/backend/css/bootstrap-icons.css')}}" rel="stylesheet">
 <link href="{{asset('/public/backend/css/owl.carousel.min.css')}}" rel="stylesheet">
+<link href="{{asset('/public/backend/css/sweetalert.min.css')}}" rel="stylesheet">
 <link href="{{asset('/public/backend/css/app.min.css')}}" rel="stylesheet">
 <link href="{{asset('/public/backend/css/style.css')}}" rel="stylesheet">
