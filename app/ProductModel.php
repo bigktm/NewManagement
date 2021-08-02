@@ -8,7 +8,7 @@ class ProductModel extends Model
 {
     public $timestamps = false; //set time to false
     protected $fillable = [
-    	'product_name', 'product_slug','category_id','brand_id','product_desc','product_content','product_price','product_image','product_status', 'product_keywords'
+    	'product_name', 'product_slug','category_id','brand_id','product_desc','product_sku','product_content','product_price','product_price_sale','product_qty','product_image','product_status', 'product_keywords'
     ];
     protected $primaryKey = 'product_id';
     protected $table = 'tbl_product';

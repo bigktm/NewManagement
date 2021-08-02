@@ -46,15 +46,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mô tả sản phẩm</label>
-                                <textarea style="resize: none" rows="4" class="form-control" name="product_desc" id="exampleInputPassword1" placeholder="Mô tả danh mục">{{$edit_value->product_desc}}</textarea>
-                            </div>
+                                <textarea style="resize: none" rows="4" class="form-control" required name="product_desc" id="exampleInputPassword1" placeholder="Mô tả danh mục">{{$edit_value->product_desc}}</textarea>
+                            </div> 
                         </div>
                         <div class="col-md-7 pl-5">
                             <h3 class="mb-4">Thông tin bán hàng</h3>
                             <div class="row"> 
                                 <div class="form-group col-md-6">
                                     <label for="product_name">Tên sản phẩm</label>
-                                    <input type="text"  class="form-control" onkeyup="ChangeToSlug();" name="product_name"  id="name" placeholder="Tên sản phẩm" value="{{$edit_value->product_name}}">
+                                    <input type="text"  class="form-control" onkeyup="ChangeToSlug();" required name="product_name"  id="name" placeholder="Tên sản phẩm" value="{{$edit_value->product_name}}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="category_name">Đường dẫn</label>
@@ -62,11 +62,19 @@
                                 </div> 
                                 <div class="form-group  col-md-6">
                                     <label for="">Giá bán</label>
-                                    <input type="text"  class="form-control" name="product_price"  id="" placeholder="Giá bán" value="{{$edit_value->product_price}}">
+                                    <input type="text"  class="form-control" name="product_price" required  id="" placeholder="Giá bán" value="{{$edit_value->product_price}}">
+                                </div>
+                                <div class="form-group  col-md-6">
+                                    <label for="">Giá khuyễn mãi</label>
+                                    <input type="text" name="product_price_sale" class="form-control"  placeholder="Giá khuyễn mãi" value="{{$edit_value->product_price_sale}}">
+                                </div>
+                                <div class="form-group  col-md-6">
+                                    <label for="">Số lượng trong kho</label>
+                                    <input type="number" name="product_qty" class="form-control" required placeholder="Số lượng" value="{{$edit_value->product_qty}}">
                                 </div>
                                 <div class="form-group  col-md-6">
                                     <label for="">Mã sản phẩm</label>
-                                    <input type="text" name="product_sku" class="form-control" placeholder="Mã sản phẩm" value="{{$edit_value->product_sku}}">
+                                    <input type="text" name="product_sku" class="form-control" required placeholder="Mã sản phẩm" value="{{$edit_value->product_sku}}">
                                 </div>
                                 <div class="form-group  col-md-6">
                                     <label for="">Tình trạng</label>

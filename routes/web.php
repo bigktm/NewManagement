@@ -14,6 +14,8 @@
 Auth::routes();
 
 Route::get('/dashboard', 'AdminController@Index');
+Route::get('/admin', 'AdminController@adminLogin');
+Route::post('/login-post', 'AdminController@loginPost');
 
 // Orders
 Route::get('/orders', 'AdminController@Orders');
@@ -65,6 +67,10 @@ Route::get('/edit-slider/{slider_id}', 'SliderController@edit_slider');
 Route::post('/update-slider/{slider_id}', 'SliderController@update_slider');
 Route::get('/delete-slider/{slider_id}', 'SliderController@delete_slider');
 
+// Gallery
+Route::get('/add-gallery/{product_id}', 'GalleryProduct@add_gallery');
+Route::post('/insert-gallery/{product_id}', 'GalleryProduct@insert_gallery');
+Route::get('/delete-gallery/{gallery_id}','GalleryProduct@delete_gallery');
 
 
 

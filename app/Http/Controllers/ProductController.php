@@ -11,7 +11,7 @@ use App\Imports\ExcelImports;
 use Session;
 use Auth;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Redirect; 
 session_start();
 
 class ProductController extends Controller
@@ -21,7 +21,7 @@ class ProductController extends Controller
     	$all_product = DB::table('tbl_product')
         ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
-        ->orderby('tbl_product.product_id','desc')->get();
+        ->orderby('tbl_product.product_id','desc')->paginate(10);
     	$manager_product  = view('admin.template.products.all_product_list')->with('all_product',$all_product);
     	return view('admin.dashboard')->with('admin.template.products.all_product_list', $manager_product);
     }
@@ -33,11 +33,22 @@ class ProductController extends Controller
     }
 
     public function save_product(Request $request){
+
+        $this->validate($request, [
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'product_qty' => 'required',
+            'product_sku' => 'required',
+            'product_desc' => 'required',
+        ]);
+        
         $data = array();
 
         $data['product_name'] = $request->product_name;
         $data['product_slug'] = $request->product_slug;
         $data['product_price'] = $request->product_price;
+        $data['product_price_sale'] = $request->product_price_sale;
+        $data['product_qty'] = $request->product_qty;
         $data['product_sku'] = $request->product_sku;
         $data['product_status'] = $request->product_status;
         $data['product_desc'] = $request->product_desc;
@@ -77,11 +88,22 @@ class ProductController extends Controller
     	return view('admin.dashboard')->with('admin.template.products.edit_product', $manage_product);
     }
     public function update_product(Request $request,$product_id) {
+
+        $this->validate($request, [
+            'product_name' => 'required',
+            'product_price' => 'required',
+            'product_qty' => 'required',
+            'product_sku' => 'required',
+            'product_desc' => 'required',
+        ]);
+
     	$data = array();
 
         $data['product_name'] = $request->product_name;
         $data['product_slug'] = $request->product_slug;
         $data['product_price'] = $request->product_price;
+        $data['product_price_sale'] = $request->product_price_sale;
+        $data['product_qty'] = $request->product_qty;
         $data['product_sku'] = $request->product_sku;
         $data['product_status'] = $request->product_status;
         $data['product_desc'] = $request->product_desc;

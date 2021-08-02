@@ -82,21 +82,25 @@
                         <span class="found_posts hidden">23 <span class="lb">items</span></span>
                         <div class="list-product-wrap">
                             <div class="wrap-item smart-slider js-content-main clearfix group-navi " data-item="4" data-speed="" data-itemres="" data-prev="" data-next=""  data-pagination="" data-navigation="group-navi">
+                                @foreach($product_new as $product_new)
                                 <div class="item">  
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
                                                 <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/frontend/images/5.png')}}" alt="" />
-                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
+                                                    <img  src="{{asset('/public/uploads/products/'.$product_new->product_image)}}" alt="" />
+                                                    @foreach($gallery_pro as $gal)
+                                                    <img  src="{{asset('/public/uploads/gallery_product/'.$gal->gallery_image)}}" alt="" />
+                                                    @endforeach
                                                 </a>       
                                             </div>
                                             <div class="product-info">
                                                 <h3 class="title14 product-title">
-                                                    <a title="Laborum Chair" href="{{URL::to('/product/id=123')}}">Áo khoác mới 2021</a>
+                                                    <a title="Laborum Chair" href="{{URL::to('/product/id=123')}}">{{$product_new->product_name}}</a>
                                                 </h3>
                                                 <div class="product-price price variable">
-                                                    <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
+                                                    <span class="woocommerce-Price-amount amount">{{$product_new->product_price}}</span>
+                                                    <span class="woocommerce-Price-currencySymbol">đ</span>
                                                 </div>         
                                                 <div class="product-extra-link">
                                                     <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
@@ -106,127 +110,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item">  
-                                    <div class="product type-product status-publish has-post-thumbnail">
-                                        <div class="item-product item-product-grid item-product-style2">
-                                            <div class="product-thumb">
-                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                    <img  src="{{asset('/public/frontend/images/5.png')}}" alt="" />
-                                                </a>       
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="title14 product-title">
-                                                    <a title="Laborum Chair" href="#">Otis T-Shirt</a>
-                                                </h3>
-                                                <div class="product-price price variable">
-                                                    <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-                                                </div>         
-                                                <div class="product-extra-link">
-                                                    <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">  
-                                    <div class="product type-product status-publish has-post-thumbnail">
-                                        <div class="item-product item-product-grid item-product-style2">
-                                            <div class="product-thumb">
-                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/frontend/images/1.png')}}" alt="" />
-                                                    <img  src="{{asset('/public/frontend/images/3.png')}}" alt="" />
-                                                </a>      
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="title14 product-title">
-                                                    <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                </h3>
-                                                <div class="product-price price variable">
-                                                    <span class="price-sale">650,000 đ</span>
-                                                    <span class="Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-                                                </div>         
-                                                <div class="product-extra-link">
-                                                    <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">  
-                                    <div class="product type-product status-publish has-post-thumbnail">
-                                        <div class="item-product item-product-grid item-product-style2">
-                                            <div class="product-thumb">
-                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/frontend/images/3.png')}}" alt="" />
-                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                </a>      
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="title14 product-title">
-                                                    <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                </h3>
-                                                <div class="product-price price variable">
-                                                    <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-                                                </div>         
-                                                <div class="product-extra-link">
-                                                    <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">  
-                                    <div class="product type-product status-publish has-post-thumbnail">
-                                        <div class="item-product item-product-grid item-product-style2">
-                                            <div class="product-thumb">
-                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/frontend/images/1.png')}}" alt="" />
-                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                </a>      
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="title14 product-title">
-                                                    <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                </h3>
-                                                <div class="product-price price variable">
-                                                    <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-                                                </div>         
-                                                <div class="product-extra-link">
-                                                    <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">  
-                                    <div class="product type-product status-publish has-post-thumbnail">
-                                        <div class="item-product item-product-grid item-product-style2">
-                                            <div class="product-thumb">
-                                                <a href="{{URL::to('/product/id=123')}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                    <img  src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-                                                </a>    
-                                            </div>
-                                            <div class="product-info">
-                                                <h3 class="title14 product-title">
-                                                    <a title="Laborum Chair" href="#">Laborum Chair</a>
-                                                </h3>
-                                                <div class="product-price price variable">
-                                                    <span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-                                                </div>         
-                                                <div class="product-extra-link">
-                                                    <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

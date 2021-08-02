@@ -23,6 +23,8 @@ class TableTblProduct extends Migration
             $table->string('product_sku');
             $table->string('product_desc');
             $table->decimal('product_price');
+            $table->decimal('product_price_sale');
+            $table->integer('product_qty');
             $table->text('product_content');
             $table->integer('product_status');
             $table->string('product_keywords');

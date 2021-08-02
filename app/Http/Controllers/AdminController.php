@@ -6,12 +6,21 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Auth;
+use Validator;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 
 class AdminController extends Controller
-{
+{   
+    public function adminLogin() {
+        return view('admin.login');
+    }
+    public function loginPost(Request $request) 
+    {
+        
+
+    }
     public function Index()
     {
         return view('admin.template.overview');

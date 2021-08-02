@@ -20,11 +20,12 @@ class BrandProduct extends Controller
     }
     public function AllBrand () {
 
-    	$all_brand_product = DB::table('tbl_brand')->get();
+    	$all_brand_product = DB::table('tbl_brand')->paginate(5);
     	$manage_brand_product = view('admin.template.brand.all_brand_product')->with('all_brand_product', $all_brand_product);
     	return view('admin.dashboard')->with('admin.brand.category.all_brand_product', $manage_brand_product);
     }
     public function save_brand_product(Request $request){
+
         $data = array();
 
         $data['brand_name'] = $request->brand_product_name;
