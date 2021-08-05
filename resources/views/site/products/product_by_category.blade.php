@@ -75,6 +75,9 @@
 					@endforeach
 				</div>
 			</div>
+			<div class="navigation-end">
+                {{$category_by_id->links()}}
+            </div>
 		</div>
 	</div> <!-- close row --> 
 </div>

@@ -21,7 +21,7 @@
                         <h3 class="juliussans-font title60 text-uppercase black">{{$slide->slider_title}}</h3>
                         <p class="title24 text-upercase font-bold black">{{$slide->slider_subtitle}}</p>
                         <div class="button">
-                            <a class="title14 more black" href="{{URL::to('#')}}">Xem Thêm</a>
+                            <a class="title14 more black" href="{{URL::to('/danh-muc/'. $slide->category_slug)}}">Xem Thêm</a>
                         </div>
                     </div>
                 </div>

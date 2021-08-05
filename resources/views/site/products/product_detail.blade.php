@@ -118,12 +118,19 @@
 								<div class="ku_wrapper  mb-2">
 									<label>Danh mục:</label>
 									<span class="meta-item-list">
-										<a href="{{URL::to('danh-muc/'.$product->cateogry_slug)}}" rel="tag">{{$product->category_name}}</a>
+										<a href="{{URL::to('danh-muc/'.$product->category_slug)}}" rel="tag">{{$product->category_name}}</a>
 									</span>
 								</div>
 								<div class="ku_wrapper  mb-2">
 									<label>Tags:</label>
-									<span class="meta-item-list">{{$product->product_keywords}}</span>
+									@php 
+									$tags = $product->product_keywords;
+									$tags = explode(",",$tags);
+
+									@endphp
+									@foreach($tags as $tag)
+									<span class="meta-tag">{{$tag}}</span>
+									@endforeach
 								</div>
 							</div>
 						</div>
@@ -182,159 +189,51 @@
 				</div>
 			</div>
 		</div>
-		<div class="row wpb_row mt-4 pt-4 border-top mb150">
-			<div class="col-sm-12">
-				<div class="content-editor h3-title ">
-					<div class="content-info ">
-						<h3 class="title24 font-bold text-uppercase mb-4">Sản phẩm liên quan</h3>
-					</div>
+	</div>
+	<div class="row wpb_row mt-4 pt-4 border-top">
+		<div class="col-sm-12">
+			<div class="content-editor h3-title ">
+				<div class="content-info ">
+					@if($related_product->count())
+					<h3 class="title24 font-bold text-uppercase mb-4">Sản phẩm liên quan ({{$related_product->count()}})</h3>
+					@else
+					<h3 class="title24 font-bold text-uppercase mb-4">Không có sản phẩm nào liên quan</h3>
+					@endif
 				</div>
-				<div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">
-					<div class="vc_tta-panel-body">
-						<div class="block-element  product-slider-view  slider filter- js-content-wrap">
-							<span class="found_posts hidden">23 <span class="lb">items</span></span>
-							<div class="list-product-wrap">
-								<div class="wrap-item smart-slider js-content-main clearfix group-navi " data-item="4" data-speed="" data-itemres="" data-prev="" data-next=""  data-pagination="" data-navigation="group-navi">
-									<div class="item">  
-										<div class="product type-product status-publish has-post-thumbnail">
-											<div class="item-product item-product-grid item-product-style2">
-												<div class="product-thumb">
-													<a href="{{URL::to('/product/id=123')}}">
-														<img width="252" height="288" src="{{asset('/public/frontend/images/15.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-													</a>        
-												</div>
-												<div class="product-info">
-													<h3 class="title14 product-title">
-														<a title="Laborum Chair" href="{{URL::to('/product/id=123')}}">Áo khoác mới 2021</a>
-													</h3>
-													<div class="product-price price variable">
-														<span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-													</div>         
-													<div class="product-extra-link">
-														<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-													</div>
-												</div>
-
+			</div>
+			<div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">
+				<div class="vc_tta-panel-body">
+					<div class="block-element  product-slider-view  slider filter- js-content-wrap">
+						<div class="list-product-wrap">
+							<div class="wrap-item smart-slider js-content-main clearfix group-navi " data-item="4" data-speed="" data-itemres="" data-prev="" data-next=""  data-pagination="" data-navigation="group-navi">
+								@foreach($related_product as $product)
+								<div class="item">  
+									<div class="product type-product status-publish has-post-thumbnail">
+										<div class="item-product item-product-grid item-product-style2">
+											<div class="product-thumb">
+												<a href="{{URL::to('/san-pham/'.$product->product_id)}}">
+													<img width="252" height="288" src="{{asset('/public/uploads/products/'.$product->product_image)}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
+												</a>        
 											</div>
-										</div>
-									</div>
-									<div class="item">  
-										<div class="product type-product status-publish has-post-thumbnail">
-											<div class="item-product item-product-grid item-product-style2">
-												<div class="product-thumb">
-													<a href="#">
-														<img width="252" height="288" src="{{asset('/public/frontend/images/5.1.jpg')}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
-													</a>        
+											<div class="product-info">
+												<h3 class="title14 product-title">
+													<a title="Laborum Chair" href="{{URL::to('/product/id=123')}}">{{$product->product_name}}</a>
+												</h3>
+												<div class="product-price price variable">
+													@if($product->product_price_sale > 0)
+													<span class="price-sale">{{number_format($product->product_price_sale)}} đ</span>
+													@endif
+													<span class="Price-amount">{{number_format($product->product_price)}} đ</span>
+												</div>         
+												<div class="product-extra-link">
+													<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
 												</div>
-												<div class="product-info">
-													<h3 class="title14 product-title">
-														<a title="Laborum Chair" href="#">Otis T-Shirt</a>
-													</h3>
-													<div class="product-price price variable">
-														<span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-													</div>         
-													<div class="product-extra-link">
-														<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-													</div>
-												</div>
-
 											</div>
-										</div>
-									</div>
-									<div class="item">  
-										<div class="product type-product status-publish has-post-thumbnail">
-											<div class="item-product item-product-grid item-product-style2">
-												<div class="product-thumb">
-													<a href="#">
-														<img width="252" height="288" src="{{asset('/public/frontend/images/1.png')}}" alt="" />
-													</a>        
-												</div>
-												<div class="product-info">
-													<h3 class="title14 product-title">
-														<a title="Laborum Chair" href="#">Laborum Chair</a>
-													</h3>
-													<div class="product-price price variable">
-														<span class="price-sale">650,000 đ</span>
-														<span class="Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-													</div>         
-													<div class="product-extra-link">
-														<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-													</div>
-												</div>
 
-											</div>
-										</div>
-									</div>
-									<div class="item">  
-										<div class="product type-product status-publish has-post-thumbnail">
-											<div class="item-product item-product-grid item-product-style2">
-												<div class="product-thumb">
-													<a href="#">
-														<img width="252" height="288" src="{{asset('/public/frontend/images/2.png')}}" alt="" />
-													</a>        
-												</div>
-												<div class="product-info">
-													<h3 class="title14 product-title">
-														<a title="Laborum Chair" href="#">Laborum Chair</a>
-													</h3>
-													<div class="product-price price variable">
-														<span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-													</div>         
-													<div class="product-extra-link">
-														<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="item">  
-										<div class="product type-product status-publish has-post-thumbnail">
-											<div class="item-product item-product-grid item-product-style2">
-												<div class="product-thumb">
-													<a href="#">
-														<img width="252" height="288" src="{{asset('/public/frontend/images/3.png')}}" alt="" />
-													</a>        
-												</div>
-												<div class="product-info">
-													<h3 class="title14 product-title">
-														<a title="Laborum Chair" href="#">Laborum Chair</a>
-													</h3>
-													<div class="product-price price variable">
-														<span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-													</div>         
-													<div class="product-extra-link">
-														<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									</div>
-									<div class="item">  
-										<div class="product type-product status-publish has-post-thumbnail">
-											<div class="item-product item-product-grid item-product-style2">
-												<div class="product-thumb">
-													<a href="#">
-														<img width="252" height="288" src="{{asset('/public/frontend/images/5.png')}}" alt="" />
-													</a>        
-												</div>
-												<div class="product-info">
-													<h3 class="title14 product-title">
-														<a title="Laborum Chair" href="#">Laborum Chair</a>
-													</h3>
-													<div class="product-price price variable">
-														<span class="woocommerce-Price-amount amount">450,000</span><span class="woocommerce-Price-currencySymbol">đ</span>
-													</div>         
-													<div class="product-extra-link">
-														<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-													</div>
-												</div>
-
-											</div>
 										</div>
 									</div>
 								</div>
+								@endforeach
 							</div>
 						</div>
 					</div>

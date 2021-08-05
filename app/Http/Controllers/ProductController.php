@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function AddProduct()
     {
         $cat_product = CategoryProductModel::orderBy('category_name', 'ASC')->get();
-    	$brand_product = DB::table('tbl_brand')->orderby('brand_id', 'desc')->get();
+    	$brand_product = Brands::orderby('brand_id', 'desc')->get();
         return view('admin.template.products.product_add_new')->with('cat_product', $cat_product)->with('brand_product', $brand_product);
     }
 
@@ -82,10 +82,10 @@ class ProductController extends Controller
     }
 
     public function edit_product($product_id) {
-    	$category = CategoryProductModel::table('tbl_category_product')->orderBy('category_id','DESC')->get();
-    	$brand = Brands::table('tbl_brand')->orderBy('brand_id','DESC')->get();
+    	$category = CategoryProductModel::orderBy('category_id','DESC')->get();
+    	$brand = Brands::orderBy('brand_id','DESC')->get();
 
-    	$edit_product = ProductModel::table('tbl_product')->where('product_id', $product_id)->get();
+    	$edit_product = ProductModel::where('product_id', $product_id)->get();
     	$manage_product = view('admin.template.products.edit_product')->with('edit_product', $edit_product)->with('category',$category)->with('brand',$brand);
     	return view('admin.dashboard')->with('admin.template.products.edit_product', $manage_product);
     }
@@ -151,13 +151,17 @@ class ProductController extends Controller
 
         foreach($product_slug as $key => $product){
             $product_id = $product->product_id;
+            $category_id = $product->category_id;
         }
         $galery_product_thumb = Gallery::join('tbl_product', 'tbl_product.product_id', '=', 'tbl_gallery.product_id')->where('tbl_gallery.product_id', $product_id)->get();
         $data_product = ProductModel::join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('product_id', $product_id)->get(); 
 
+        $related_product = ProductModel::join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
+        ->where('tbl_category_product.category_id',$category_id)->whereNotIn('tbl_product.product_id',[$product_id])->orderby(DB::raw('RAND()'))->paginate(4);
 
-        return view('site.products.product_detail')->with('data_product', $data_product)->with('galery_product_thumb', $galery_product_thumb);
+        return view('site.products.product_detail')->with('data_product', $data_product)->with('galery_product_thumb', $galery_product_thumb)->with('related_product', $related_product);
     }
 }

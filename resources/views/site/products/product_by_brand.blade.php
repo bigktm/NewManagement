@@ -74,6 +74,9 @@
 					@endforeach
 				</div>
 			</div>
+			<div class="navigation-end">
+                {{$brand_by_id->links()}}
+            </div>
 		</div>
 	</div> <!-- close row --> 
 </div>

@@ -8918,3 +8918,54 @@ body.wpb-js-composer .p-collapse.vc_tta.vc_general .vc_tta-panel .vc_tta-panel-t
 .la-toggle-down:before {
     content: "\f077";
 } 
+.meta-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1af51;
+    color: #fff !important;
+    font-size: 11px;
+    line-height: 22px;
+    padding: 0 .4rem !important;
+    border-radius: 3px !important;
+    text-transform: capitalize;
+}
+.navigation-end .pagination{
+justify-content: flex-end;
+}
+.pagination li span, .pagination li a {
+    padding: 0px 10px;
+    min-width: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f7f7;
+    border-radius: 4px;
+    font-size: 12px;
+    line-height: 30px;
+    transition: .3s;
+}
+
+.pagination li{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  text-decoration: none;
+}
+.pagination li a {
+  color: #a7a7a7;
+}
+.pagination li a:hover {
+    color: #fff;
+    background: #f1af51;
+}
+.pagination li.active span {color: #fff;background: #f1af51;}
+
+.pagination li.disabled {
+color: #ccc;
+}
+.pagination li:last-child {
+margin-right: 0;
+}

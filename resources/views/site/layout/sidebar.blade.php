@@ -6,12 +6,16 @@
 				@foreach($category_list as $key => $category)
 				<li class="cat-item">
 					@if($category->category_parent == 0)
-					<a href="{{URL::to('danh-muc/'.$category->category_slug)}}">{{$category->category_name}}</a> 
-					<ul class="children">
-						<li class="cat-item">
-							<a href="#">Áo Polo</a> <span>(8)</span>
-						</li>
-					</ul>
+					<a href="{{URL::to('danh-muc/'.$category->category_slug)}}">{{$category->category_name}}</a>
+					@foreach($category_list as $key => $cate_sub)
+						@if($cate_sub->category_parent==$category->category_id)
+							<ul class="children">
+								<li class="cat-item">
+									<a href="{{URL::to('danh-muc/'.$cate_sub->category_slug)}}">{{$cate_sub->category_name}}</a>
+								</li>
+							</ul>
+						@endif
+					@endforeach
 					@endif
 				</li>
 				@endforeach
@@ -29,7 +33,7 @@
 				@endforeach                       
 			</ul>
 		</div>
-		<div id="" class="sidebar-widget widget">
+		{{-- <div id="" class="sidebar-widget widget">
 			<h3 class="widget-title">Lọc Size</h3>                            
 			<ul class="tawcvs-swatches attribute-type-label">
 				<li>
@@ -45,6 +49,6 @@
 					<a title="S" data-value="s" href="#">S</a> <span class="count silver">(2)</span>
 				</li>                                
 			</ul>
-		</div>		
+		</div>		 --}}
 	</div>
 </div>

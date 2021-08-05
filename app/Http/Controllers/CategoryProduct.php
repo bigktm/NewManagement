@@ -85,8 +85,7 @@ class CategoryProduct extends Controller
 
     public function show_category_home(Request $request ,$category_slug){
 
-        $product_list = ProductModel::join('tbl_category_product', 'tbl_category_product.category_id', '=', 'tbl_product.category_id')->where('tbl_product.category_id','desc')->paginate(10);
-        $category_list = CategoryProductModel::orderBy('category_id', 'asc')->get();
+        $category_list = CategoryProductModel::where('category_status','1')->orderby('category_parent','desc')->get(); 
         $brand_product = Brands::get(); 
 
         $category_by_slug = CategoryProductModel::where('category_slug',$category_slug)->get();
@@ -95,7 +94,7 @@ class CategoryProduct extends Controller
             $category_id = $cate->category_id;
         }
 
-        $category_by_id = ProductModel::with('category')->where('category_id',$category_id)->orderBy('product_id','DESC')->paginate(6);
+        $category_by_id = ProductModel::with('category')->where('category_id',$category_id)->orderBy('product_id','DESC')->paginate(9);
 
         $category_name = CategoryProductModel::where('tbl_category_product.category_slug',$category_slug)->limit(1)->get();
 
@@ -104,7 +103,6 @@ class CategoryProduct extends Controller
 
     public function show_brand_home(Request $request ,$brand_slug){
 
-        $products_brand = ProductModel::join('tbl_brand', 'tbl_brand.brand_id', '=', 'tbl_product.brand_id')->where('tbl_product.brand_id','desc')->paginate(10);
         $brand_product = Brands::get(); 
         $category_list = CategoryProductModel::orderBy('category_id', 'asc')->get();
         $brand_by_slug = Brands::where('brand_slug',$brand_slug)->get();
@@ -113,7 +111,7 @@ class CategoryProduct extends Controller
             $brand_id = $cate->brand_id;
         }
 
-        $brand_by_id = ProductModel::with('brand')->where('brand_id',$brand_id)->orderBy('product_id','DESC')->paginate(6);
+        $brand_by_id = ProductModel::with('brand')->where('brand_id',$brand_id)->orderBy('product_id','DESC')->paginate(9);
 
         $brand_name = Brands::where('tbl_brand.brand_slug',$brand_slug)->limit(1)->get();
 
