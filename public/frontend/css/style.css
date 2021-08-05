@@ -10,6 +10,9 @@
 7.Product Details
 8.Blog
 ***********************************************/
+#main-content {
+    padding-bottom: 10rem;
+}
 .hidden{
     display: none;
 }
@@ -1259,7 +1262,7 @@ a.added_to_cart:hover,
 }
 .item-product-meta-info .meta-item-list span,
 .item-product-meta-info .meta-item-list  a{
-    margin-bottom: 16px;
+    /* margin-bottom: 16px; */
 }
 .select-box select{
     z-index: inherit;
@@ -5993,7 +5996,7 @@ a.compare-link.added{
 }
 
 .title-box{
-    margin: 0 0 46px;
+    margin: 0 0 15px;
     display: inline-block;
     width: 100%;
     /* background: #f9f9f9; */
@@ -6116,7 +6119,8 @@ a.compare-link.added{
 .detail-gallery .carousel li img{
     display: block;
     max-width: 100%;
-    height: auto !important;
+    height: 113px !important;
+    object-fit: cover;
 }
 .detail-gallery .gallery-control.true > a {
     position: absolute;
@@ -8894,3 +8898,23 @@ body.wpb-js-composer .p-collapse.vc_tta.vc_general .vc_tta-panel .vc_tta-panel-t
   border-radius: 50%;
   background: #f1af51;
 }
+.content-sidebar-right {
+    padding-left: 20px;
+}
+.widget ul.list-none .cat-item ul.list-none {
+    padding-left: 20px;
+    margin-top: 30px;
+    display: none;
+}
+
+.la {
+    font-family: "Font Awesome 5 Pro";
+    position: relative;
+}
+
+.la-toggle-up:before {
+    content: "\f078";
+}
+.la-toggle-down:before {
+    content: "\f077";
+} 

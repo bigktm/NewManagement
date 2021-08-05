@@ -14,7 +14,6 @@ class SliderController extends Controller
 {
     public function all_slider() {
     	$slider_list = Slider::join('tbl_category_product','tbl_category_product.category_id','=','tbl_slider.category_id')->orderby('tbl_slider.slider_id','desc')->get();
-
     	return view('admin.template.slider.all_slider', compact('slider_list'));
     }
     public function add_slider () {

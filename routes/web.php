@@ -57,6 +57,10 @@ Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
 Route::post('/update-product/{product_id}', 'ProductController@update_product');
 Route::get('/delete-product/{product_id}', 'ProductController@delete_product');
 
+Route::get('/san-pham/{product_slug}', 'ProductController@detail_product');
+
+
+
 
 // Slider
 Route::get('/add-slider', 'SliderController@add_slider');
@@ -77,6 +81,12 @@ Route::get('/delete-gallery/{gallery_id}','GalleryProduct@delete_gallery');
 // Front End
 Route::get('/', 'HomeController@Index' );
 Route::get('/product/id=123', 'HomeController@ProductDetail' );
-Route::get('/shop', 'HomeController@Shop' );
+
+
+Route::get('/danh-muc/{category_slug}', 'CategoryProduct@show_category_home' );
+Route::get('/thuong-hieu/{brand_slug}', 'CategoryProduct@show_brand_home' );
+
+
+
 Route::get('/cart', 'HomeController@Cart' );
 Route::get('/checkout', 'HomeController@Checkout' );

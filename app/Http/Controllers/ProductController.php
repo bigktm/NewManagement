@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\ProductModel;
+use App\Gallery;
+use App\Brands;
+use App\CategoryProductModel;
 use Illuminate\Support\Str;
 use App\Exports\ExcelExports;
 use App\Imports\ExcelImports;
@@ -18,8 +21,7 @@ class ProductController extends Controller
 {
     public function AllProduct() {
 
-    	$all_product = DB::table('tbl_product')
-        ->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+    	$all_product = ProductModel::join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->orderby('tbl_product.product_id','desc')->paginate(10);
     	$manager_product  = view('admin.template.products.all_product_list')->with('all_product',$all_product);
@@ -27,7 +29,7 @@ class ProductController extends Controller
     }
     public function AddProduct()
     {
-    	$cat_product = DB::table('tbl_category_product')->orderby('category_id', 'desc')->get();
+        $cat_product = CategoryProductModel::orderBy('category_name', 'ASC')->get();
     	$brand_product = DB::table('tbl_brand')->orderby('brand_id', 'desc')->get();
         return view('admin.template.products.product_add_new')->with('cat_product', $cat_product)->with('brand_product', $brand_product);
     }
@@ -80,10 +82,10 @@ class ProductController extends Controller
     }
 
     public function edit_product($product_id) {
-    	$category = DB::table('tbl_category_product')->orderBy('category_id','DESC')->get();
-    	$brand = DB::table('tbl_brand')->orderBy('brand_id','DESC')->get();
+    	$category = CategoryProductModel::table('tbl_category_product')->orderBy('category_id','DESC')->get();
+    	$brand = Brands::table('tbl_brand')->orderBy('brand_id','DESC')->get();
 
-    	$edit_product = DB::table('tbl_product')->where('product_id', $product_id)->get();
+    	$edit_product = ProductModel::table('tbl_product')->where('product_id', $product_id)->get();
     	$manage_product = view('admin.template.products.edit_product')->with('edit_product', $edit_product)->with('category',$category)->with('brand',$brand);
     	return view('admin.dashboard')->with('admin.template.products.edit_product', $manage_product);
     }
@@ -137,5 +139,25 @@ class ProductController extends Controller
         DB::table('tbl_product')->where('product_id', $product_id)->delete();
         Session::put('message','Xoá sản phẩm thành công');
         return Redirect::to('all-product-list');
+    }
+
+
+    // FRONT END
+
+
+    public function detail_product(Request $request ,$product_slug) {
+
+        $product_slug = ProductModel::where('product_slug',$product_slug)->get();
+
+        foreach($product_slug as $key => $product){
+            $product_id = $product->product_id;
+        }
+        $galery_product_thumb = Gallery::join('tbl_product', 'tbl_product.product_id', '=', 'tbl_gallery.product_id')->where('tbl_gallery.product_id', $product_id)->get();
+        $data_product = ProductModel::join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
+        ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
+        ->where('product_id', $product_id)->get(); 
+
+
+        return view('site.products.product_detail')->with('data_product', $data_product)->with('galery_product_thumb', $galery_product_thumb);
     }
 }

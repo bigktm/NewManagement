@@ -8,12 +8,12 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">
-                        <i class="bi bi-globe2 small me-2"></i> Dashboard
+                    <a href="{{URL::to('dashboard')}}">
+                        <i class="bi bi-globe2 small me-2"></i> Tổng quan
                     </a>
                 </li>
-                <li class="breadcrumb-item" aria-current="page"><a href="#">Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
+                <li class="breadcrumb-item" aria-current="page"><a href="{{URL::to('all-category-product')}}">Danh mục</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sửa danh mục</li>
             </ol>
         </nav>
     </div>
@@ -52,24 +52,12 @@
                             <select name="category_parent" class="form-control input-sm m-bot15">
                                 <option value="0">-----------Danh mục cha-----------</option>
                                 @foreach($category as $key => $val)
-
-                                @if($val->category_parent==0)     
-                                <option {{$val->category_id==$edit_value->category_id ? 'selected' : '' }} value="{{$val->category_id}}">{{$val->category_name}}</option>
+                                @if($val->category_id==$edit_value->category_id)
+                                <option selected value="{{$val->category_id}}">{{$val->category_name}}</option>
+                                @else
+                                <option value="{{$val->category_id}}">{{$val->category_name}}</option>
                                 @endif
-
-                                @foreach($category as $key => $val2)
-
-                                @if($val2->category_parent==$val->category_id) 
-
-                                <option {{$val2->category_id==$edit_value->category_id ? 'selected' : '' }} value="{{$val2->category_id}}">---{{$val2->category_name}}</option>  
-
-                                @endif
-
                                 @endforeach
-
-                                @endforeach
-                                
-                                
                             </select>
                         </div>
                         <div class="form-group col-md-4">

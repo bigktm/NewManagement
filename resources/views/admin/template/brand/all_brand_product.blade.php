@@ -44,6 +44,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Tên thương hiệu sản phẩm</th>
+                            <th>Logo</th>
                             <th>Trạng thái</th>
                             <th>Mô tả</th>
                             <th>Ngày thêm</th>
@@ -53,20 +54,27 @@
                     <tbody>
                         @foreach($all_brand_product as $key => $brand_pro)
                         <tr>
-                            <td style="width: 10%">
+                            <td>
                                 <a href="#">{{$brand_pro->brand_id}}</a>
                             </td>
-                            <td style="width: 30%">{{$brand_pro->brand_name}}</td>
-                            <td style="width: 10%">
+                            <td>{{$brand_pro->brand_name}}</td>
+                            <td>
+                                @if($brand_pro->brand_logo)
+                                <img src="{{asset('public/uploads/brands/'. $brand_pro->brand_logo)}}" class="rounded" width="80">
+                                @else
+                                <img src="{{asset('public/uploads/brands/default-image.jpg')}}" class="rounded" width="80">
+                                @endif
+                            </td>
+                            <td>
                                 @if($brand_pro->brand_status == '0')
                                 <a href="{{URL::to('/active-brand-product/'. $brand_pro->brand_id)}}" data-bs-toggle="tooltip" title="Hiển thị danh mục"><span class="bg-danger text-white span-stt">Ẩn</span></a>
                                 @else
                                 <a href="{{URL::to('/inactive-brand-product/'. $brand_pro->brand_id)}}"><span class="bg-success text-white span-stt" data-bs-toggle="tooltip" title="Ẩn danh mục">Hiện thị</span></a>
                                 @endif
                             </td>
-                            <td style="width: 30%">{{ Illuminate\Support\Str::limit($brand_pro->brand_desc, 50) }}</td>
-                            <td style="width: 10%">{{$brand_pro->created_at}}</td>
-                            <td style="width: 10%" class="text-end">
+                            <td>{{ Illuminate\Support\Str::limit($brand_pro->brand_desc, 50) }}</td>
+                            <td >{{$brand_pro->created_at}}</td>
+                            <td class="text-end">
                                 <div class="d-flex">
                                     <div class="dropdown ms-auto">
                                         <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>

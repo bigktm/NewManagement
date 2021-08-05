@@ -8,12 +8,12 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">
-                        <i class="bi bi-globe2 small me-2"></i> Dashboard
+                    <a href="{{URL::to('dashboard')}}">
+                        <i class="bi bi-globe2 small me-2"></i> Tổng quan
                     </a>
                 </li>
-                <li class="breadcrumb-item" aria-current="page"><a href="#">Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add New Category</li>
+                <li class="breadcrumb-item" aria-current="page"><a href="{{URL::to('all-category-product')}}">Danh mục sản phẩm</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Thêm danh mục mới</li>
             </ol>
         </nav>
     </div>
@@ -50,16 +50,14 @@
                             <label for="exampleInputPassword1">Thuộc danh mục</label>
                             <select name="category_parent" class="form-control input-sm m-bot15">
                                 <option value="0">---Danh mục cha---</option>
-                                @foreach($category as $key => $val)
-                                <option value="{{$val->category_id}}">{{$val->category_name}}</option>
-                                @endforeach
+                                <?php showCategories($category); ?>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword1">Hiển thị</label>
                             <select name="category_product_status" class="form-control input-sm m-bot15">
-                                <option value="0">Ẩn</option>
                                 <option value="1">Hiển thị</option>
+                                <option value="0">Ẩn</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
@@ -71,5 +69,26 @@
         </div>
     </div>
 </div>
+
+<?php
+
+function showCategories($category, $category_parent = 0, $char = '')
+{
+    foreach ($category as $key => $item)
+    {
+        // Nếu là chuyên mục con thì hiển thị
+        if ($item->category_parent == $category_parent)
+        {
+            echo '<option value="'.$item->category_id.'">'.$char.$item->category_name.'</option>';
+            // Xóa chuyên mục đã lặp
+            unset($category[$key]);
+
+            // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
+            showCategories($category, $item->category_id, $char.' &nbsp;&nbsp;&nbsp;  ');
+        }
+    }
+}
+
+?>
 <!-- ./ content -->
 @endsection

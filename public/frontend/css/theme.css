@@ -1131,7 +1131,7 @@ body .scroll-top:hover{
   margin: 0 0 10px;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 .detail-info .product-title {
   padding-right: 100px;
@@ -1163,6 +1163,9 @@ div.table .product-info .product-title {
   width: 100%;
   transition: all 0.4s ease-out 0s;
   -webkit-transition: all 0.4s ease-out 0s;
+  height: 323px;
+  object-fit: cover;
+  background: #f4f4f4;
 }
 .item-product-default .product-thumb-link::before {
   background: rgba(0, 0, 0, 0.5);

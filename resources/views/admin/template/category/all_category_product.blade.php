@@ -8,11 +8,11 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">
-                        <i class="bi bi-globe2 small me-2"></i> Dashboard
+                    <a href="{{URL::to('dashboard')}}">
+                        <i class="bi bi-globe2 small me-2"></i> Tổng quan
                     </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">All Category</li>
+                <li class="breadcrumb-item active" aria-current="page">Danh mục sản phẩm</li>
             </ol>
         </nav>
     </div>
@@ -61,15 +61,15 @@
                             <td>{{$cat_pro->category_name}}</td>
                             <td>
                                 @if($cat_pro->category_parent==0)
-                                <span style="color:orange;">Danh mục gốc</span>
+                                    <span style="color:orange;">Danh mục gốc</span>
                                 @else
-                                @foreach($category_product as $key => $cate_sub_pro)
-                                @if($cate_sub_pro->category_id==$cat_pro->category_parent)
-                                <span style="color:green;">{{$cate_sub_pro->category_name}}</span>
+                                    @foreach($all_category_product as $key => $cate_sub_pro)
+                                        @if($cate_sub_pro->category_id==$cat_pro->category_parent)
+                                            <span style="color:green;">{{$cate_sub_pro->category_name}}</span>
+                                        @endif
+                                    @endforeach 
                                 @endif
-                                @endforeach 
-                                @endif
-                          </td>
+                            </td>
                             <td>
                                 @if($cat_pro->category_status == '0')
                                 <a href="{{URL::to('/active-category-product/'. $cat_pro->category_id)}}" data-bs-toggle="tooltip" title="Hiển thị danh mục"><span class="bg-danger text-white span-stt">Ẩn</span></a>

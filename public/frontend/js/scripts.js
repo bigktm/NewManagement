@@ -1053,13 +1053,13 @@
 
 		if($('.widget_s7upf_category_list').length){
 	    	var obj = $('.widget_s7upf_category_list > ul > li:has(ul)');
-	     	obj.prepend('<span class="show_btn la la-toggle-up"></span>');
+	     	obj.prepend('<span class="show_btn fal fa-chevron-down"></span>');
 		    $('.show_btn').on('click',function(event){
 		      	event.preventDefault();
-		      	if ($(this).hasClass('la-toggle-up')) {
-		      		$(this).removeClass('la-toggle-up').addClass('la-toggle-down');
+		      	if ($(this).hasClass('fa-chevron-up')) {
+		      		$(this).removeClass('fa-chevron-up').addClass('fa-chevron-down');
 		      	}else{
-		      		$(this).removeClass('la-toggle-down').addClass('la-toggle-up');
+		      		$(this).removeClass('fa-chevron-down').addClass('fa-chevron-up');
 		      	}
 		      	if ($(this).parent().children('.children').is(':visible')) {
 		           $(this).parent().children('.children').slideUp('fast');

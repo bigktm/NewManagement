@@ -9,11 +9,11 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">
-                        <i class="bi bi-globe2 small me-2"></i> Dashboard
+                    <a href="{{URL::to('dashboard')}}">
+                        <i class="bi bi-globe2 small me-2"></i> Tổng quan
                     </a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Products</li>
+                <li class="breadcrumb-item active" aria-current="page">Danh sách sản phẩm</li>
             </ol>
         </nav>
     </div>
@@ -94,7 +94,8 @@
                                 <img src="{{asset('public/uploads/products/'.$product->product_image)}}" class="rounded" width="40"
                                 alt="...">
                             </td>
-                            <td><a href="{{URL::to('/add-gallery/'. $product->product_id)}}">Thêm thư viện ảnh</a></td>
+                            <td>
+                                <a href="{{URL::to('/add-gallery/'. $product->product_id)}}">Thêm thư viện ảnh</a></td>
                             <td>{{$product->product_name}}</td>
                             <td>{{$product->category_name}}</td>
                             <td>{{$product->brand_name}}</td>

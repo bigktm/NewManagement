@@ -9,12 +9,12 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">
-                        <i class="bi bi-globe2 small me-2"></i> Dashboard
+                    <a href="{{URL::to('dashboard')}}">
+                        <i class="bi bi-globe2 small me-2"></i> Tổng quan
                     </a>
                 </li>
-                <li class="breadcrumb-item" aria-current="page"><a href="#">Products</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add New Product</li>
+                <li class="breadcrumb-item" aria-current="page"><a href="{{URL::to('all-product-list')}}">Danh sách sản phẩm</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Đăng sản phẩm mới</li>
             </ol>
         </nav>
     </div>
@@ -58,16 +58,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputPassword1">Danh mục</label>
                                     <select name="category_product" class="form-control input-sm select2-example ">
-                                        @foreach($cat_product as $key => $val_cat)
-                                        @if($val_cat->category_parent==0)
-                                        <option style="text-transform: uppercase;" value="{{$val_cat->category_id}}">{{$val_cat->category_name}}</option>
-                                        @foreach($cat_product as $key => $cate_sub)
-                                        @if($cate_sub->category_parent!=0 && $cate_sub->category_parent==$val_cat->category_id)
-                                        <option style="color: #777;" value="{{$cate_sub->category_id}}">&nbsp;&nbsp;&nbsp; {{$cate_sub->category_name}}</option>   
-                                        @endif
-                                        @endforeach 
-                                        @endif
-                                        @endforeach
+                                        <?php showCategories($cat_product)?>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -139,3 +130,23 @@
 <!-- ./ content -->
 
 @endsection
+<?php
+
+function showCategories($cat_product, $category_parent = 0, $char = '')
+{
+    foreach ($cat_product as $key => $item)
+    {
+        // Nếu là chuyên mục con thì hiển thị
+        if ($item->category_parent == $category_parent)
+        {
+            echo '<option value="'.$item->category_id.'">'.$char.$item->category_name.'</option>';
+            // Xóa chuyên mục đã lặp
+            unset($cat_product[$key]);
+
+            // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
+            showCategories($cat_product, $item->category_id, $char.' &nbsp;&nbsp;&nbsp;  ');
+        }
+    }
+}
+
+?>

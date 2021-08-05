@@ -28,8 +28,25 @@
                 }
                 ?>
                 <div class="position-center col-md-12">
-                    <form role="form " class="row" action="{{URL::to('/save-brand-product')}}" method="post">
+                    <form role="form " class="row" action="{{URL::to('/save-brand-product')}}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        <div class="form-group">
+                            <label>Logo Thương Hiệu</label>
+                            <div class="input-group form-control">
+                                <input id="upload" type="file" onchange="readURL(this);" required name="brand_logo" class="form-control">
+                                <label id="upload-label" for="upload" class="font-weight-light text-muted"></label>
+                                <div class="input-group-append">
+                                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> 
+                                        <i class="fa fa-cloud-upload mr-2 text-muted"></i>
+                                        <small class="text-uppercase font-weight-bold text-muted">Chọn hình ảnh</small>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- Uploaded image area-->
+                            <div class="image-area mt-4" style="display: none;">
+                                <img id="imageResult" src="#" alt="" class="img-fluid ">
+                            </div>
+                        </div>
                         <div class="form-group  col-md-6">
                             <label for="name">Tên thương hiệu</label>
                             <input type="text"  class="form-control" onkeyup="ChangeToSlug();" name="brand_product_name"  id="name" placeholder="Tên thương hiệu" >

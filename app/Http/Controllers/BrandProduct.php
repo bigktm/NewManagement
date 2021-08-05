@@ -33,6 +33,23 @@ class BrandProduct extends Controller
         $data['brand_desc'] = $request->brand_product_desc;
         $data['brand_status'] = $request->brand_product_status;
 
+        $get_image = $request->file('brand_logo');
+
+        if($get_image) {
+
+            $get_image_name = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_image_name));
+            $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+
+            $get_image->move('public/uploads/brands', $new_image);
+
+            $data['brand_logo'] = $new_image;
+
+            DB::table('tbl_brand')->insert($data);
+            Session::put('message','Thêm thương hiệu sản phẩm thành công');
+            return Redirect::to('add-brand-product');
+        }
+
         DB::table('tbl_brand')->insert($data);
         Session::put('message','Thêm thương hiệu sản phẩm thành công');
         return Redirect::to('add-brand-product');
@@ -60,6 +77,23 @@ class BrandProduct extends Controller
         $data['brand_name'] = $request->brand_product_name;
         $data['brand_slug'] = $request->brand_product_slug;
         $data['brand_desc'] = $request->brand_product_desc;
+
+        $get_image = $request->file('brand_logo');
+
+        if($get_image) {
+
+            $get_image_name = $get_image->getClientOriginalName();
+            $name_image = current(explode('.', $get_image_name));
+            $new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
+
+            $get_image->move('public/uploads/brands', $new_image);
+
+            $data['brand_logo'] = $new_image;
+
+            DB::table('tbl_brand')->where('brand_id', $brand_id)->update($data);
+            Session::put('message','Cập nhật thương hiệu thành công');
+            return Redirect::to('all-brand-product');
+        }
 
         DB::table('tbl_brand')->where('brand_id', $brand_id)->update($data);
         Session::put('message','Cập nhật thương hiệu thành công');
