@@ -8,6 +8,7 @@
 <link href="{{asset('/public/frontend/css/bootstrap.min.css')}}" rel="stylesheet"> 
 <link href="{{asset('/public/frontend/css/bootstrap-icons.css')}}" rel="stylesheet">
 <link href="{{asset('/public/frontend/css/owl.carousel.min.css')}}" rel="stylesheet">
+<link href="{{asset('/public/frontend/css/sweetalert.min.css')}}" rel="stylesheet">
 <link href="{{asset('/public/frontend/css/theme.css')}}" rel="stylesheet">
 <link href="{{asset('/public/frontend/css/style.css')}}" rel="stylesheet">
 <link href="{{asset('/public/frontend/css/responsives.css')}}" rel="stylesheet">

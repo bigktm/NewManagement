@@ -24,4 +24,79 @@
     </div>
     @include('site.layout.js_file')
 </body>
+<script>
+{{--  --}} 
+
+
+    $(function () {
+
+        $('.ajax_add_to_cart').on('click', addToCart);
+        count_cart();
+        mini_cart();
+    });
+
+    function count_cart() {
+        $.ajax({
+            url:'{{url('/count-cart')}}',
+            method:"GET",
+            success:function(data){
+                $('.set-cart-number').html(data);
+
+            }
+
+        }); 
+    };
+    function mini_cart() {
+        $.ajax({
+            url:'{{url('/mini-cart')}}',
+            method:"GET",
+            success:function(data){
+                $('.mini-cart-has-product').html(data);
+
+            }
+
+        }); 
+    };
+    function addToCart(event) {
+        event.preventDefault();
+        var url = $(this).data('url');
+        var seff = $(this);
+        seff.find('i.la-check').remove();
+        seff.append('<i class="fas fa-cog fa-spin"></i>');
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: url,
+            dataType: 'json',
+            crossDomain: true,
+            success: function (data) { 
+                seff.find('.fa-cog').remove();
+                seff.append('<i class="fal fa-check"></i>');
+                swal({
+                    title: "Đã thêm vào giỏ hàng",
+                    text: "Bạn có thể đi tới trang giỏ hàng để thanh toán",
+                    type: "success",
+                    showCancelButton: true,
+                    successMode: true,
+                    cancelButtonClass: '#000',
+                    cancelButtonText: 'Mua tiếp',
+                    confirmButtonColor: '#dc9814',
+                    confirmButtonText: 'Xem Giỏ Hàng',
+                }, function(){
+                    window.location.href = "{{url('your-cart')}}";
+                });
+                count_cart();
+                mini_cart();
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+    };
+
+</script>
 </html>

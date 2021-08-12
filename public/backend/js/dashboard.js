@@ -479,6 +479,7 @@ $(document).ready(function(){
             title: "Bạn có chắc muốn xoá sản phẩm này?",
             text: "Sản phẩm này sẽ bị xoá khi bạn đồng ý",
             type: "error",
+            icon: "danger",
             showCancelButton: true,
             dangerMode: true,
             cancelButtonClass: '#DD6B55',

@@ -79,11 +79,11 @@
             <div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">
                 <div class="vc_tta-panel-body">
                     <div class="block-element  product-slider-view  slider filter- js-content-wrap">
-                        <span class="found_posts hidden">23 <span class="lb">items</span></span>
                         <div class="list-product-wrap">
                             <div class="wrap-item smart-slider js-content-main clearfix group-navi " data-item="4" data-speed="" data-itemres="" data-prev="" data-next=""  data-pagination="" data-navigation="group-navi">
                                 @foreach($product_new as $product_new)
                                 <div class="item">  
+                                    
                                     <div class="product type-product status-publish has-post-thumbnail">
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
@@ -103,12 +103,14 @@
                                                 </h3>
                                                 <div class="product-price price variable">
                                                     @if($product_new->product_price_sale > 0)
-                                                    <span class="price-sale">{{number_format($product_new->product_price_sale)}} đ</span>
-                                                    @endif
+                                                    <span class="price-sale">{{number_format($product_new->product_price)}} đ</span>
+                                                    <span class="Price-amount">{{number_format($product_new->product_price_sale)}} đ</span>
+                                                    @else
                                                     <span class="Price-amount">{{number_format($product_new->product_price)}} đ</span>
+                                                    @endif
                                                 </div>         
                                                 <div class="product-extra-link">
-                                                    <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
+                                                    <button class="btn btn-primary ajax_add_to_cart btn-add-cart" data-url="{{URL::to('add-to-cart/'.$product_new->product_id)}}"><span>Thêm vào giỏ hàng</span></button>
                                                 </div>
                                             </div>
 
@@ -144,7 +146,6 @@
             <div class="tabs-block block-element h3-tabs tab-style2 tab-ajax-off">
                 <div class="vc_tta-panel-body">
                     <div class="block-element  product-slider-view  slider filter- js-content-wrap">
-                        <span class="found_posts hidden">23 <span class="lb">items</span></span>
                         <div class="list-product-wrap">
                             <div class="wrap-item smart-slider js-content-main clearfix group-navi " data-item="4" data-speed="" data-itemres="" data-prev="" data-next=""  data-pagination="" data-navigation="group-navi">
                                 @foreach($product_cate as $pro_cate)
@@ -168,12 +169,14 @@
                                                 </h3>
                                                 <div class="product-price price variable">
                                                     @if($pro_cate->product_price_sale > 0)
-                                                    <span class="price-sale">{{number_format($pro_cate->product_price_sale)}} đ</span>
-                                                    @endif
+                                                    <span class="price-sale">{{number_format($pro_cate->product_price)}} đ</span>
+                                                    <span class="Price-amount">{{number_format($pro_cate->product_price_sale)}} đ</span>
+                                                    @else
                                                     <span class="Price-amount">{{number_format($pro_cate->product_price)}} đ</span>
+                                                    @endif
                                                 </div>         
                                                 <div class="product-extra-link">
-                                                    <a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
+                                                    <button class="btn btn-primary ajax_add_to_cart btn-add-cart" data-url="{{URL::to('add-to-cart/'.$pro_cate->product_id)}}"><span>Thêm vào giỏ hàng</span></button>
                                                 </div>
                                             </div>
 

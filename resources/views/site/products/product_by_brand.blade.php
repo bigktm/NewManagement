@@ -61,9 +61,11 @@
 										</h3>
 										<div class="product-price">
 											@if($product->product_price_sale > 0)
-												<span class="price-sale">{{number_format($product->product_price_sale)}} đ</span>
-											@endif
+											<span class="price-sale">{{number_format($product->product_price)}} đ</span>
+											<span class="Price-amount">{{number_format($product->product_price_sale)}} đ</span>
+											@else
 											<span class="Price-amount">{{number_format($product->product_price)}} đ</span>
+											@endif
 										</div>   
 									</div>
 

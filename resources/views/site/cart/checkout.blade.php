@@ -7,6 +7,9 @@
 	.footer-page {
 		display: none;
 	}
+	#main-content {
+		padding-bottom: 0;
+	}
 </style>
 <div class="container">
 	<form action="" method="post" id="formCheckOut">
@@ -18,7 +21,7 @@
 					</a>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item">
-							<a href="{{URL::to('/cart')}}">Giỏ hàng</a>
+							<a href="{{URL::to('/gio-hang')}}">Giỏ hàng</a>
 						</li>
 						<li class="breadcrumb-item">Thông tin giao hàng</li>
 					</ul>
@@ -32,8 +35,8 @@
 								</div>
 								<div class="section-content section-customer-information no-mb">
 									<p class="section-content-text">
-										Bạn đã có tài khoản?
-										<a href="/user/signin">Đăng nhập</a>
+										Bạn đã có tài khoản thành viên?
+										<a href="">Đăng nhập</a>
 									</p>
 									<div class="fieldset row flex-wrap">
 										<div class="field col-md-8 field-two-thirds">
@@ -186,7 +189,7 @@
 									</button>
 								</div>
 
-								<a class="step-footer-previous-link tp_title" href="{{URL::to('/cart')}}"><i class="fal fa-angle-left"></i> Giỏ hàng</a>
+								<a class="step-footer-previous-link tp_title" href="{{URL::to('/gio-hang')}}"><i class="fal fa-angle-left"></i> Giỏ hàng</a>
 							</div>
 						</div>
 

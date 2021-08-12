@@ -8,6 +8,11 @@ use App\Slider;
 use App\ProductModel;
 use App\CategoryProductModel;
 use App\Gallery;
+use Session;
+use App\Http\Requests;
+use Illuminate\Support\Facades\Redirect; 
+session_start();
+
 
 class HomeController extends Controller
 {
@@ -27,17 +32,5 @@ class HomeController extends Controller
         // dd($product_cate);
 
         return view('site.home')->with('slider_list', $slider_list)->with('product_new', $product_new)->with('gallery_pro', $gallery_pro)->with('product_cate', $product_cate);
-    }
-    public function ProductDetail()
-    {
-        return view('site.product-detail');
-    }
-    public function Cart()
-    {
-        return view('site.cart');
-    }
-    public function Checkout()
-    {
-        return view('site.checkout');
     }
 }

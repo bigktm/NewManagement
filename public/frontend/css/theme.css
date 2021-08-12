@@ -1143,6 +1143,26 @@ div.table .product-info .product-title {
 .product-price ins {
   text-decoration: none;
 }
+.mini-cart-qty {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.mini-cart-qty .qty-num {
+    margin-right: 5px;
+}
+
+.mini-cart-qty .flex-wrap {
+    margin-left: 5px;
+}
+
+.mini-cart-qty .price-sale {
+    font-size: 89%;
+    text-decoration: line-through;
+    color: #777;
+    margin-right: 5px;
+}
 .product-price {
   margin: 0 -2px 7px;
 }
@@ -1473,7 +1493,7 @@ div.table .product-info .product-title {
   margin-bottom: 0px;
 }
 .product-mini-cart .product-thumb {
-  width: 90px;
+  width: 60px;
 }
 .mini-cart-box .dropdown-list {
   width: 290px;
@@ -3024,11 +3044,11 @@ div.table .product-info .product-title {
   -webkit-transform: translateX(400px);
   position: fixed;
   top: 0;
-  right: -320px;
+  right: -370px;
   z-index: 10001;
   background: #fff;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
-  width: 320px;
+  width: 370px;
   bottom: 0;
   transition: all 0.4s ease-out 0s;
   -webkit-transition: all 0.4s ease-out 0s;
@@ -3938,3 +3958,13 @@ div.table .product-info .product-title {
   margin-bottom: 22px;
 }
 /*End Email Popup*/
+
+.product-subtotal .price-sale {
+  font-size: 90%;
+  text-decoration: line-through;
+  margin-right: 10px;
+  color: #777;
+}
+button.ajax_add_to_cart.button i {
+    margin-left: 10px;
+}

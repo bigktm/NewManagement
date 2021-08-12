@@ -23,6 +23,13 @@
 		</div>
 	</div>
 	@endforeach
+	<?php
+	$message = Session::get('message');
+	if($message){
+		echo '<div class="alert alert-success mt-4"><span class="text-alert">'.$message.'</span></div>';
+		Session::put('message',null);
+	}
+	?>
 	<div class="product-type-simple">
 		<div class="product-detail main-detail-full">
 			<div class="row">
@@ -63,9 +70,11 @@
 						<h2 class="product-title title30 font-bold">{{$product->product_name}}</h2>
 						<div class="product-price">
 							@if($product->product_price_sale > 0)
-							<span class="price-sale">{{number_format($product->product_price_sale)}} đ</span>
-							@endif
+							<span class="price-sale">{{number_format($product->product_price)}} đ</span>
+							<span class="Price-amount">{{number_format($product->product_price_sale)}} đ</span>
+							@else
 							<span class="Price-amount">{{number_format($product->product_price)}} đ</span>
+							@endif
 						</div>
 						<div class="list-brand">
 							<ul class="list-inline-block">
@@ -80,16 +89,18 @@
 							<div class="product-desc">
 								<p>{{$product->product_desc}}</p>
 							</div>
-							<form class="cart" action="#" method="post" enctype='multipart/form-data'>
-								<div class="size req clearfix mb-3" >
-
-									<p>Tình Trạng: 
-										@if($product->product_status == 1)
-										<span class="text-success">Còn hàng</span>
-										@else
-										<span class="text-danger">Hết hàng</span>
-										@endif
-									</p>
+							<div class="req clearfix" >
+								<p>Tình Trạng: 
+									@if($product->product_status == 1)
+									<span class="text-success">Còn hàng</span>
+									@else
+									<span class="text-danger">Hết hàng</span>
+									@endif
+								</p>
+							</div>
+							<form method="POST" action="{{URL::to('save-cart')}}">
+								{{ csrf_field() }}
+								<div class="size mb-3" >
 									<div class="d-flex justify-content-between align-items-baseline mb-2 mt-3 mt-md-0">
 										<label>Size</label>
 									</div>
@@ -105,6 +116,7 @@
 										<a href="#" class="qty-down"><i class="fal fa-minus-square" aria-hidden="true"></i></a>
 										<input type="text" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text text qty qty-val" size="4" />
 										<a href="#" class="qty-up"><i class="fal fa-plus-square" aria-hidden="true"></i></a>
+										<input type="hidden" name="id_product" value="{{$product->product_id}}">
 									</div>
 									<button type="submit" name="add-to-cart" value="304" class="single_add_to_cart_button button alt">Thêm vào giỏ hàng</button>
 								</div>
@@ -211,7 +223,7 @@
 									<div class="product type-product status-publish has-post-thumbnail">
 										<div class="item-product item-product-grid item-product-style2">
 											<div class="product-thumb">
-												<a href="{{URL::to('/san-pham/'.$product->product_id)}}">
+												<a href="{{URL::to('/san-pham/'.$product->product_slug)}}">
 													<img width="252" height="288" src="{{asset('/public/uploads/products/'.$product->product_image)}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
 												</a>        
 											</div>
@@ -221,15 +233,16 @@
 												</h3>
 												<div class="product-price price variable">
 													@if($product->product_price_sale > 0)
-													<span class="price-sale">{{number_format($product->product_price_sale)}} đ</span>
-													@endif
+													<span class="price-sale">{{number_format($product->product_price)}} đ</span>
+													<span class="Price-amount">{{number_format($product->product_price_sale)}} đ</span>
+													@else
 													<span class="Price-amount">{{number_format($product->product_price)}} đ</span>
+													@endif
 												</div>         
 												<div class="product-extra-link">
 													<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
 												</div>
 											</div>
-
 										</div>
 									</div>
 								</div>

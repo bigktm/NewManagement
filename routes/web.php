@@ -80,13 +80,30 @@ Route::get('/delete-gallery/{gallery_id}','GalleryProduct@delete_gallery');
 
 // Front End
 Route::get('/', 'HomeController@Index' );
-Route::get('/product/id=123', 'HomeController@ProductDetail' );
-
 
 Route::get('/danh-muc/{category_slug}', 'CategoryProduct@show_category_home' );
 Route::get('/thuong-hieu/{brand_slug}', 'CategoryProduct@show_brand_home' );
 
+// Customer
+Route::get('/register-customer', 'CustomerController@register' );
 
 
-Route::get('/cart', 'HomeController@Cart' );
-Route::get('/checkout', 'HomeController@Checkout' );
+// Cart
+// Cart with vendor Gloudemans Shopping Cart
+Route::post('/save-shoping-cart', 'CartController@save_shopping_cart' );
+Route::post('/update-shoping-cart', 'CartController@update_shopping_cart' );
+Route::get('/view-cart', 'CartController@show_cart' );
+Route::get('/delete-to-cart/{rowId}', 'CartController@delete_to_cart' );
+
+// Cart with Ajax
+Route::post('/add-to-cart/{product_id}', 'CartController@addToCartAjax' );
+Route::post('/save-cart', 'CartController@save_cart' );
+Route::post('/update-cart', 'CartController@update_cart' );
+Route::get('/remove-cart-item/{session_id}', 'CartController@remove_cartItem' );
+Route::get('/your-cart', 'CartController@showCart' );
+Route::get('/count-cart', 'CartController@count_cart' );
+Route::get('/mini-cart', 'CartController@mini_cart' );
+
+// Checkout
+
+Route::get('/checkout', 'CheckoutController@checkout' );
