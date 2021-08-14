@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/dashboard', 'AdminController@Index');
 Route::get('/admin', 'AdminController@adminLogin');
 Route::post('/login-post', 'AdminController@loginPost');
+Route::get('/admin/register', 'AdminController@adminRegister');
+Route::get('/logout-admin', 'AdminController@logout_admin');
 
 // Orders
 Route::get('/orders', 'AdminController@Orders');
@@ -81,11 +83,14 @@ Route::get('/delete-gallery/{gallery_id}','GalleryProduct@delete_gallery');
 // Front End
 Route::get('/', 'HomeController@Index' );
 
+Route::get('/san-pham/', 'CategoryProduct@show_all_product' );
 Route::get('/danh-muc/{category_slug}', 'CategoryProduct@show_category_home' );
 Route::get('/thuong-hieu/{brand_slug}', 'CategoryProduct@show_brand_home' );
 
 // Customer
-Route::get('/register-customer', 'CustomerController@register' );
+Route::get('/customer/login', 'CustomerController@customer_index' );
+Route::post('/customer/register-form', 'CustomerController@register_form' );
+Route::post('/customer/login-form', 'CustomerController@login_form' );
 
 
 // Cart

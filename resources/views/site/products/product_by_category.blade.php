@@ -69,7 +69,9 @@
 											@endif
 										</div>   
 									</div>
-
+									<div class="product-extra-link">
+										<button class="btn btn-primary ajax_add_to_cart btn-add-cart" data-url="{{URL::to('add-to-cart/'.$product->product_id)}}"><span>Thêm vào giỏ hàng</span></button>
+									</div>
 								</div>
 							</div>
 						</div>

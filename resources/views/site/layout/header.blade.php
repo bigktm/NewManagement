@@ -73,103 +73,40 @@
                                         <div class="mini-cart-box  mini-cart1 aside-box">
                                             <a class="mini-cart-link" href="https://vollemobel.7uptheme.net/cart/">
                                                 <i class="fal fa-shopping-cart"></i>
-                                                <span class="mini-cart-number set-cart-number"></span>
+                                                @if(Session::get('cart'))
+                                                    <span class="mini-cart-number set-cart-number"></span>
+                                                @else
+                                                    <span class="mini-cart-number set-cart-number">0</span>
+                                                @endif
                                             </a>
                                             <div class="mini-cart-content dropdown-list text-left">
-                                                <div class="mini-cart-main-content">
-                                                    @if(Session::has('cart'))
-                                                    <div class="mini-cart-has-product">
-
-                                                        <!-- <div class="product-mini-cart list-mini-cart-item">
-                                                            @php 
-                                                            $total = 0;
-                                                            @endphp
-
-                                                            @foreach($cart as $cartItem)
-                                                            <div class="item-info-cart product-mini-cart table-custom mini_cart_item">
-                                                                <div class="product-thumb">
-                                                                    <a href="{{URL::to('/san-pham/'. $cartItem['product_slug'])}}">
-                                                                        <img width="50" height="100" src="{{asset('public/uploads/products/'. $cartItem['product_image'])}}" alt="{{$cartItem['product_name']}}">
-                                                                    </a>
-                                                                </div>
-                                                                <div class="product-info">
-                                                                    <h3 class="title14 product-title">
-                                                                        <a href="{{URL::to('/san-pham/'.$cartItem['product_slug'])}}">{{$cartItem['product_name']}}</a>
-                                                                    </h3>
-                                                                    <div class="mini-cart-qty">
-                                                                        <span class="qty-num">{{$cartItem['qty']}}</span> x 
-
-                                                                        <span class="flex-wrap">
-                                                                            @if($cartItem['product_price_sale'] > 0)
-                                                                            <span class="price-sale">{{number_format($cartItem['product_price'])}} ₫</span>
-                                                                            <span class="price-product color">{{number_format($cartItem['product_price_sale'])}} ₫</span>
-                                                                            @else
-                                                                            <span class="price-product color">{{number_format($cartItem['product_price'])}} ₫</span>
-                                                                            @endif   
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="product-delete text-right">
-                                                                    <a href="{{URL::to('/remove-cart-item/'. $cartItem['session_id'])}}" class="remove-product"><i class="fad fa-trash"></i></a>
-                                                                </div>
-                                                            </div>
-
-                                                            <?php
-                                                                if($cartItem['product_price_sale'] > 0) {
-                                                                    $subtotal = $cartItem['qty'] * $cartItem['product_price_sale'];
-                                                                } 
-                                                                else {
-                                                                    $subtotal = $cartItem['qty'] * $cartItem['product_price'];
-                                                                }
-
-                                                                $total += $subtotal;
-                                                            ?>
-
-                                                            @endforeach
-                                                        </div> 
-                                                        <div class="mini-cart-total text-uppercase title18 clearfix">
-                                                            <span class="pull-left">Tông tiền</span>
-                                                            <strong class="pull-right color mini-cart-total-price get-cart-price">{{ number_format($total)}} đ</strong>
-                                                        </div>--}}
-
-                                                        <div class="mini-cart-button">
-                                                            <a href="{{URL::to('/your-cart')}}" class="button wc-forward">Xem giỏ hàng</a>
-                                                            <a href="{{URL::to('/checkout')}}" class="button checkout wc-forward">Thanh Toán</a>
-                                                        </div> -->
-                                                    </div>
-                                                    @else
-                                                    <div class="mini-cart-empty">
-                                                        <i class="fal fa-shopping-cart title120 empty-icon"></i>
-                                                        <h5 class="desc text-uppercase font-semibold">Giỏ hàng đang trống</h5>
-                                                        <p class="title14 return-to-shop woocommerce">
-                                                            <a class="button wc-backward" href="#">Tiếp tục mua sắm</a>
-                                                        </p>
-                                                    </div>
-                                                    @endif
-                                                </div>
+                                                <div class="mini-cart-main-content"></div>
                                                 <span class="close-minicart"><i class="fal fa-times"></i></span>
                                             </div>
                                             <div class="cart-overlay"></div>    
                                         </div>
                                         <div class="account-manager dropdown-box "> 
-                                            @if (Auth::guest())
-                                            <a class="dropdown icon-dropdown" href="#"><i class="fal fa-user"></i></a>    
-                                            <ul class="dropdown-menu">
-                                                <li><a href="{{ route('login') }}">Đăng Nhập Admin</a></li>
-                                                {{-- <li><a href="{{ route('register') }}">Register</a></li>     --}}
-                                            </ul>
-                                            @else
+                                            @php
+                                                $customer = Session::get('customer_id');
+                                                $customer_name = Session::get('customer_name');
+                                            @endphp
+                                            @if($customer)
                                             <a href="#" class="dropdown dropdown-username" data-toggle="dropdown" role="button" aria-expanded="false">
-                                                {{ Auth::user()->name }} <span class="fal fa-angle-down"></span>
+                                                {{ $customer_name }} <span class="fal fa-angle-down"></span>
                                             </a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
-                                                    <a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                                                    <a href="{{ route('logout') }}"onclick="event.preventDefault();document.getElementById('logout-form').submit();">Đăng xuất</a>
                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                         {{ csrf_field() }}
                                                     </form>
                                                 </li>
                                             </ul>
+                                            @else
+                                                <a class="dropdown icon-dropdown" href="#"><i class="fal fa-user"></i></a>    
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="{{ URL::to('customer/login') }}">Đăng Nhập Thành Viên</a></li> 
+                                                </ul>
                                             @endif 
                                         </div>
                                     </div>

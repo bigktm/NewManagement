@@ -25,15 +25,7 @@
     @include('site.layout.js_file')
 </body>
 <script>
-{{--  --}} 
-
-
-    $(function () {
-
-        $('.ajax_add_to_cart').on('click', addToCart);
-        count_cart();
-        mini_cart();
-    });
+{{--  --}}  
 
     function count_cart() {
         $.ajax({
@@ -41,9 +33,7 @@
             method:"GET",
             success:function(data){
                 $('.set-cart-number').html(data);
-
             }
-
         }); 
     };
     function mini_cart() {
@@ -51,17 +41,15 @@
             url:'{{url('/mini-cart')}}',
             method:"GET",
             success:function(data){
-                $('.mini-cart-has-product').html(data);
-
+                $('.mini-cart-main-content').html(data);
             }
-
         }); 
     };
     function addToCart(event) {
         event.preventDefault();
         var url = $(this).data('url');
         var seff = $(this);
-        seff.find('i.la-check').remove();
+        seff.find('i.fa-check').remove();
         seff.append('<i class="fas fa-cog fa-spin"></i>');
         $.ajaxSetup({
             headers: {
@@ -97,6 +85,13 @@
             }
         });
     };
+
+    
+    $(function () {
+        $('.ajax_add_to_cart').on('click', addToCart);
+        count_cart();
+        mini_cart(); 
+    });
 
 </script>
 </html>

@@ -19,12 +19,25 @@ session_start();
 
 class CategoryProduct extends Controller
 {
+    public function CheckLogin() {
+        if(Session::get('admin_id')){
+            $admin_id = Session::get('admin_id');
+        }else{
+            $admin_id = Auth::id();
+        }
+        if($admin_id){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        } 
+    }
     public function AddCategory () {
+        $this->CheckLogin();
     	$category = CategoryProductModel::orderBy('category_name', 'ASC')->get();
         return view('admin.template.category.add_category_product', compact('category'));
     }
     public function AllCategory () {
-
+        $this->CheckLogin();
         $all_category_product = CategoryProductModel::orderBy('category_id', 'ASC')->paginate(10);
     	return view('admin.template.category.all_category_product', compact('all_category_product'));
     }
@@ -55,7 +68,7 @@ class CategoryProduct extends Controller
     }
 
     public function edit_category_product($category_product_id) {
-
+        $this->CheckLogin();
         $category = CategoryProductModel::orderBy('category_name','ASC')->get();
 
         $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get();
@@ -81,7 +94,6 @@ class CategoryProduct extends Controller
         Session::put('message','Xoá danh mục sản phẩm thành công');
         return Redirect::to('all-category-product');
     }
-
 
     public function show_category_home(Request $request ,$category_slug){
 

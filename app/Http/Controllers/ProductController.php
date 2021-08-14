@@ -19,8 +19,20 @@ session_start();
 
 class ProductController extends Controller
 {
+    public function CheckLogin() {
+        if(Session::get('admin_id')){
+            $admin_id = Session::get('admin_id');
+        }else{
+            $admin_id = Auth::id();
+        }
+        if($admin_id){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        } 
+    }
     public function AllProduct() {
-
+        $this->CheckLogin();
     	$all_product = ProductModel::join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->orderby('tbl_product.product_id','desc')->paginate(10);
@@ -29,6 +41,7 @@ class ProductController extends Controller
     }
     public function AddProduct()
     {
+        $this->CheckLogin();
         $cat_product = CategoryProductModel::orderBy('category_name', 'ASC')->get();
     	$brand_product = Brands::orderby('brand_id', 'desc')->get();
         return view('admin.template.products.product_add_new')->with('cat_product', $cat_product)->with('brand_product', $brand_product);
@@ -82,6 +95,7 @@ class ProductController extends Controller
     }
 
     public function edit_product($product_id) {
+        $this->CheckLogin();
     	$category = CategoryProductModel::orderBy('category_id','DESC')->get();
     	$brand = Brands::orderBy('brand_id','DESC')->get();
 

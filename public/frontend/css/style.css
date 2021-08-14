@@ -10,6 +10,9 @@
 7.Product Details
 8.Blog
 ***********************************************/
+.btn-primary:focus {
+    box-shadow: none;
+}
 #main-content {
     padding-bottom: 10rem;
 }
@@ -1515,21 +1518,22 @@ td.product-thumbnail {
 }
 .cart_totals > h2{
     font-size: 24px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
 }
 .woocommerce button.button:disabled{
     padding: 0 48px!important;
 }
 .cart-collaterals {
     position: relative;
-    background: rgba(84,84,84,0.05);
     margin-left: auto;
 }
 .cart-collaterals:before, .cart-collaterals:after {
-    background: radial-gradient(closest-side, transparent 9px, rgba(84,84,84,0.05) 100%);
+    background: radial-gradient(closest-side, transparent 9px, #f8f8f8 100%);
 }
 .cart-collaterals:before {
     content: "";
-    top: -10px;
+    top: 0;
     display: block;
     height: 10px;
     width: 100%;
@@ -1540,7 +1544,7 @@ td.product-thumbnail {
 }
 .cart-collaterals:after {
     content: "";
-    bottom: -10px;
+    bottom: 0;
     display: block;
     height: 10px;
     width: 100%;
@@ -1558,6 +1562,7 @@ td.product-thumbnail {
     width: 100% !important;
     float: none;
     padding: 40px 40px 30px;
+    background: #f8f8f8;
 }
 
 .cart_totals .shop_table_responsive {
@@ -4939,7 +4944,7 @@ a.dm-color.active{
 .header-right .wpb_wrapper > div{
     display: inline-block;
     vertical-align: middle;
-    padding: 0 15px;
+    margin: 0 15px;
     z-index: initial;
 }
 .header-right .wpb_wrapper > div.account-manager{
@@ -4976,6 +4981,7 @@ a.dm-color.active{
     margin-top: 10px;
     transform: translateY(20px);
     right: 0;
+    /* left: 0; */
 }
 .dropdown-menu.active {
     opacity: 1;
@@ -8025,6 +8031,7 @@ input[name=apply_for_vendor_submit],
     letter-spacing: 6px;
     text-indent: 6px;
     text-transform: uppercase;
+    border-radius: 5px;
 }
 input[name=apply_for_vendor_submit],
 .btn,
@@ -9149,3 +9156,132 @@ color: #ccc;
         transform: rotate(360deg);
     }
 }
+.customer_item_wrap {
+    max-width: 470px;
+}
+
+.mr-auto {
+    margin-right: auto !important;
+}
+
+.customer_item_wrap label {
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    font-size: 14px;
+    color: #777;
+}
+
+@media (min-width: 768px) {
+    
+.account_section__login:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1px;
+        height: 428px;
+        top: 0;
+        background-color: #e1e2e4;
+    }
+}
+
+.account_section {
+    position: relative;
+}
+
+.customer_item_wrap .form-control {
+    font-size: 14px;
+    height: 50px;
+    border-radius: 5px !important;
+}
+
+.customer_item_wrap .btn-primary {
+    border-radius: 4px;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 25px;
+}
+
+.customer_item_wrap .input-group-text {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+.item-info {
+    display: block;
+    position: relative;
+}
+
+.right {
+    position: relative;
+}
+
+.item-info h3 {
+    font-size: 12px;
+    display: inline-block;
+}
+
+td.product-right {
+    width: calc(100% - 150px);
+}
+
+td.item-img {
+    width: 130px;
+}
+
+.pd-2 {
+    padding-right: 2rem;
+}
+
+.item-price {
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.item-quan {
+    display: block; 
+}
+
+.item-quan .detail-qty {
+    height: auto;
+    width: 100px;
+}
+
+.item-quan .detail-qty .qty-val {
+    height: 28px;
+    text-align: center;
+    line-height: 25px;
+    font-size: 10px;
+}
+
+.item-quan .detail-qty .qty-down {
+    left: 0px;
+    bottom: 0;
+    height: 28px;
+    top: 0;
+    text-align: center;
+}
+
+.item-quan .detail-qty .qty-down i, .item-quan .detail-qty .qty-up i {font-size: 10px;}
+
+.item-quan .detail-qty .qty-up {
+    top: 0;
+    right: 0;
+    height: 28px;
+    text-align: center;
+}
+
+.item-total-price .line-item-total {
+    font-weight: 600;
+}
+
+.item-remove {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.align-center {align-items: center;}

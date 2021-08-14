@@ -1,3 +1,7 @@
+@php 
+    $admin_id = Session::get('admin_id');
+    $admin_name = Session::get('admin_name');
+@endphp
 <div class="header">
     <div class="menu-toggle-btn"> <!-- Menu close button for mobile devices -->
         <a href="#">
@@ -29,13 +33,11 @@
                     <div class="avatar me-3">
                         <img src="{{asset('public/backend/images/avatar.jpg')}}"class="rounded-circle" alt="image">
                     </div>
-                    <div>@if (Auth::guest())
+                    <div>
+                        @if (!$admin_id)
                         @else
-                        <div class="fw-bold text-capitalize"> {{ Auth::user()->name }}</div>
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="text-muted">Logout</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+                        <div class="fw-bold text-capitalize"> {{ $admin_name }}</div>
+                        <a href="{{ URL::to('logout-admin') }}" class="text-muted">Đăng Xuất</a>
                         @endif
                     </div>
                 </div>

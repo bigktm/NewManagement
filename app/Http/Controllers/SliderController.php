@@ -12,11 +12,25 @@ session_start();
 
 class SliderController extends Controller
 {
+    public function CheckLogin() {
+        if(Session::get('admin_id')){
+            $admin_id = Session::get('admin_id');
+        }else{
+            $admin_id = Auth::id();
+        }
+        if($admin_id){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        } 
+    }
     public function all_slider() {
+        $this->CheckLogin();
     	$slider_list = Slider::join('tbl_category_product','tbl_category_product.category_id','=','tbl_slider.category_id')->orderby('tbl_slider.slider_id','desc')->get();
     	return view('admin.template.slider.all_slider', compact('slider_list'));
     }
     public function add_slider () {
+        $this->CheckLogin();
     	$category = DB::table('tbl_category_product')->orderBy('category_id','DESC')->get();
         return view('admin.template.slider.add_slider')->with('category', $category);
     }
@@ -50,6 +64,7 @@ class SliderController extends Controller
         return Redirect::to('all-slider');
     }
     public function edit_slider($slider_id) {
+        $this->CheckLogin();
     	$category = CategoryProductModel::orderBy('category_id','DESC')->get();
     	$edit_slider = DB::table('tbl_slider')->where('slider_id', $slider_id)->get();
     	$manage_slider = view('admin.template.slider.edit_slider')->with('edit_slider', $edit_slider)->with('category', $category);

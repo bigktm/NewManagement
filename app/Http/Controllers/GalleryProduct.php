@@ -16,8 +16,21 @@ session_start();
 
 class GalleryProduct extends Controller
 {
+	public function CheckLogin() {
+        if(Session::get('admin_id')){
+            $admin_id = Session::get('admin_id');
+        }else{
+            $admin_id = Auth::id();
+        }
+        if($admin_id){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        } 
+    }
 	public function add_gallery ($product_id)
 	{	
+		$this->CheckLogin();
 		$product_id = $product_id;
 		$show_gallery = Gallery::where('product_id', $product_id)->get();
 		$manage_gallery = view('admin.template.gallery.gallery_add')->with(compact('product_id'))->with('show_gallery', $show_gallery);

@@ -21,7 +21,7 @@
 					</a>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item">
-							<a href="{{URL::to('/gio-hang')}}">Giỏ hàng</a>
+							<a href="{{URL::to('/your-cart')}}">Giỏ hàng</a>
 						</li>
 						<li class="breadcrumb-item">Thông tin giao hàng</li>
 					</ul>
@@ -34,10 +34,11 @@
 									<h2 class="section-title tp_title">Thông tin giao hàng</h2>
 								</div>
 								<div class="section-content section-customer-information no-mb">
-									<p class="section-content-text">
-										Bạn đã có tài khoản thành viên?
-										<a href="">Đăng nhập</a>
-									</p>
+									@if(!Session::get('customer_id'))
+										<p class="section-content-text">
+											Bạn đã có tài khoản thành viên? <a href="{{URL::to('customer/login')}}">Đăng nhập</a>
+										</p>
+									@endif
 									<div class="fieldset row flex-wrap">
 										<div class="field col-md-8 field-two-thirds">
 											<div class="field-input-wrapper">
@@ -189,7 +190,7 @@
 									</button>
 								</div>
 
-								<a class="step-footer-previous-link tp_title" href="{{URL::to('/gio-hang')}}"><i class="fal fa-angle-left"></i> Giỏ hàng</a>
+								<a class="step-footer-previous-link tp_title" href="{{URL::to('/your-cart')}}"><i class="fal fa-angle-left"></i> Giỏ hàng</a>
 							</div>
 						</div>
 

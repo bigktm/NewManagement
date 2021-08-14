@@ -15,11 +15,24 @@ session_start();
 
 class BrandProduct extends Controller
 {
+    public function CheckLogin() {
+        if(Session::get('admin_id')){
+            $admin_id = Session::get('admin_id');
+        }else{
+            $admin_id = Auth::id();
+        }
+        if($admin_id){
+            return Redirect::to('dashboard');
+        }else{
+            return Redirect::to('admin')->send();
+        } 
+    }
     public function AddBrand () {
+        $this->CheckLogin();
         return view('admin.template.brand.add_brand_product');
     }
     public function AllBrand () {
-
+        $this->CheckLogin();
     	$all_brand_product = DB::table('tbl_brand')->paginate(5);
     	$manage_brand_product = view('admin.template.brand.all_brand_product')->with('all_brand_product', $all_brand_product);
     	return view('admin.dashboard')->with('admin.brand.category.all_brand_product', $manage_brand_product);
@@ -67,6 +80,7 @@ class BrandProduct extends Controller
     }
 
     public function edit_brand_product($brand_id) {
+        $this->CheckLogin();
     	$edit_brand_product = DB::table('tbl_brand')->where('brand_id', $brand_id)->get();
     	$manage_brand_product = view('admin.template.brand.edit_brand_product')->with('edit_brand_product', $edit_brand_product);
     	return view('admin.dashboard')->with('admin.brand.category.edit_brand_product', $manage_brand_product);

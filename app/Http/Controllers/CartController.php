@@ -169,17 +169,43 @@ class CartController extends Controller
     public function count_cart() {
         $cart = count(Session::get('cart'));
         $output = '';
-        $output.=$cart;
+        if(count(Session::get('cart')) == 0) {
+            $output = 0;
+        } else {
+            $output.= $cart;
+        }
         echo $output;
     }
     public function mini_cart() { 
         $cart = count(Session::get('cart'));
+
         $output = '';
                                                     
+        $total = 0;
 
-        if($cart>0){
-            $output.='<div class="product-mini-cart list-mini-cart-item">';
+        if(count(Session::get('cart')) == 0) {
+           $output.='<div class="mini-cart-empty">';
+           $output.='<i class="fal fa-shopping-cart title120 empty-icon"></i>';
+           $output.='<h5 class="desc text-uppercase font-semibold">Giỏ hàng đang trống</h5>';
+           $output.='<p class="title14 return-to-shop woocommerce">';
+           $output.='<a class="button wc-backward" href="#">Tiếp tục mua sắm</a>';
+           $output.='</p></div>';                                            
+        } else {
+            $output.='<div class="mini-cart-has-product"><div class="product-mini-cart list-mini-cart-item">';
             foreach(Session::get('cart') as $key => $cartItem){
+
+                if($cartItem['product_price_sale'] > 0) {
+                    $price = $cartItem['product_price_sale'];
+                    $subtotal = $cartItem['qty'] * $price;
+                } 
+                else {
+                    $price = $cartItem['product_price'];
+                    $subtotal = $cartItem['qty'] * $price;
+                }
+
+                $total += $subtotal;
+
+
                 $output.='<div class="item-info-cart product-mini-cart table-custom mini_cart_item">';
                 $output.='<div class="product-thumb">';
                 $output.='<a href="'.url('/san-pham/'. $cartItem['product_slug']).'">';
@@ -189,11 +215,18 @@ class CartController extends Controller
                 $output.='<a href="'.url('/san-pham/'.$cartItem['product_slug']).'">'.$cartItem['product_name'].'</a></h3>';
                 $output.='<div class="mini-cart-qty">';
                 $output.='<span class="qty-num">'.$cartItem['qty'].'</span> x <span class="flex-wrap">';
-                $output.='<span class="price-product">'.number_format($cartItem['product_price']).' ₫</span></span></div></div>';
+                $output.='<span class="price-product">'.number_format($price).' ₫</span></span></div></div>';
                 $output.='<div class="product-delete text-right">';
                 $output.='<a href="'.url('/remove-cart-item/'. $cartItem['session_id']).'" class="remove-product"><i class="fad fa-trash"></i></a></div></div>';
             }  
             $output.='</div>';
+            $output.='<div class="mini-cart-total text-uppercase title18 clearfix">';
+            $output.='<span class="pull-left">Tông tiền</span>';
+            $output.='<strong class="pull-right color mini-cart-total-price get-cart-price">'.number_format($total).' đ</strong></div>';
+            $output.='<div class="mini-cart-button">';
+            $output.='<a href="'.url('/your-cart').'" class="button wc-forward">Xem giỏ hàng</a>';
+            $output.='<a href="'.url('/checkout').'" class="button checkout wc-forward">Thanh Toán</a>';
+            $output.='</div></div>';
         }
 
         echo $output;
