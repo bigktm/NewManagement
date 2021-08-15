@@ -91,6 +91,7 @@ Route::get('/thuong-hieu/{brand_slug}', 'CategoryProduct@show_brand_home' );
 Route::get('/customer/login', 'CustomerController@customer_index' );
 Route::post('/customer/register-form', 'CustomerController@register_form' );
 Route::post('/customer/login-form', 'CustomerController@login_form' );
+Route::get('/customer/logout', 'CustomerController@logout_customer' );
 
 
 // Cart
@@ -112,3 +113,5 @@ Route::get('/mini-cart', 'CartController@mini_cart' );
 // Checkout
 
 Route::get('/checkout', 'CheckoutController@checkout' );
+Route::post('/save-order-form', 'CheckoutController@save_order_form' );
+Route::get('/place-order', 'CheckoutController@place_order' );

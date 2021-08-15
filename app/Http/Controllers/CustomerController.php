@@ -21,18 +21,21 @@ class CustomerController extends Controller
    		$data = array();
 
    		$data['customer_name'] = $request->customer_name;
-        $data['customer_email'] = $request->customer_email;
-        $data['customer_password'] = md5($request->customer_password);
-        $data['customer_phone'] = $request->customer_phone;
+      $data['customer_email'] = $request->customer_email;
+      $data['customer_password'] = md5($request->customer_password);
+      $data['customer_phone'] = $request->customer_phone;
 
-        $customer_id = Customer::insertGetId($data);
-        Session::put('customer_id', $customer_id);
-        Session::put('customer_name', $request->customer_name); 
-        Session::put('message', 'Bạn đã đăng ký thành viên thành công'); 
-        return Redirect::to('/');
+
+      $customer_id = Customer::insertGetId($data);
+      Session::put('customer_id', $customer_id);
+      Session::put('customer_name', $request->customer_name); 
+      Session::put('customer_phone', $request->customer_phone); 
+      Session::put('message', 'Bạn đã đăng ký thành viên thành công'); 
+      return Redirect::to('/');
    	}
    	public function login_form(Request $request) 
    	{
+        $data_cart = Session::get('cart');
         $email = $request->customer_email;
         $password = md5($request->customer_password);
         $result = Customer::where('customer_email', $email)->where('customer_password', $password)->first();
@@ -40,7 +43,13 @@ class CustomerController extends Controller
         if($result) {
 	        Session::put('customer_id', $result->customer_id);
 	        Session::put('customer_name', $result->customer_name); 
-	        return Redirect::to('/');
+          Session::put('customer_phone', $result->customer_phone);
+
+          if($data_cart) {
+            return Redirect::to('/checkout');
+          } else {
+            return Redirect::to('/');
+          }
 
         }else {
 
@@ -48,4 +57,10 @@ class CustomerController extends Controller
         	return Redirect::to('/customer/login');	
         }
    	}
+
+    public function logout_customer()
+    {
+        Session::forget('customer_id');
+        return Redirect::to('/');
+    }
 }

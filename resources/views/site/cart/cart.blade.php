@@ -118,7 +118,7 @@
 									<tr class="cart-subtotal">
 										<th>Phí vận chuyển</th>
 										<td data-title="Subtotal">
-											<span class="price-product"></span>
+											<span class="price-product">0</span>
 										</td>
 									</tr>
 									

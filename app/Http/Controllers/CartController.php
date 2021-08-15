@@ -178,12 +178,11 @@ class CartController extends Controller
     }
     public function mini_cart() { 
         $cart = count(Session::get('cart'));
-
         $output = '';
                                                     
         $total = 0;
 
-        if(count(Session::get('cart')) == 0) {
+        if(Session::get('cart') == NULL) {
            $output.='<div class="mini-cart-empty">';
            $output.='<i class="fal fa-shopping-cart title120 empty-icon"></i>';
            $output.='<h5 class="desc text-uppercase font-semibold">Giỏ hàng đang trống</h5>';
@@ -225,7 +224,11 @@ class CartController extends Controller
             $output.='<strong class="pull-right color mini-cart-total-price get-cart-price">'.number_format($total).' đ</strong></div>';
             $output.='<div class="mini-cart-button">';
             $output.='<a href="'.url('/your-cart').'" class="button wc-forward">Xem giỏ hàng</a>';
-            $output.='<a href="'.url('/checkout').'" class="button checkout wc-forward">Thanh Toán</a>';
+            if(Session::get('customer_id')) {
+                $output.='<a href="'.url('/checkout').'" class="button checkout wc-forward">Thanh Toán</a>';
+            } else {
+                $output.='<a href="'.url('/customer/login').'" class="button wc-forward">Thanh Toán</a>';
+            }
             $output.='</div></div>';
         }
 
