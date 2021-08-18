@@ -29,7 +29,7 @@
         <ul class="menu-sidebar">
             <li class="menu-divider">Menu</li>
             <li class="">
-                <a class="active" href="{{URL::to('/dashboard')}}">
+                <a href="{{URL::to('/dashboard')}}"  class="{{ Request::path() == 'dashboard' ? ' active ' : '' }}">
                     <span class="nav-link-icon">
                         <i class="bi bi-bar-chart"></i>
                     </span>
@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" class="">
                     <span class="nav-link-icon">
                         <i class="fal fa-images"></i>
                     </span>
@@ -45,34 +45,51 @@
                 </a>
                 <ul>
                     <li>
-                        <a  href="{{URL::to('/add-slider')}}">Thêm slider</a>
+                        <a  href="{{URL::to('/add-slider')}}"  class="{{ Request::path() == 'add-slider' ? ' active ' : '' }}">Thêm slider</a>
                     </li>
                     <li>
-                        <a  href="{{URL::to('/all-slider')}}">Danh sách slider</a>
+                        <a  href="{{URL::to('/all-slider')}}"  class="{{ Request::path() == 'all-slider' ? ' active ' : '' }}">Danh sách slider</a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="{{URL::to('/orders')}}">
+             <li>
+                <a href="#">
                     <span class="nav-link-icon">
-                        <i class="bi bi-receipt"></i>
+                        <i class="fal fa-badge-percent"></i>
                     </span>
-                    <span>Đơn Hàng</span>
+                    <span>Mã giảm giá</span>
+                </a>
+                <ul>
+                    <li>
+                        <a  href="{{URL::to('/add-coupon')}}"  class="{{ Request::path() == 'add-coupon' ? ' active ' : '' }}">Thêm mã giảm giá</a>
+                    </li>
+                    <li>
+                        <a  href="{{URL::to('/all-coupon')}}"  class="{{ Request::path() == 'all-coupon' ? ' active ' : '' }}">Danh sách mã giảm giá</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="{{URL::to('/orders')}}" class="{{ Request::path() == 'orders' ? ' active ' : '' }}">
+                    <span class="nav-link-icon">
+                        <i class="fal fa-clipboard-list"></i>
+                    </span>
+                    <span>Đơn Hàng </span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="#" class="">
                     <span class="nav-link-icon">
-                        <i class="bi bi-box"></i>
+                        <i class="fal fa-tshirt"></i>
                     </span>
                     <span>Sản Phẩm</span>
                 </a>
                 <ul>
                     <li>
-                        <a  href="{{URL::to('/add-new-product')}}">Thêm sản phẩm</a>
+                        <a  href="{{URL::to('/add-new-product')}}"  class="{{ Request::path() == 'add-new-product' ? ' active ' : '' }}">Thêm sản phẩm</a>
                     </li>
                     <li>
-                        <a  href="{{URL::to('/all-product-list')}}">Danh sách sản phẩm</a>
+                        <a  href="{{URL::to('/all-product-list')}}" class="{{ Request::path() == 'all-product-list' ? ' active ' : '' }}">Danh sách sản phẩm</a>
                     </li>
                 </ul>
             </li>
@@ -85,10 +102,10 @@
                 </a>
                 <ul>
                     <li>
-                        <a  href="{{URL::to('/add-category-product')}}">Thêm danh mục sản phẩm</a>
+                        <a  href="{{URL::to('/add-category-product')}}" class="{{ Request::path() == 'add-category-product' ? ' active ' : '' }}">Thêm danh mục sản phẩm</a>
                     </li>
                     <li>
-                        <a  href="{{URL::to('/all-category-product')}}">Danh sách danh mục</a>
+                        <a  href="{{URL::to('/all-category-product')}}" class="{{ Request::path() == 'all-category-product' ? ' active ' : '' }}">Danh sách danh mục</a>
                     </li>
                 </ul>
             </li>
@@ -101,12 +118,20 @@
                 </a>
                 <ul>
                     <li>
-                        <a  href="{{URL::to('/add-brand-product')}}">Thêm thương hiệu</a>
+                        <a  href="{{URL::to('/add-brand-product')}}" class="{{ Request::path() == 'add-brand-product' ? ' active ' : '' }}">Thêm thương hiệu</a>
                     </li>
                     <li>
-                        <a  href="{{URL::to('/all-brand-product')}}">Danh sách thương hiệu</a>
+                        <a  href="{{URL::to('/all-brand-product')}}" class="{{ Request::path() == 'all-brand-product' ? ' active ' : '' }}">Danh sách thương hiệu</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="{{URL::to('/customer-list')}}" class="{{ Request::path() == 'customer-list' ? ' active ' : '' }}">
+                    <span class="nav-link-icon">
+                        <i class="fal fa-users"></i>
+                    </span>
+                    <span>Quản lý thành viên</span>
+                </a>
             </li>
         </ul>
     </div>

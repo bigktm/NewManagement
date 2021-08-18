@@ -87,8 +87,8 @@
                                     <input type="text"  class="form-control" name="product_price"  required id="" placeholder="Giá bán" >
                                 </div>
                                 <div class="form-group  col-md-6">
-                                    <label for="">Giá khuyễn mãi</label>
-                                    <input type="text" name="product_price_sale" class="form-control" placeholder="Giá khuyễn mãi">
+                                    <label for="">Giá khuyễn mãi <i class="fad fa-tags"></i></label>
+                                    <input type="text" name="product_price_sale" class="form-control"  value="0" placeholder="Giá khuyễn mãi">
                                 </div>
                                 <div class="form-group  col-md-6">
                                     <label for="">Số lượng trong kho</label>
@@ -114,7 +114,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Chi tiết sản phẩm</label>
-                                <textarea style="resize: none" rows="8" class="form-control"  name="product_content"  id="editor" placeholder="Nội dung sản phẩm"></textarea>
+                                <textarea style="resize: none" rows="8" class="form-control ckeditor"  name="product_content"  id="editor" placeholder="Nội dung sản phẩm"></textarea>
                             </div>
                         </div>
                         <div class="form-group col-md-4">
@@ -128,7 +128,6 @@
 
 </div>
 <!-- ./ content -->
-
 @endsection
 <?php
 

@@ -26,25 +26,34 @@
 			<div class="card mb-4">
 				<div class="card-body">
 					<div class="mb-5 d-flex align-items-center justify-content-between">
-						<span>Order No : <a href="#">#5355619</a></span>
-						<span class="badge bg-success">Completed</span>
+						<span>Mã đơn hàng : <span style="text-transform: uppercase;font-weight:600;color: #f1af51;">#{{$data_order->order_code}}</span></span>
+						@if($data_order->order_status == 0)
+							<span class="badge bg-info">Đang chờ xử lý</span>
+						@elseif($data_order->order_status == 1)
+							<span class="badge bg-warning">Đang giao hàng</span>
+						@elseif($data_order->order_status == 2)
+							<span class="badge bg-success">Đã hoàn thành</span>
+						@else
+							<span class="badge bg-danger">Đã bị huỷ</span>
+						@endif
+						
 					</div>
 					<div class="row mb-5 g-4">
 						<div class="col-md-3 col-sm-6">
-							<p class="fw-bold">Order Created at</p>
-							16/06/2021 at 04:23 PM
+							<p class="fw-bold">Ngày đặt hàng</p>
+							{{$data_order->order_date}}
 						</div>
 						<div class="col-md-3 col-sm-6">
-							<p class="fw-bold">Name</p>
-							Sayres Seater
+							<p class="fw-bold">Tên người đặt</p>
+							{{$data_order->customer_name}}
 						</div>
 						<div class="col-md-3 col-sm-6">
 							<p class="fw-bold">Email</p>
-							sayres@sayres.com
+							{{$data_order->customer_email}}
 						</div>
 						<div class="col-md-3 col-sm-6">
-							<p class="fw-bold">Contact No</p>
-							767-251-8637
+							<p class="fw-bold">Số điện thoại</p>
+							{{$data_order->customer_phone}}
 						</div>
 					</div>
 					<div class="row g-4">
@@ -52,14 +61,13 @@
 							<div class="card">
 								<div class="card-body d-flex flex-column gap-3">
 									<div class="d-flex justify-content-between">
-										<h5 class="mb-0">Delivery Address</h5>
-										<a href="#">Edit</a>
+										<h5 class="mb-0">Địa chỉ giao hàng</h5>
 									</div>
-									<div>Name: Home</div>
-									<div>Josephin Villa</div>
-									<div>81 Fulton Park, Brazil/Pedro Leopoldo</div>
+									<div><i class="fal fa-money-check-alt me-2"></i> Phương thức thanh toán: {{$data_order->shipping_method}}</div>
+									<div><i class="fal fa-user me-2"></i>{{$data_order->shipping_name}}</div>
+									<div><i class="fal fa-map-marker-alt me-2"></i> {{$data_order->shipping_address}}</div>
 									<div>
-										<i class="bi bi-telephone me-2"></i> 408-963-7769
+										<i class="bi bi-telephone me-2"></i> {{$data_order->shipping_phone}}
 									</div>
 								</div>
 							</div>
@@ -68,15 +76,10 @@
 							<div class="card">
 								<div class="card-body d-flex flex-column gap-3">
 									<div class="d-flex justify-content-between">
-										<h5 class="mb-0">Billing Address</h5>
-										<a href="#">Edit</a>
+										<h5 class="mb-0">Ghi chú đơn hàng</h5>
 									</div>
-									<div>Name: Workplace</div>
-									<div>Josephin Villa</div>
-									<div>29543 South Plaza, Canada/Sydney Mines</div>
-									<div>
-										<i class="bi bi-telephone me-2"></i> 484-948-8535
-									</div>
+									<div><i class="fal fa-comment-alt-dots me-2"></i> Ghi chú: </div>
+									<p>{{$data_order->shipping_notes}}</p>
 								</div>
 							</div>
 						</div>
@@ -84,53 +87,31 @@
 				</div>
 			</div>
 			<div class="card widget">
-				<h5 class="card-header">Order Items</h5>
+				<h5 class="card-header">Chi tiết đơn hàng</h5>
 				<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-custom mb-0">
 							<thead>
 								<tr>
-									<th>Photo</th>
-									<th>Name</th>
-									<th>Quantity</th>
-									<th>Price</th>
-									<th>Total</th>
+									<th>Hình ảnh</th>
+									<th>Tên sản phẩm</th>
+									<th>Số lượng</th>
+									<th>Giá</th>
+									<th>Tổng tiền</th>
 								</tr>
 							</thead>
 							<tbody>
+								@foreach($order_items as $item)
 								<tr>
 									<td>
-										<a href="#">
-											<img src="{{asset('public/backend/images/1.png')}}" class="rounded" width="60" alt="...">
-										</a>
+										<img src="{{asset('public/uploads/products/'.$item->product_image)}}" class="rounded" width="60" alt="...">
 									</td>
-									<td>Digital clock</td>
-									<td>1</td>
-									<td>$1.190,90</td>
-									<td>$1.190,90</td>
+									<td>{{$item->product_name}}</td>
+									<td>{{$item->product_qty}}</td>
+									<td>{{number_format($item->product_price)}} ₫</td>
+									<td>{{number_format($item->product_price*$item->product_qty)}} ₫</td>
 								</tr>
-								<tr>
-									<td>
-										<a href="#">
-											<img src="{{asset('public/backend/images/2.png')}}" class="rounded" width="60" alt="...">
-										</a>
-									</td>
-									<td>Toy car</td>
-									<td>2</td>
-									<td>$139,58</td>
-									<td>$279,16</td>
-								</tr>
-								<tr>
-									<td>
-										<a href="#">
-											<img src="{{asset('public/backend/images/3.png')}}" class="rounded" width="60" alt="...">
-										</a>
-									</td>
-									<td>Sunglasses</td>
-									<td>1</td>
-									<td>$50,90</td>
-									<td>$50,90</td>
-								</tr>
+								@endforeach
 							</tbody>
 						</table>
 					</div>
@@ -140,48 +121,22 @@
 		<div class="col-lg-4 col-md-12 mt-4 mt-lg-0">
 			<div class="card mb-4">
 				<div class="card-body">
-					<h6 class="card-title mb-4">Price</h6>
+					<h6 class="card-title mb-4">Tổng tiền</h6>
 					<div class="row justify-content-center mb-3">
-						<div class="col-4 text-end">Sub Total :</div>
-						<div class="col-4">$1.520,96</div>
+						<div class="col-4 text-end">Tổng đơn :</div>
+						<div class="col-4">{{number_format($data_order->order_total)}} ₫</div>
 					</div>
 					<div class="row justify-content-center mb-3">
-						<div class="col-4 text-end">Shipping :</div>
-						<div class="col-4">Free</div>
-					</div>
-					<div class="row justify-content-center mb-3">
-						<div class="col-4 text-end">Tax(18%) :</div>
-						<div class="col-4">$273,77</div>
+						<div class="col-4 text-end">Phí vận chuyển :</div>
+						<div class="col-4">{{number_format($fee)}} ₫</div>
 					</div>
 					<div class="row justify-content-center">
 						<div class="col-4 text-end">
-							<strong>Total :</strong>
+							<strong>Tổng :</strong>
 						</div>
 						<div class="col-4">
-							<strong>$1.794,73</strong>
+							<strong>{{number_format($data_order->order_total+ $fee)}} ₫</strong>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="card">
-				<div class="card-body">
-					<h6 class="card-title mb-4">Invoice</h6>
-					<div class="row justify-content-center mb-3">
-						<div class="col-6 text-end">Invoice No :</div>
-						<div class="col-6">
-							<a href="#">#5355619</a>
-						</div>
-					</div>
-					<div class="row justify-content-center mb-3">
-						<div class="col-6 text-end">Seller GST :</div>
-						<div class="col-6">12HY87072641Z0</div>
-					</div>
-					<div class="row justify-content-center mb-3">
-						<div class="col-6 text-end">Purchase GST :</div>
-						<div class="col-6">22HG9838964Z1</div>
-					</div>
-					<div class="text-center mt-4">
-						<button class="btn btn-outline-primary">Download PDF</button>
 					</div>
 				</div>
 			</div>

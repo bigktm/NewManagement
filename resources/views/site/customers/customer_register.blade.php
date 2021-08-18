@@ -4,23 +4,28 @@
 	<div class="wrap-bread-crumb">
 		<div class="bread-crumb"> 
 			<div class="bread-crumb-wrap">
-				<span><a href="{{URL::to('/')}}"><i class="fad fa-home mr-3"></i> Home</a></span>
-				<span>Customer Account</span>       		
+				<span><a href="{{URL::to('/')}}"><i class="fad fa-home mr-3"></i> Trang chủ</a></span>
+				<span>Đăng ký tài khoản</span>       		
 			</div>
 		</div>
 	</div>
-	<?php
-	$message = Session::get('message');
-	if($message){
-		echo '<div class="alert alert-success"><span class="text-alert">'.$message.'</span></div>';
-		Session::put('message',null);
-	}
+	@php
 	$message_error = Session::get('message_error');
 	if($message_error){
 		echo '<div class="alert alert-danger"><span class="text-alert">'.$message_error.'</span></div>';
 		Session::put('message_error',null);
 	}
-	?>
+	@endphp
+
+	@if ($errors->any()) 
+	<div class="alert alert-danger">
+		<ul style="margin-bottom: 0">
+			@foreach ($errors->all() as $message) 
+			<li>{{ $message }}</li>
+			@endforeach
+		</ul>
+	</div>
+	@endif
 	<div class="row mt-4">
 		<div class="col-md-12">
 			<div class="customer_wrapper row">	
@@ -61,21 +66,21 @@
 							{{ csrf_field() }}
 							<div class="form-group">
 								<label>Tên Đăng Nhập</label>
-								<input type="text" value="" required placeholder="Tên Đăng Nhập" name="customer_name"  class="form-control">
+								<input type="text" value=""  placeholder="Tên Đăng Nhập" name="customer_name"  class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" value="" required placeholder="Email" name="customer_email"  class="form-control">
+								<input type="email" value=""  placeholder="Email" name="customer_email"  class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Số Điện Thoại</label>
-								<input type="text" value="" required placeholder="Số Điện Thoại" name="customer_phone"  class="form-control">
+								<input type="text" value=""  placeholder="Số Điện Thoại" name="customer_phone"  class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Mật Khẩu</label>
 								<div class="form-control-content ">
 									<div class="input-group">
-										<input type="password" required placeholder="Mật Khẩu" value="" name="customer_password" class="form-control js-visible-password">
+										<input type="password"  placeholder="Mật Khẩu" value="" name="customer_password" class="form-control js-visible-password">
 										<div class="input-group-append">
 											<div class="input-group-text" data-action="show-password">
 												<i class="fal fa-eye-slash"></i>

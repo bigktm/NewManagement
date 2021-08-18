@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label for="exampleInputPassword1">Từ khóa danh mục</label>
-                            <textarea style="resize: none" rows="4" class="form-control" name="category_product_keywords" id="exampleInputPassword1" placeholder="Mô tả danh mục"></textarea>
+                            <input type="text" class="form-control tagsinput-example" name="category_product_keywords" placeholder="Từ khoá" value="">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="exampleInputPassword1">Thuộc danh mục</label>

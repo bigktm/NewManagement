@@ -9,12 +9,12 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="#">
+                    <a href="{{URL::to('dashboard')}}">
                         <i class="bi bi-globe2 small me-2"></i> Dashboard
                     </a>
                 </li>
-                <li class="breadcrumb-item" aria-current="page"><a href="#">Sửa sản phẩm</a></li>
-                <li class="breadcrumb-item active" aria-current="page"></li>
+                <li class="breadcrumb-item" aria-current="page"><a href="{{URL::to('all-product-list')}}">Sản phẩm</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sửa sản phẩm</li>
             </ol>
         </nav>
     </div>

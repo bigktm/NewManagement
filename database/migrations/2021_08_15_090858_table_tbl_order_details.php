@@ -19,7 +19,7 @@ class TableTblOrderDetails extends Migration
             $table->integer('product_id');
             $table->integer('product_name');
             $table->string('product_price');
-            $table->string('product_sales_quantity');
+            $table->string('product_qty');
             $table->string('product_coupon');
             $table->timestamps();
         });

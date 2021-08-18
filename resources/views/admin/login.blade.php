@@ -29,19 +29,31 @@
                                         <h1 class="display-8">Đăng nhập</h1>
                                         <p class="text-muted">Đăng nhập vào trang quản lý cửa hàng</p>
                                     </div>
-                                    <?php
-                                    $message = Session::get('message');
-                                    if($message){
-                                        echo '<div class="alert alert-danger"><span class="text-alert">'.$message.'</span></div>';
-                                        Session::put('message',null);
+
+                                    @php
+                                    $message_login = Session::get('message_login');
+                                    if($message_login){
+                                        echo '<div class="alert alert-danger"><span class="text-alert">'.$message_login.'</span></div>';
+                                        Session::put('message_login',null);
                                     }
-                                    ?>
+                                    @endphp
+
+                                    @if ($errors->any()) 
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $message) 
+                                            <li>{{ $message }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
+
                                     <div class="mb-5">
                                         <div class="mb-3">
-                                            <input id="admin_email" type="email" class="form-control" name="admin_email" value="" required autofocus placeholder="Email">
+                                            <input id="admin_email" type="email" class="form-control" name="admin_email" value="{{ old('admin_name') }}" autofocus placeholder="Email">
                                         </div>
                                         <div class="mb-3">
-                                            <input id="admin_password" type="password" class="form-control" name="admin_password" required placeholder="Mật khẩu">
+                                            <input id="admin_password" type="password" class="form-control" name="admin_password" value="{{ old('admin_password') }}" placeholder="Mật khẩu">
                                         </div>
                                         <div class="d-flex justify-between">
                                             <div class="checkbox">
@@ -57,38 +69,8 @@
                                     </div>
 
                                     <p class="text-center d-block mt-5 mt-lg-0">
-                                        Nếu chưa có tài khoản admin <a href="javascript:;" class="toggle-form">Đăng ký mới</a>.
+                                        Nếu chưa có tài khoản admin <a href="{{ route('admin.register') }}" class="toggle-form">Đăng ký mới</a>.
                                     </p>
-                                </div>
-                            </form>
-                            <form class="form-horizontal"  id="register-form"  method="POST" action="{{ URL::to('admin/register') }}" style="display: none;">
-                                {{ csrf_field() }}
-                                <div class="col-md-10 offset-md-1">
-                                    <div class="my-5 text-center text-lg-start">
-                                        <h1 class="display-8">Đăng Ký</h1>
-                                        <p class="text-muted">Đăng ký làm quản trị viên</p>
-                                    </div>
-                                    <div class="mb-5">
-                                        <div class="mb-3">
-                                            <label for="name" class="control-label">Họ Tên</label>
-                                            <input id="name" type="text" class="form-control" name="admin_name" value="" required placeholder="Tên của bạn">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="email" class="control-label">Địa chỉ Email</label>
-                                            <input id="email" type="email" class="form-control" name="admin_email" value="" required placeholder="Email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="password" class="control-label">Mật khẩu</label>
-                                            <input id="password" type="password" class="form-control" name="admin_password" required placeholder="Mật khẩu">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="password" class="control-label">Nhập lại mật khẩu</label>
-                                            <input id="password" type="password" class="form-control" name="admin_password_confirm" required placeholder="Mật khẩu">
-                                        </div>
-                                        <div class="text-center text-lg-start">
-                                            <button class="btn btn-primary">Đăng Ký</button>
-                                        </div>
-                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -100,11 +82,5 @@
     </div>
     <script src="{{asset('/public/backend/js/jquery.min.js')}}"></script>
     <script src="{{asset('/public/backend/js/bootstrap.min.js')}}"></script>
-    <script>
-        $('.toggle-form').click(function(){
-            $('#login-form').hide();
-            $('#register-form').show();
-        });
-    </script>
 </body>
 </html>

@@ -8,6 +8,7 @@ use Session;
 use Auth;
 use Validator;
 use App\Http\Requests;
+use App\Http\Requests\RegisterAdminRequest;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 
@@ -27,16 +28,19 @@ class AdminController extends Controller
         } 
     }
 
-    public function adminLogin() {
+    public function admin_login() {
         return view('admin.login');
     }
-    public function adminRegister(Request $request) {
+    public function admin_register() {
+        return view('admin.register');
+    }
+    public function register_form(RegisterAdminRequest $request) {
 
         $data = array();
 
         $data['admin_name'] = $request->admin_name;
         $data['admin_email'] = $request->admin_email;
-        $data['admin_password'] = md5($request->admin_password);
+        $data['admin_password'] = md5($request->password);
 
         $admin_id = DB::table('tbl_admin')->insertGetId($data);
 
@@ -45,10 +49,23 @@ class AdminController extends Controller
 
         return Redirect::to('dashboard');
     }
-    public function loginPost(Request $request) 
+    public function login_form(Request $request) 
     {
         $ad_email = $request->admin_email;
         $ad_password = md5($request->admin_password);
+
+        $this->validate($request,[
+            'admin_email'=>'required|email',
+            'admin_password'=>'required'
+        ],
+        [
+            'admin_email.required' => ':attribute không được để trống',
+            'admin_password.required' => ':attribute không được để trống',
+        ],
+        [
+            'admin_email' => 'Email',
+            'admin_password' => 'Mật khẩu',
+        ]);
 
         $result = DB::table('tbl_admin')->where('admin_email', $ad_email)->where('admin_password', $ad_password)->first();
 
@@ -57,27 +74,14 @@ class AdminController extends Controller
             Session::put('admin_name', $result->admin_name);
             return Redirect::to('dashboard');
         } else {
-            Session::put('message', 'Tài khoản hoặc mật khẩu không đúng'); 
+            Session::put('message_login', 'Tài khoản hoặc mật khẩu không đúng'); 
             return Redirect::to('/admin'); 
         }
 
     }
-    public function logout_admin()
+    public function admin_logout()
     {
         Session::flush();
         return Redirect::to('/admin');
-    }
-    public function Index()
-    {
-        $this->CheckLogin();
-        return view('admin.template.overview');
-    }
-    public function Orders()
-    {
-        return view('admin.template.orders.orders');
-    }
-    public function ViewOrders()
-    {
-        return view('admin.template.orders.view_order');
     }
 }

@@ -19,6 +19,7 @@ class TableTblOrder extends Migration
             $table->integer('shipping_id');
             $table->integer('order_status');
             $table->string('order_code');
+            $table->string('order_total');
             $table->string('order_date');
             $table->string('order_destroy');
             $table->timestamps();

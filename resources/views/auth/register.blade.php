@@ -31,7 +31,6 @@
                                         <div class="mb-3{{ $errors->has('name') ? ' has-error' : '' }}">
                                             <label for="name" class="control-label">Họ Tên</label>
                                             <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="Tên của bạn">
-
                                             @if ($errors->has('name'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('name') }}</strong>

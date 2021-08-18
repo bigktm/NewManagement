@@ -24,7 +24,7 @@
 		<div id="-1" class="sidebar-widget widget">
 			<h3 class="widget-title">Thương Hiệu</h3>
 			<ul class="list-none">
-				@foreach($brands_list as $key => $brand)
+				@foreach($brand_product as $key => $brand)
 				<li class="cat-item">
 					<a class="" href="{{URL::to('thuong-hieu/'.$brand->brand_slug)}}">
 						<span>{{$brand->brand_name}}</span>

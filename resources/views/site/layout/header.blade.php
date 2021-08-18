@@ -67,9 +67,6 @@
                                                 </form>
                                             </div>
                                         </div>
-                                        @php 
-                                            $cart = Session::get('cart');
-                                        @endphp
                                         <div class="mini-cart-box  mini-cart1 aside-box">
                                             <a class="mini-cart-link" href="https://vollemobel.7uptheme.net/cart/">
                                                 <i class="fal fa-shopping-cart"></i>
@@ -80,7 +77,17 @@
                                                 @endif
                                             </a>
                                             <div class="mini-cart-content dropdown-list text-left">
-                                                <div class="mini-cart-main-content"></div>
+                                                <div class="mini-cart-main-content">
+                                                    @if(!Session::get('cart'))
+                                                        <div class="mini-cart-empty">
+                                                            <i class="fal fa-shopping-cart title120 empty-icon"></i>
+                                                            <h5 class="desc text-uppercase font-semibold">Giỏ hàng đang trống</h5>
+                                                            <p class="title14 return-to-shop woocommerce">
+                                                                <a class="button wc-backward" href="#">Tiếp tục mua sắm</a>
+                                                            </p>
+                                                        </div>
+                                                    @endif
+                                                </div>
                                                 <span class="close-minicart"><i class="fal fa-times"></i></span>
                                             </div>
                                             <div class="cart-overlay"></div>    

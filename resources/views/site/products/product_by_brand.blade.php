@@ -49,10 +49,10 @@
 											<img  src="{{asset('/public/uploads/products/'.$product->product_image)}}" alt="{{$product->product_name}}" />
 										</a>  
 										<div class="product-label">
-											@if($product->product_price_sale)
+											@if($product->product_price_sale > 0)
 											<span class="sale">Sale</span>
 											@endif
-											<span class="featured">Mới</span>
+											{{-- <span class="featured">Mới</span> --}}
 										</div>      
 									</div>
 									<div class="product-info">

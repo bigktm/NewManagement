@@ -8,15 +8,22 @@ use App\Customer;
 use Session;
 use Auth;
 use App\Http\Requests;
+use App\Http\Requests\RegisterCustomerRequest;
 use Illuminate\Support\Facades\Redirect;
 session_start();
 
 class CustomerController extends Controller
 {
-   	public function customer_index() {
-   		return view('site.customers.customer_register');
+   	public function customer_index(Request $request) {
+
+      $meta_title = 'Đăng nhập thành viên';
+      $meta_desc = 'HT Store - Hệ thống cửa hàng thời trang nam cao cấp hàng đầu Việt Nam. Thiết kế tinh tế, mang đến sự lịch lãm và mạnh mẽ';
+      $meta_keyworks = 'HT Store, thoi trang cao cap, thoi trang nam';
+      $meta_canonical = $request->url();
+
+   		return view('site.customers.customer_register', compact('meta_title','meta_desc','meta_keyworks','meta_canonical'));
    	}
-   	public function register_form(Request $request) 
+   	public function register_form(RegisterCustomerRequest $request) 
    	{
    		$data = array();
 
@@ -30,7 +37,6 @@ class CustomerController extends Controller
       Session::put('customer_id', $customer_id);
       Session::put('customer_name', $request->customer_name); 
       Session::put('customer_phone', $request->customer_phone); 
-      Session::put('message', 'Bạn đã đăng ký thành viên thành công'); 
       return Redirect::to('/');
    	}
    	public function login_form(Request $request) 
@@ -62,5 +68,21 @@ class CustomerController extends Controller
     {
         Session::forget('customer_id');
         return Redirect::to('/');
+    }
+
+
+    // Admin
+
+    public function all_customer() 
+    {
+      $customers_list = Customer::orderBy('customer_id', 'desc')->paginate(10);
+      return view('admin.template.customers.customer_list', compact('customers_list'));
+    }
+
+    public function delete_customer($customer_id)
+    {
+        Customer::where('customer_id', $customer_id)->delete();
+        Session::put('message','Xoá thành viên thành công');
+        return Redirect::to('customer-list');
     }
 }

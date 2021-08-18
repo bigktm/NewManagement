@@ -161,6 +161,8 @@ class ProductController extends Controller
 
     public function detail_product(Request $request ,$product_slug) {
 
+
+
         $product_slug = ProductModel::where('product_slug',$product_slug)->get();
 
         foreach($product_slug as $key => $product){
@@ -172,10 +174,17 @@ class ProductController extends Controller
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('product_id', $product_id)->get(); 
 
+        foreach ($data_product as $val) {
+            $meta_title = $val->product_name;
+            $meta_desc = $val->product_desc;
+            $meta_keyworks = $val->product_keywords;
+            $meta_canonical = $request->url();
+        }
+
         $related_product = ProductModel::join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')
         ->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')
         ->where('tbl_category_product.category_id',$category_id)->whereNotIn('tbl_product.product_id',[$product_id])->orderby(DB::raw('RAND()'))->paginate(4);
 
-        return view('site.products.product_detail')->with('data_product', $data_product)->with('galery_product_thumb', $galery_product_thumb)->with('related_product', $related_product);
+        return view('site.products.product_detail')->with(compact('data_product','galery_product_thumb','related_product','meta_title','meta_desc','meta_keyworks','meta_canonical'));
     }
 }

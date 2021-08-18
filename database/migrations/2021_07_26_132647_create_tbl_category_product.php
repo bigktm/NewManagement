@@ -15,7 +15,7 @@ class CreateTblCategoryProduct extends Migration
     {
         Schema::create('tbl_category_product', function (Blueprint $table) {
             $table->increments('category_id');
-            $table->string('category_name');
+            $table->string('category_name')->unique();
             $table->string('category_slug');
             $table->text('category_desc');
             $table->string('category_keywords');

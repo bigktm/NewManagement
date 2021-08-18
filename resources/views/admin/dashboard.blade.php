@@ -43,5 +43,19 @@
 @include('admin.layout.js_file')
 
 <script src="{{asset('public/backend/js/dashboard.js')}}"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+        $('.date_coupon').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true
+        });
+
+        ClassicEditor.create(document.querySelector('#editor'));
+        
+    });
+</script>
 </body>
 </html>

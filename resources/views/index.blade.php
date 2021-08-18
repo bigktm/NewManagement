@@ -1,17 +1,18 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <title>@yield('title')</title>
+    <title>{{$meta_title}}</title>
     <meta charset="utf-8">
+    <meta name="keywords" content="{{$meta_keyworks}}">
+    <meta name="description" content="{{$meta_desc}}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta property="og:url" content=""/>
     <meta property="og:title" content=""/>
     <meta property="og:description" content=""/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="keywords" content="">
     <meta name="robots" content="index, follow">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('/public/frontend/images/favicon.png')}}">
-
+    <link rel="canonical" href="{{$meta_canonical}}">
     @include('site.layout.css_file')
 </head>
 <body class="">

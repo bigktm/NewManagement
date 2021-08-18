@@ -88,7 +88,7 @@ class CartController extends Controller
             ];
         }
         Session::put('cart', $cart);
-        Session::put('message','Đã thêm sản phẩm vào giỏ hàng');
+        Session::put('message','Đã được thêm vào giỏ hàng');
         return redirect()->back();
     }
 
@@ -161,9 +161,15 @@ class CartController extends Controller
     }
 
     // your cart
-    public function showCart() {
+    public function showCart(Request $request) {
+        
+        $meta_title = 'Giỏ hàng';
+        $meta_desc = 'HT Store - Hệ thống cửa hàng thời trang nam cao cấp hàng đầu Việt Nam. Thiết kế tinh tế, mang đến sự lịch lãm và mạnh mẽ';
+        $meta_keyworks = 'HT Store, thoi trang cao cap, thoi trang nam';
+        $meta_canonical = $request->url();
+
         $cart = Session::get('cart');
-        return view('site.cart.cart', compact('cart'));
+        return view('site.cart.cart', compact('cart','meta_title','meta_desc','meta_keyworks','meta_canonical'));
     }
 
     public function count_cart() {
@@ -233,5 +239,9 @@ class CartController extends Controller
         }
 
         echo $output;
+    }
+
+    public function check_coupon() {
+        
     }
 }

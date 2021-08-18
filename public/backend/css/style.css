@@ -197,3 +197,38 @@ margin-right: 0;
 .has-error {
     border: 1px solid red;
 }
+.update_status_order {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update_status_order select {
+    max-width: 60%;
+}
+.alert ul {
+    margin: 0;
+}
+.help-block {
+    display: block;
+    margin-top: 5px;
+    color: red;
+}
+.empty-product {
+    padding: 2.5rem;
+    text-align: center;
+    color: #777;
+}
+
+.empty-product i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.empty-product p {
+    font-size: 1.25rem;
+}
+.relative {
+    position: relative;
+}

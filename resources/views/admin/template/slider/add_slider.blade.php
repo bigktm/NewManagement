@@ -26,7 +26,7 @@
                             <div class="form-group">
                                 <label>Hình ảnh slider</label>
                                 <div class="input-group form-control">
-                                    <input id="upload" type="file" onchange="readURL(this);"  name="slider_image" class="form-control">
+                                    <input id="upload" type="file" onchange="readURL(this);" required name="slider_image" class="form-control">
                                     <label id="upload-label" for="upload" class="font-weight-light text-muted"></label>
                                     <div class="input-group-append">
                                         <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> 
@@ -44,14 +44,14 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="name">Tiêu đề h1</label>
-                                <input type="text"  class="form-control" name="slider_title" placeholder="Tiêu đề" >
+                                <input type="text" required class="form-control" name="slider_title" placeholder="Tiêu đề" >
                             </div>
                             <div class="form-group">
                                 <label>Tiêu đề con h4</label>
-                                <input type="text" name="slider_subtitle" class="form-control" placeholder="">
+                                <input type="text" name="slider_subtitle" required class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
-                                <label>Liên kết danh mục</label>
+                                <label>Liên kết danh mục button</label>
                                 <select name="category_slider" class="form-control input-sm select2-example ">
                                     @foreach($category as $key => $val_cat)
                                     @if($val_cat->category_parent==0)

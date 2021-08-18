@@ -97,20 +97,28 @@ class CategoryProduct extends Controller
 
     public function show_category_home(Request $request ,$category_slug){
 
-        $category_list = CategoryProductModel::where('category_status','1')->orderby('category_parent','desc')->get(); 
         $brand_product = Brands::get(); 
 
         $category_by_slug = CategoryProductModel::where('category_slug',$category_slug)->get();
 
         foreach($category_by_slug as $key => $cate){
             $category_id = $cate->category_id;
+            $meta_title = $cate->category_name;
+            $meta_desc = $cate->category_desc;
+            $meta_keyworks = $cate->category_keywords;
+            $meta_canonical = $request->url();
         }
+
+
+        $category_list = CategoryProductModel::where('category_status','1')->orderby('category_parent','desc')->get(); 
+         
 
         $category_by_id = ProductModel::with('category')->where('category_id',$category_id)->orderBy('product_id','DESC')->paginate(9);
 
+
         $category_name = CategoryProductModel::where('tbl_category_product.category_slug',$category_slug)->limit(1)->get();
 
-        return view('site.products.product_by_category')->with('category_list',$category_list)->with('brands_list',$brand_product)->with('category_name',$category_name)->with('category_by_id', $category_by_id);
+        return view('site.products.product_by_category')->with(compact('category_list','brand_product','category_name','category_by_id','meta_title','meta_desc','meta_keyworks','meta_canonical'));
     }
 
     public function show_brand_home(Request $request ,$brand_slug){
@@ -121,12 +129,16 @@ class CategoryProduct extends Controller
 
         foreach($brand_by_slug as $key => $cate){
             $brand_id = $cate->brand_id;
+            $meta_title = $cate->brand_name;
+            $meta_desc = $cate->brand_desc;
+            $meta_keyworks = $cate->brand_name;
+            $meta_canonical = $request->url();
         }
 
         $brand_by_id = ProductModel::with('brand')->where('brand_id',$brand_id)->orderBy('product_id','DESC')->paginate(9);
 
         $brand_name = Brands::where('tbl_brand.brand_slug',$brand_slug)->limit(1)->get();
-
-        return view('site.products.product_by_brand')->with('category_list',$category_list)->with('brands_list',$brand_product)->with('brand_name',$brand_name)->with('brand_by_id', $brand_by_id);
+        
+        return view('site.products.product_by_brand')->with(compact('category_list','brand_product','brand_name','brand_by_id','meta_title','meta_desc','meta_keyworks','meta_canonical'));
     }
 }

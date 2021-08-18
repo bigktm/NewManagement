@@ -34,7 +34,7 @@
     <div class="row wpb_row h3-banner-wrap mb150">
         <div class="col-sm-4 col-xs-12">
             <div class="banner-advs h3-banner-adv res767-mb50  zoom-image">
-                <a href="{{URL::to('/shop')}}" class="adv-thumb-link">    
+                <a href="{{URL::to('/danh-muc/thoi-trang-nam')}}" class="adv-thumb-link">    
                     <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-1.png')}}"> 
                 </a>            
                 <div class="banner-info ">
@@ -46,7 +46,7 @@
         </div>
         <div class="col-sm-4 col-xs-12">
             <div class="banner-advs h3-banner-adv h3-banner-adv2 res767-mb50  zoom-image">
-                <a href="{{URL::to('/shop')}}" class="adv-thumb-link">    
+                <a href="{{URL::to('/danh-muc/thoi-trang-nam')}}" class="adv-thumb-link">    
                     <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-2.png')}}">   
                 </a>            
                 <div class="banner-info ">
@@ -58,7 +58,7 @@
         </div>
         <div class="col-sm-4 col-xs-12">
             <div class="banner-advs h3-banner-adv  zoom-image">
-                <a href="{{URL::to('/shop')}}" class="adv-thumb-link">    
+                <a href="{{URL::to('/danh-muc/thoi-trang-nu')}}" class="adv-thumb-link">    
                     <img width="372" height="506" src="{{asset('/public/frontend/images/h3-banner-3.png')}}">   
                 </a>            
                 <div class="banner-info ">
@@ -92,7 +92,7 @@
                                                     <img  src="{{asset('/public/uploads/products/'.$product_new->product_image)}}" alt="" />
                                                 </a>       
                                                 <div class="product-label">
-                                                    @if($product_new->product_price_sale)
+                                                    @if($product_new->product_price_sale > 0)
                                                     <span class="sale">Sale</span>
                                                     @endif
                                                 </div>  
@@ -158,7 +158,7 @@
                                                     <img  src="{{asset('/public/uploads/products/'. $pro_cate->product_image)}}" alt="" />
                                                 </a>   
                                                 <div class="product-label">
-                                                    @if($pro_cate->product_price_sale)
+                                                    @if($pro_cate->product_price_sale > 0)
                                                     <span class="sale">Sale</span>
                                                     @endif
                                                 </div>  

@@ -16,7 +16,7 @@ class TableTblAdmin extends Migration
         Schema::create('tbl_admin', function (Blueprint $table) {
             $table->increments('id');
             $table->string('admin_name');
-            $table->string('admin_email', 100);
+            $table->string('admin_email', 100)->unique();
             $table->string('admin_password');
             $table->rememberToken();
             $table->timestamps();
