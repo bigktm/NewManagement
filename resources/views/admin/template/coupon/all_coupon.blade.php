@@ -70,7 +70,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a href="{{URL::to('/edit-coupon/'.$item->coupon_id)}}" class="dropdown-item">Sửa mã giảm giá</a>
-                                    <a data-id="{{$item->coupon_id}}" data-action="{{URL::to('/delete-coupon/'.$item->coupon_id)}}" class="dropdown-item delete-product">Xoá mã giảm giá</a>
+                                    <a data-id="{{$item->coupon_id}}" data-action="{{URL::to('/delete-coupon/'.$item->coupon_id)}}" class="dropdown-item delete-item">Xoá mã giảm giá</a>
                                 </div>
                             </div>
                         </div>

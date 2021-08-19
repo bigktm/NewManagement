@@ -60,7 +60,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
                                 	<a href="{{URL::to('/edit-slider/'.$slider->slider_id)}}" class="dropdown-item">Sửa Slider</a>
-                                	<a data-id="{{$slider->slider_id}}" data-action="{{URL::to('/delete-slider/'.$slider->slider_id)}}" class="dropdown-item delete-product">Xoá Slider</a>
+                                	<a data-id="{{$slider->slider_id}}" data-action="{{URL::to('/delete-slider/'.$slider->slider_id)}}" class="dropdown-item delete-item">Xoá Slider</a>
                                 </div>
                             </div>
                         </div>

@@ -23,13 +23,13 @@
 		</div>
 	</div>
 	@endforeach
-	<?php
-	$message = Session::get('message');
-	if($message){
-		echo '<div class="alert alert-success mt-4"><span class="text-alert">'.$message.'</span></div>';
-		Session::put('message',null);
+	@php
+	$product_name = Session::get('product_name');
+	if($product_name) {
+		echo '<div class="alert alert-added mt-4"><div class="left"><i class="fad fa-check-circle"></i><span class="text-alert">"'.$product_name.'"</span> đã được thêm vào giỏ hàng</div><div class="right"><a href="'.url('/your-cart').'">Xem giỏ hàng</a></div></div>';
+		Session::put('product_name',null);
 	}
-	?>
+	@endphp
 	<div class="product-type-simple">
 		<div class="product-detail main-detail-full">
 			<div class="row">

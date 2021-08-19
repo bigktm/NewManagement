@@ -73,7 +73,7 @@
                                 <div class="dropdown-menu dropdown-menu-end">
                                     <a href="{{URL::to('/orders/view-order-detail/'.$item->order_id)}}" class="dropdown-item">Xem đơn hàng</a>
                                     <a href="{{URL::to('/orders/edit-order-detail/'.$item->order_id)}}" class="dropdown-item">Sửa đơn hàng</a>
-                                    <a data-id="{{$item->order_id}}" data-action="{{URL::to('/delete-order/'.$item->order_id)}}" class="dropdown-item delete-product">Xoá đơn hàng</a>
+                                    <a data-id="{{$item->order_id}}" data-action="{{URL::to('/delete-order/'.$item->order_id)}}" class="dropdown-item delete-item">Xoá đơn hàng</a>
                                 </div>
                             </div>
                         </div>

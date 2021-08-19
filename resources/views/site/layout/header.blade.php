@@ -68,7 +68,7 @@
                                             </div>
                                         </div>
                                         <div class="mini-cart-box  mini-cart1 aside-box">
-                                            <a class="mini-cart-link" href="https://vollemobel.7uptheme.net/cart/">
+                                            <a class="mini-cart-link" href="#">
                                                 <i class="fal fa-shopping-cart"></i>
                                                 @if(Session::get('cart'))
                                                     <span class="mini-cart-number set-cart-number"></span>
@@ -77,18 +77,19 @@
                                                 @endif
                                             </a>
                                             <div class="mini-cart-content dropdown-list text-left">
+                                                <div class="d-flex justify-between">
+                                                    <span class="title-cart">Giỏ Hàng</span>
+                                                    <span class="close-minicart"><i class="fal fa-times"></i></span>
+                                                </div>
+                                                <span class="textCartSide">Bạn đang có <b class="set-cart-number"></b> sản phẩm trong giỏ hàng.</span>
                                                 <div class="mini-cart-main-content">
                                                     @if(!Session::get('cart'))
                                                         <div class="mini-cart-empty">
                                                             <i class="fal fa-shopping-cart title120 empty-icon"></i>
-                                                            <h5 class="desc text-uppercase font-semibold">Giỏ hàng đang trống</h5>
-                                                            <p class="title14 return-to-shop woocommerce">
-                                                                <a class="button wc-backward" href="#">Tiếp tục mua sắm</a>
-                                                            </p>
+                                                            <p class="mt-4">Hiện chưa có sản phẩm</p>
                                                         </div>
                                                     @endif
                                                 </div>
-                                                <span class="close-minicart"><i class="fal fa-times"></i></span>
                                             </div>
                                             <div class="cart-overlay"></div>    
                                         </div>

@@ -123,6 +123,7 @@ Route::post('/add-to-cart/{product_id}', 'CartController@addToCartAjax' );
 Route::post('/save-cart', 'CartController@save_cart' );
 Route::post('/update-cart', 'CartController@update_cart' );
 Route::get('/remove-cart-item/{session_id}', 'CartController@remove_cartItem' );
+Route::get('/delete-cart-item/{session_id}', 'CartController@remove_cartItem_ajax' );
 Route::get('/your-cart', 'CartController@showCart' );
 Route::get('/count-cart', 'CartController@count_cart' );
 Route::get('/mini-cart', 'CartController@mini_cart' );

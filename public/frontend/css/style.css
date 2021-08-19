@@ -1531,7 +1531,7 @@ td.product-thumbnail {
 .cart-collaterals:before, .cart-collaterals:after {
     background: radial-gradient(closest-side, transparent 9px, #f8f8f8 100%);
 }
-.cart-collaterals:before {
+/* .cart-collaterals:before {
     content: "";
     top: 0;
     display: block;
@@ -1552,7 +1552,7 @@ td.product-thumbnail {
     background-color: transparent;
     background-size: 20px 20px;
     background-position: 0 10px, 40px 40px;
-}
+} */
 .cart-collaterals:after {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -2049,10 +2049,19 @@ form.cart{
 }
 .widget .mini-cart-button a:first-child,
 .mini-cart-button a:first-child {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgb(0 0 0);
 }
 .mini-cart-box.aside-box .mini-cart-button a{
-    letter-spacing: 5px;
+    letter-spacing: 0;
+}
+.mini-cart-box.aside-box .mini-cart-button .btn-link {
+    background: none;
+    color: #000;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    text-decoration: none;
+    font-weight: 400;
+    margin-top: 10px;
 }
 .aside-box .dropdown-list {
     pointer-events: inherit;
@@ -3292,29 +3301,38 @@ body.page-content-box [data-vc-full-width] [data-vc-full-width]{
 /*End fix*/
 .close-minicart{
     display: none;
-    position: absolute;
-    height: 40px;
-    width: 40px;
+    position: relative;
     line-height: 40px;
     text-align: center;
-    color: #333;
+    color: #5e5e5e;
     font-size: 30px;
-    top: 0;
-    left: -39px;
-    color: #fff;
     cursor: pointer;
 }
+
 .aside-box .mini-cart-content.active .close-minicart{
     display: block;
     transition: all 0.4s ease-out 0s;
     -webkit-transition: all 0.4s ease-out 0s;
 }
 .aside-box .close-minicart:hover{
-    color: #dc9814;
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
+    /* color: #dc9814; */
+    /* transform: rotate(180deg); */
+    /* -webkit-transform: rotate(180deg); */
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
+}
+.title-cart {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+span.textCartSide {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 1px dotted #bcbcbc;
+    padding: 0 0 15px;
 }
 /*filter product element*/
 .btn-filter {

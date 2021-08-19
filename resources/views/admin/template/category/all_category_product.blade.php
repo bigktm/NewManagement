@@ -89,7 +89,7 @@
                                         <a href="#" data-bs-toggle="dropdown" class="btn btn-floating" aria-haspopup="true" aria-expanded="false"> <i class="bi bi-three-dots"></i> </a>
                                         <div class="dropdown-menu dropdown-menu-end">
                                             <a href="{{URL::to('/edit-category-product/'.$cat_pro->category_id)}}" class="dropdown-item">Sửa Danh Mục</a>
-                                            <a data-id="{{$cat_pro->category_id}}" data-action="{{URL::to('/delete-category-product/'.$cat_pro->category_id)}}" class="dropdown-item delete-product">Xoá Danh Mục</a>
+                                            <a data-id="{{$cat_pro->category_id}}" data-action="{{URL::to('/delete-category-product/'.$cat_pro->category_id)}}" class="dropdown-item delete-item">Xoá Danh Mục</a>
                                         </div>
                                     </div>
                                 </div>

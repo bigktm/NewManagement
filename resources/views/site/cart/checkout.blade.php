@@ -247,20 +247,23 @@
 					</div>
 					<div class="order-summary-sections">
 						<div class="order-summary-section order-summary-section-discount">
-							<div id="form_discount_add">
-								<div class="fieldset">
-									<div class="field  ">
-										<div id="txtCode" style="padding: 0 0 5px 0"></div>
-										<div class="d-flex justify-between field-input-btn-wrapper">
-											<input placeholder="Mã giảm giá" class="field-input" name="couponCode" id="discount_code">
-											<button type="button" id="getCoupon" class="btn tp_button">
-												<span class="btn-content">Sử dụng</span>
-											</button>
+							<form action="{{url('check-coupon')}}" method="POST" >
+								{{ csrf_field() }}
+								<div id="form_discount_add">
+									<div class="fieldset">
+										<div class="field  ">
+											<div id="txtCode" style="padding: 0 0 5px 0"></div>
+											<div class="d-flex justify-between field-input-btn-wrapper">
+												<input placeholder="Mã giảm giá" class="field-input" name="couponCode" id="discount_code">
+												<button type="button" id="getCoupon" class="btn tp_button">
+													<span class="btn-content">Sử dụng</span>
+												</button>
+											</div>
 										</div>
 									</div>
+									<p>Nhập mã " <span style="color:#f1af51;"><strong>HTStore</strong></span> " Giảm thêm 5% cho đơn hàng ( &gt; 200k )</p>
 								</div>
-								<p>Nhập mã " <span style="color:#f1af51;"><strong>HTStore</strong></span> " Giảm thêm 5% cho đơn hàng ( &gt; 200k )</p>
-							</div>
+							</form>
 						</div>
 						<div class="order-summary-section order-summary-section-total-lines">
 							<table class="total-line-table">

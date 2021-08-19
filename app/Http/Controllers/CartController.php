@@ -88,7 +88,7 @@ class CartController extends Controller
             ];
         }
         Session::put('cart', $cart);
-        Session::put('message','Đã được thêm vào giỏ hàng');
+        Session::put('product_name', $products->product_name);
         return redirect()->back();
     }
 
@@ -125,7 +125,8 @@ class CartController extends Controller
 
     public function remove_cartItem($session_id) {
         $cart = Session::get('cart');
-
+        $output = '';
+        $total = 0;
         if(Session::has('cart')) {
             foreach($cart as $key => $cartItem) {
                 if($cartItem['session_id'] == $session_id) {
@@ -137,7 +138,64 @@ class CartController extends Controller
         } else {
             return redirect()->back();
         }
-        
+        echo $output;
+    }
+    public function remove_cartItem_Ajax($session_id) {
+        $cart = Session::get('cart');
+        $output = '';
+        $total = 0;
+        if(Session::has('cart')) {
+            foreach($cart as $key => $cartItem) {
+                if($cartItem['session_id'] == $session_id) {
+                    unset($cart[$key]);
+                }
+            }
+            Session::put('cart', $cart);
+            $output.='<div class="mini-cart-has-product"><div class="product-mini-cart list-mini-cart-item">';
+            foreach(Session::get('cart') as $key => $cartItem){
+
+                if($cartItem['product_price_sale'] > 0) {
+                    $price = $cartItem['product_price_sale'];
+                    $subtotal = $cartItem['qty'] * $price;
+                } 
+                else {
+                    $price = $cartItem['product_price'];
+                    $subtotal = $cartItem['qty'] * $price;
+                }
+
+                $total += $subtotal;
+
+
+                $output.='<div class="item-info-cart product-mini-cart table-custom mini_cart_item">';
+                $output.='<div class="product-thumb">';
+                $output.='<a href="'.url('/san-pham/'. $cartItem['product_slug']).'">';
+                $output.='<img width="50" height="100" src="'.asset('public/uploads/products/'. $cartItem['product_image']).'" alt="'.$cartItem['product_name'].'"></a></div>';
+                $output.='<div class="product-info">';
+                $output.='<h3 class="title14 product-title">';
+                $output.='<a href="'.url('/san-pham/'.$cartItem['product_slug']).'">'.$cartItem['product_name'].'</a></h3>';
+                $output.='<div class="mini-cart-qty">';
+                $output.='<span class="qty-num">'.$cartItem['qty'].'</span> x <span class="flex-wrap">';
+                $output.='<span class="price-product">'.number_format($price).' ₫</span></span></div>';
+                $output.='<div class="product-delete text-right">';
+                $output.='<a href="javascript:;" data-url="'.url('/delete-cart-item/'. $cartItem['session_id']).'" class="remove-product remove-this-item"><i class="fal fa-trash"></i></a></div>';
+                $output.='</div></div>';
+            }  
+            $output.='</div>';
+            $output.='<div class="mini-cart-total text-uppercase title18 clearfix">';
+            $output.='<span class="pull-left">Tông tiền tạm tính</span>';
+            $output.='<strong class="pull-right color mini-cart-total-price get-cart-price">'.number_format($total).' đ</strong></div>';
+            $output.='<div class="mini-cart-button">';
+            if(Session::get('customer_id')) {
+                $output.='<a href="'.url('/checkout').'" class="button checkout wc-forward">Thanh Toán</a>';
+            } else {
+                $output.='<a href="'.url('/customer/login').'" class="button wc-forward">Thanh Toán</a>';
+            }
+            $output.='<a href="'.url('/your-cart').'" class="btn-link">Xem giỏ hàng <i class="fal fa-arrow-right"></i></a>';
+            $output.='</div></div>';
+        } else {
+            return redirect()->back();
+        }
+        echo $output;
     }
 
     // update cart
@@ -191,10 +249,8 @@ class CartController extends Controller
         if(Session::get('cart') == NULL) {
            $output.='<div class="mini-cart-empty">';
            $output.='<i class="fal fa-shopping-cart title120 empty-icon"></i>';
-           $output.='<h5 class="desc text-uppercase font-semibold">Giỏ hàng đang trống</h5>';
-           $output.='<p class="title14 return-to-shop woocommerce">';
-           $output.='<a class="button wc-backward" href="#">Tiếp tục mua sắm</a>';
-           $output.='</p></div>';                                            
+           $output.='<p class="mt-4">Hiện chưa có sản phẩm</p>';
+           $output.='</div>';                                            
         } else {
             $output.='<div class="mini-cart-has-product"><div class="product-mini-cart list-mini-cart-item">';
             foreach(Session::get('cart') as $key => $cartItem){
@@ -220,21 +276,22 @@ class CartController extends Controller
                 $output.='<a href="'.url('/san-pham/'.$cartItem['product_slug']).'">'.$cartItem['product_name'].'</a></h3>';
                 $output.='<div class="mini-cart-qty">';
                 $output.='<span class="qty-num">'.$cartItem['qty'].'</span> x <span class="flex-wrap">';
-                $output.='<span class="price-product">'.number_format($price).' ₫</span></span></div></div>';
+                $output.='<span class="price-product">'.number_format($price).' ₫</span></span></div>';
                 $output.='<div class="product-delete text-right">';
-                $output.='<a href="'.url('/remove-cart-item/'. $cartItem['session_id']).'" class="remove-product"><i class="fad fa-trash"></i></a></div></div>';
+                $output.='<a href="javascript:;" data-url="'.url('/delete-cart-item/'. $cartItem['session_id']).'" class="remove-product remove-this-item"><i class="fal fa-trash"></i></a></div>';
+                $output.='</div></div>';
             }  
             $output.='</div>';
             $output.='<div class="mini-cart-total text-uppercase title18 clearfix">';
-            $output.='<span class="pull-left">Tông tiền</span>';
+            $output.='<span class="pull-left">Tông tiền tạm tính</span>';
             $output.='<strong class="pull-right color mini-cart-total-price get-cart-price">'.number_format($total).' đ</strong></div>';
             $output.='<div class="mini-cart-button">';
-            $output.='<a href="'.url('/your-cart').'" class="button wc-forward">Xem giỏ hàng</a>';
             if(Session::get('customer_id')) {
                 $output.='<a href="'.url('/checkout').'" class="button checkout wc-forward">Thanh Toán</a>';
             } else {
                 $output.='<a href="'.url('/customer/login').'" class="button wc-forward">Thanh Toán</a>';
             }
+            $output.='<a href="'.url('/your-cart').'" class="btn-link">Xem giỏ hàng <i class="fal fa-arrow-right"></i></a>';
             $output.='</div></div>';
         }
 

@@ -44,11 +44,11 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="name">Tiêu đề h1</label>
-                                <input type="text" required class="form-control" name="slider_title" placeholder="Tiêu đề" >
+                                <input type="text"  class="form-control" name="slider_title" placeholder="Tiêu đề" >
                             </div>
                             <div class="form-group">
                                 <label>Tiêu đề con h4</label>
-                                <input type="text" name="slider_subtitle" required class="form-control" placeholder="">
+                                <input type="text" name="slider_subtitle"  class="form-control" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label>Liên kết danh mục button</label>

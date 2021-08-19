@@ -61,7 +61,7 @@
                                     <i class="bi bi-three-dots"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a data-id="{{$val->customer_id}}" data-action="{{URL::to('customers/delete-customer/'. $val->customer_id)}}" class="dropdown-item delete-product">Xoá thành viên</a>
+                                    <a data-id="{{$val->customer_id}}" data-action="{{URL::to('customers/delete-customer/'. $val->customer_id)}}" class="dropdown-item delete-item">Xoá thành viên</a>
                                 </div>
                             </div>
                         </div>

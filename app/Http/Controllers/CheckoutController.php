@@ -26,10 +26,7 @@ class CheckoutController extends Controller
         $meta_keyworks = 'HT Store, thoi trang cao cap, thoi trang nam';
         $meta_canonical = $request->url();
 
-    	$cart = Session::get('cart');
-    	// echo '<pre>';
-    	// print_r($cart);
-    	// echo '</pre>';
+    	$cart = Session::get('cart'); 
     	return view('site.cart.checkout', compact('cart','meta_title','meta_desc','meta_keyworks','meta_canonical'));
     }
 

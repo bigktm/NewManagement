@@ -474,18 +474,19 @@ $(document).ready(function () {
 
 
 $(document).ready(function(){
-    $(".delete-product").click(function(){
+    $(".delete-item").click(function(){
         var current_object = $(this);
         swal({
-            title: "Bạn có chắc muốn xoá sản phẩm này?",
-            text: "Sản phẩm này sẽ bị xoá khi bạn đồng ý",
+            title: "Thông báo !",
+            text: "Bạn có chắc muốn xoá?",
             type: "error",
             icon: "danger",
             showCancelButton: true,
             dangerMode: true,
             cancelButtonClass: '#DD6B55',
             confirmButtonColor: '#dc3545',
-            confirmButtonText: 'Xoá sản phẩm',
+            confirmButtonText: 'Xoá',
+            cancelButtonText: 'Huỷ bỏ',
         },function (result) {
             if (result) {
                 var action = current_object.attr('data-action');

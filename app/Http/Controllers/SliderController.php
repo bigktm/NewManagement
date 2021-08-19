@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use App\Slider;
+use Auth;
 use App\CategoryProductModel;
 use Illuminate\Support\Facades\Redirect;
 session_start();

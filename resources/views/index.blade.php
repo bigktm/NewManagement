@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="{{$meta_keyworks}}">
     <meta name="description" content="{{$meta_desc}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta property="og:url" content=""/>
     <meta property="og:title" content=""/>
@@ -28,6 +29,26 @@
 <script>
 {{--  --}}  
 
+    
+    $(function () {
+        $('.ajax_add_to_cart').on('click', addToCart);
+        count_cart();
+        mini_cart(); 
+    });
+    
+    $(document).on("click",".remove-this-item", function () {
+        event.preventDefault();
+        var url_del = $(this).data('url');
+        $.ajax({
+            url: url_del,
+            method:"GET",
+            success:function(data){
+                $('.mini-cart-main-content').html(data);
+                count_cart();
+                mini_cart(); 
+            }
+        }); 
+    });
     function count_cart() {
         $.ajax({
             url:'{{url('/count-cart')}}',
@@ -65,19 +86,19 @@
             success: function (data) { 
                 seff.find('.fa-cog').remove();
                 seff.append('<i class="fal fa-check"></i>');
-                swal({
-                    title: "Đã thêm vào giỏ hàng",
-                    text: "Bạn có thể đi tới trang giỏ hàng để thanh toán",
-                    type: "success",
-                    showCancelButton: true,
-                    successMode: true,
-                    cancelButtonClass: '#000',
-                    cancelButtonText: 'Mua tiếp',
-                    confirmButtonColor: '#dc9814',
-                    confirmButtonText: 'Xem Giỏ Hàng',
-                }, function(){
-                    window.location.href = "{{url('your-cart')}}";
-                });
+                // swal({
+                //     title: "Đã thêm vào giỏ hàng",
+                //     text: "Bạn có thể đi tới trang giỏ hàng để thanh toán",
+                //     type: "success",
+                //     showCancelButton: true,
+                //     successMode: true,
+                //     cancelButtonClass: '#000',
+                //     cancelButtonText: 'Mua tiếp',
+                //     confirmButtonColor: '#dc9814',
+                //     confirmButtonText: 'Xem Giỏ Hàng',
+                // }, function(){
+                //     window.location.href = "{{url('your-cart')}}";
+                // });
                 count_cart();
                 mini_cart();
             },
@@ -87,12 +108,6 @@
         });
     };
 
-    
-    $(function () {
-        $('.ajax_add_to_cart').on('click', addToCart);
-        count_cart();
-        mini_cart(); 
-    });
 
 </script>
 </html>
