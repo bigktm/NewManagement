@@ -41,16 +41,18 @@
 }
 
 .image-area {
-  border: 2px dashed rgb(237 237 237);
-  padding: 1rem;
+  border: 1px dashed rgb(237 237 237);
+  padding: 5px;
   position: relative;
   display: inline-block;
+  border-radius: 4px;
 }
 
 .image-area img {
   z-index: 2;
   position: relative;
   max-height: 200px;
+  border-radius: 4px;
 }
 .pl-5 {
   padding-left: 5rem;
@@ -231,4 +233,134 @@ margin-right: 0;
 }
 .relative {
     position: relative;
+}
+.edit_feeship {
+    cursor: pointer;
+}
+
+.update_feeship {
+    display: none;
+}
+.br-6 {
+    border-radius: 6px;
+}
+.preview-gallery {
+  width: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3,minmax(50px,1fr));
+  position: relative;
+}
+
+.gallery_upload, .gallery-item {
+  width: 100%;
+  /* min-height: 100px; */
+  display: inline-flex;
+  padding: 5px;
+  justify-content: center;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.gallery_upload input[type="file"],
+.gallery-item input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+.gallery_upload i{
+    font-size: 30px;
+    color: #f0ae51;
+}
+.imageThumb {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.gallery_upload span.remove, 
+.gallery-item span.remove {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+}
+.dropzone-upload {
+  color: #777;
+  position: relative;
+  border: 1px solid #ced4da;
+  padding: 1rem;
+  border-radius: 6px;
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.dropzone-upload input[type=file] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+@media screen and (max-width:1366px) {
+  .preview-gallery {
+    grid-template-columns: repeat(3,minmax(50px,1fr));
+  }
+}
+.align-center {
+  align-items: center;
+}
+.address-shipping-content i {
+  width: 30px;
+  line-height: 1.6;
+}
+.attributes_add--row {
+    width: 100%;
+    border: 1px dashed #f1af51;
+    color: #f1af51 !important;
+}
+.attributes_rows {
+    position: relative;
+}
+.attributes_div {
+    position: relative;
+    border: 1px dashed #ccc;
+    padding: 1rem;
+    border-radius: 6px;
+}
+.attributes_div--child {
+    position: relative;
+}
+
+.attributes_div--child p {
+    margin-bottom: 10px;
+}
+.attributes_item--child {
+    position: relative;
+    padding-right: 50px;
+}
+.remove_attr {
+    position: absolute;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    top: 7px;
+}
+.remove_attributes_rows {
+    position: absolute;
+    right: 15px;
 }

@@ -67,90 +67,30 @@
 										<div id="form_update_location" class="form_update_location row form-group">
 											<div class="col-md-4 col-sm-12">
 												<div class="field-input-wrapper field-input-wrapper-select">
-													<label class="label-location">Chọn Tỉnh/ Thành Phố</label>
-													<select id="customcityId" name="customerCityId" class="validate[required] field-input">
-														<option data-code="null" value="null" selected="">Tỉnh/ Thành phố</option>
-														<option value="254">Hà Nội</option>
-														<option value="255">Hồ Chí Minh</option>
-														<option value="256">An Giang</option>
-														<option value="257">Bà Rịa - Vũng Tàu</option>
-														<option value="258">Bắc Ninh</option>
-														<option value="259">Bắc Giang</option>
-														<option value="260">Bình Dương</option>
-														<option value="261">Bình Định</option>
-														<option value="262">Bình Phước</option>
-														<option value="263">Bình Thuận</option>
-														<option value="264">Bến Tre</option>
-														<option value="265">Bắc Cạn</option>
-														<option value="266">Cần Thơ</option>
-														<option value="267">Khánh Hòa</option>
-														<option value="268">Thừa Thiên Huế</option>
-														<option value="269">Lào Cai</option>
-														<option value="270">Quảng Ninh</option>
-														<option value="271">Đồng Nai</option>
-														<option value="272">Nam Định</option>
-														<option value="273">Cà Mau</option>
-														<option value="274">Cao Bằng</option>
-														<option value="275">Gia Lai</option>
-														<option value="276">Hà Giang</option>
-														<option value="277">Hà Nam</option>
-														<option value="278">Hà Tĩnh</option>
-														<option value="279">Hải Dương</option>
-														<option value="280">Hải Phòng</option>
-														<option value="281">Hòa Bình</option>
-														<option value="282">Hưng Yên</option>
-														<option value="283">Kiên Giang</option>
-														<option value="284">Kon Tum</option>
-														<option value="285">Lai Châu</option>
-														<option value="286">Lâm Đồng</option>
-														<option value="287">Lạng Sơn</option>
-														<option value="288">Long An</option>
-														<option value="289">Nghệ An</option>
-														<option value="290">Ninh Bình</option>
-														<option value="291">Ninh Thuận</option>
-														<option value="292">Phú Thọ</option>
-														<option value="293">Phú Yên</option>
-														<option value="294">Quảng Bình</option>
-														<option value="295">Quảng Nam</option>
-														<option value="296">Quảng Ngãi</option>
-														<option value="297">Quảng Trị</option>
-														<option value="298">Sóc Trăng</option>
-														<option value="299">Sơn La</option>
-														<option value="300">Tây Ninh</option>
-														<option value="301">Thái Bình</option>
-														<option value="302">Thái Nguyên</option>
-														<option value="303">Thanh Hóa</option>
-														<option value="304">Tiền Giang</option>
-														<option value="305">Trà Vinh</option>
-														<option value="306">Tuyên Quang</option>
-														<option value="307">Vĩnh Long</option>
-														<option value="308">Vĩnh Phúc</option>
-														<option value="309">Yên Bái</option>
-														<option value="310">Đắk Lắk</option>
-														<option value="311">Đồng Tháp</option>
-														<option value="312">Đà Nẵng</option>
-														<option value="313">Đắc Nông</option>
-														<option value="314">Hậu Giang</option>
-														<option value="315">Bạc Liêu</option>
-														<option value="316">Điện Biên</option>
+													<label class="label-location">Tỉnh/ Thành Phố</label>
+													<select id="city" name="city" class="field-input select_address city">
+														<option value="" selected="">Tỉnh/ Thành phố</option>
+														@foreach($city as $val)
+															<option value="{{$val->matp}}" >{{$val->name_city}}</option>
+														@endforeach
+													</select>
+													<input type="hidden" name="data_city" value="">
+												</div>
+											</div>
+											<div class="col-md-4 col-sm-12">
+												<div class="field-input-wrapper field-input-wrapper-select">
+													<label class="label-location">Quận/ Huyện</label>
+													<select id="province" name="province" class="field-input select_address province">
+														<option value="" selected="">Chọn Quận/ Huyện</option>
 													</select>
 												</div>
 											</div>
 											<div class="col-md-4 col-sm-12">
 												<div class="field-input-wrapper field-input-wrapper-select">
-													<label class="label-location">Chọn Quận/ Huyện</label>
-													<select id="customdistrictId" name="customerDistrictId" class="validate[required] field-input">
-														<option value="" selected="">Quận/ Huyện</option>
+													<label class="label-location">Phường/ Xã</label>
+													<select id="ward" name="ward" class="field-input ward">
+														<option value="" selected="">Chọn Phường/ Xã</option>
 													</select>
-												</div>
-											</div>
-											<div class="col-md-4 col-sm-12">
-												<div class="field-input-wrapper field-input-wrapper-select">
-													<label class="label-location">Chọn Phường/ Xã</label>
-													<select id="wardId" name="customerWardId" class="validate[required] field-input">
-														<option value="" selected="">Phường/ Xã</option>
-													</select>
-													<input type="hidden" name="selectIdWard">
 												</div>
 											</div>
 										</div>
@@ -174,7 +114,7 @@
 													<div class="radio-wrapper content-box-row at-home">
 														<div class="pure-radio-css"> 
 															<input class="form-check-input" name="shipping_method" value="Thanh toán tại nhà (COD)" type="radio"  id="flexRadioDefault1" checked="checked">
-															<label for="flexRadioDefault1">Thanh toán tại nhà (COD)</label>   
+															<label for="flexRadioDefault1">Thanh toán khi nhận hàng (COD)</label>   
 														</div>  
 													</div>
 												</div>
@@ -247,6 +187,17 @@
 					</div>
 					<div class="order-summary-sections">
 						<div class="order-summary-section order-summary-section-discount">
+							@php
+							$message = Session::get('message');
+							$message_error = Session::get('message_error');
+							if($message){
+								echo '<div class="alert alert-success mt-4"><span class="text-alert">'.$message.'</span></div>';
+								Session::put('message',null);
+							}elseif($message_error) {
+								echo '<div class="alert alert-danger mt-4"><span class="text-alert">'.$message_error.'</span></div>';
+								Session::put('message_error',null);
+							}
+							@endphp
 							<form action="{{url('check-coupon')}}" method="POST" >
 								{{ csrf_field() }}
 								<div id="form_discount_add">
@@ -254,14 +205,18 @@
 										<div class="field  ">
 											<div id="txtCode" style="padding: 0 0 5px 0"></div>
 											<div class="d-flex justify-between field-input-btn-wrapper">
-												<input placeholder="Mã giảm giá" class="field-input" name="couponCode" id="discount_code">
-												<button type="button" id="getCoupon" class="btn tp_button">
+												<input placeholder="Mã giảm giá" class="field-input" name="coupon" id="discount_code">
+												<button type="submit" id="getCoupon" class="btn tp_button">
 													<span class="btn-content">Sử dụng</span>
 												</button>
 											</div>
 										</div>
 									</div>
-									<p>Nhập mã " <span style="color:#f1af51;"><strong>HTStore</strong></span> " Giảm thêm 5% cho đơn hàng ( &gt; 200k )</p>
+									@if($total > 500000)
+									<p>Nhập mã " <span style="color:#f1af51;"><strong>{{$code}}</strong></span> " Giảm thêm {{$code_per}}% cho đơn hàng ( &gt; 500k )</p>
+									@else
+									<p>Nhập mã " <span style="color:#f1af51;"><strong>{{$code_free}}</strong></span> " Giảm thêm {{number_format($price_free)}}đ cho đơn hàng</p>
+									@endif
 								</div>
 							</form>
 						</div>
@@ -274,10 +229,37 @@
 											<span class="order-summary-emphasis">{{ number_format($total) }} ₫</span>
 										</td>
 									</tr>
+									@php
+										$coupon = Session::get('coupon');
+										$fee_default = 30000;
+										$total_coupon = 0;
+									@endphp
+									@if($coupon)
+									<tr class="total-line total-line-shipping">
+										<td class="total-line-name">Mã giảm giá</td>
+										<td class="total-line-price">
+											@foreach($coupon as $val)
+												@if($val['coupon_type'] == 1)
+													@php
+														$total_coupon = $val['coupon_price'];
+													@endphp
+													<span class="order-summary-emphasis">- {{ number_format($total_coupon) }} đ</span>
+												@elseif($val['coupon_type'] == 2)
+													@php
+														$total_coupon = ($total*$val['coupon_price'])/100;
+													@endphp
+													<span class="order-summary-emphasis">- {{ number_format($total_coupon) }} đ</span>
+												@endif
+											@endforeach
+										</td>
+									</tr>
+									@endif
 									<tr class="total-line total-line-shipping">
 										<td class="total-line-name">Phí vận chuyển</td>
-										<td class="total-line-price">
-											<span class="order-summary-emphasis" id="ship_fee">{{ number_format($fee) }} ₫</span>
+										<td class="total-line-price fee_html">
+											<span class="order-summary-emphasis" id="ship_fee">
+												{{ number_format($fee_default) }} ₫
+											</span>
 										</td>
 									</tr>
 								</tbody>
@@ -287,7 +269,17 @@
 											<span class="payment-due-label-total">Tổng cộng</span>
 										</td>
 										<td class="total-line-name payment-due">
-											<span class="payment-due-price" id="showTotalMoney" value="">{{ number_format($total + $fee) }} ₫</span>
+											<span class="payment-due-currency">VND</span>
+											<span class="payment-due-price" id="showTotalMoney" value="">
+												{{ number_format($total + $fee_default - $total_coupon) }} ₫
+											</span>
+										</td>
+									</tr>
+									<tr class="total-line">
+										<td colspan="2" class="total-line-name">
+											<div class="notice-checkout">
+												<p>HT Store sẽ xác nhận đơn hàng bằng cách gọi điện thoại. Bạn vui lòng để ý điện thoại khi đặt hàng thành công và chờ nhận hàng. Cảm ơn bạn !</p>
+											</div>
 										</td>
 									</tr>
 								</tfoot>

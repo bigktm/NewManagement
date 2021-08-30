@@ -126,6 +126,22 @@
                 </ul>
             </li>
             <li>
+                <a href="#">
+                    <span class="nav-link-icon">
+                        <i class="fal fa-truck"></i>
+                    </span>
+                    <span>Quản lý vận chuyển</span>
+                </a>
+                <ul>
+                    <li>
+                        <a  href="{{URL::to('/add-delivery')}}" class="{{ Request::path() == 'add-delivery' ? ' active ' : '' }}">Thêm phí vận chuyển</a>
+                    </li>
+                    <li>
+                        <a  href="{{URL::to('/all-delivery')}}" class="{{ Request::path() == 'all-delivery' ? ' active ' : '' }}">Danh sách phí vận chuyển</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="{{URL::to('/customer-list')}}" class="{{ Request::path() == 'customer-list' ? ' active ' : '' }}">
                     <span class="nav-link-icon">
                         <i class="fal fa-users"></i>

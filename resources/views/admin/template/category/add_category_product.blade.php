@@ -50,7 +50,7 @@
                             <label for="exampleInputPassword1">Thuộc danh mục</label>
                             <select name="category_parent" class="form-control input-sm m-bot15">
                                 <option value="0">---Danh mục cha---</option>
-                                <?php showCategories($category); ?>
+                                {!! $htmlOption !!}
                             </select>
                         </div>
                         <div class="form-group col-md-6">
@@ -70,25 +70,4 @@
     </div>
 </div>
 
-<?php
-
-function showCategories($category, $category_parent = 0, $char = '')
-{
-    foreach ($category as $key => $item)
-    {
-        // Nếu là chuyên mục con thì hiển thị
-        if ($item->category_parent == $category_parent)
-        {
-            echo '<option value="'.$item->category_id.'">'.$char.$item->category_name.'</option>';
-            // Xóa chuyên mục đã lặp
-            unset($category[$key]);
-
-            // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
-            showCategories($category, $item->category_id, $char.' &nbsp;&nbsp;&nbsp;  ');
-        }
-    }
-}
-
-?>
-<!-- ./ content -->
 @endsection

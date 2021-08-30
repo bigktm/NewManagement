@@ -76,4 +76,11 @@ class CouponProduct extends Controller
     	Session::put('message', 'Cập nhật mã giảm giá thành công');
     	return redirect()->back();
     }
+
+    public function delete_coupon($coupon_id) {
+        $this->CheckLogin();
+        Coupon::where('coupon_id', $coupon_id)->delete();
+        Session::put('message', 'Xoá mã giảm giá thành công');
+        return redirect()->back(); 
+    }
 }

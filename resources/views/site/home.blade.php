@@ -88,8 +88,8 @@
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
                                                 <a href="{{URL::to('/san-pham/'.$product_new->product_slug)}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/uploads/products/'.$product_new->product_image)}}" alt="{{$product_new->product_name}}" />
-                                                    <img  src="{{asset('/public/uploads/products/'.$product_new->product_image)}}" alt="" />
+                                                    <img  src="{{asset('/public/'.$product_new->product_image_path)}}" alt="{{$product_new->product_name}}" />
+                                                    <img  src="{{asset('/public/'.$product_new->product_image_path)}}" alt="" />
                                                 </a>       
                                                 <div class="product-label">
                                                     @if($product_new->product_price_sale > 0)
@@ -154,8 +154,8 @@
                                         <div class="item-product item-product-grid item-product-style2">
                                             <div class="product-thumb">
                                                 <a href="{{URL::to('/san-pham/'. $pro_cate->product_slug)}}" class="product-thumb-link rotate-thumb" >
-                                                    <img  src="{{asset('/public/uploads/products/'. $pro_cate->product_image)}}" alt="" />
-                                                    <img  src="{{asset('/public/uploads/products/'. $pro_cate->product_image)}}" alt="" />
+                                                    <img  src="{{asset('/public/'. $pro_cate->product_image_path)}}" alt="" />
+                                                    <img  src="{{asset('/public/'. $pro_cate->product_image_path)}}" alt="" />
                                                 </a>   
                                                 <div class="product-label">
                                                     @if($pro_cate->product_price_sale > 0)

@@ -26,7 +26,7 @@ class RegisterCustomerRequest extends FormRequest
         return [
             'customer_name'=>'required|max:50',
             'customer_email'=>'required|email|unique:tbl_customers',
-            'customer_password' => 'required|min:6',
+            'password' => 'required|min:6|confirmed',
             'customer_phone' => 'required',
         ];
     }
@@ -37,6 +37,7 @@ class RegisterCustomerRequest extends FormRequest
             'unique'=>':attribute này đã được đăng ký',
             'min' => ':attribute tối thiểu phải có 6 ký tự',
             'max' => ':attribute tối đa chỉ 50 ký tự',
+            'confirmed' => ':attribute lặp lại chưa đúng',
         ];
     }
     public function attributes()
@@ -44,7 +45,7 @@ class RegisterCustomerRequest extends FormRequest
         return [
             'customer_name' => 'Tên đăng nhập',
             'customer_email' => 'Email',
-            'customer_password' => 'Mật Khẩu',
+            'password' => 'Mật Khẩu',
             'customer_phone' => 'Số điện thoại',
         ];
     }

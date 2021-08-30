@@ -28,7 +28,7 @@
                 }
                 ?>
                 <div class="position-center col-md-12">
-                    @foreach($edit_category_product as $key => $edit_value)
+                    @foreach($category_by_id as  $edit_value)
                     <form role="form " class="row" action="{{URL::to('/update-category-product/'. $edit_value->category_id)}}" method="post">
                         {{ csrf_field() }}
                         <div class="form-group  col-md-6">
@@ -51,13 +51,7 @@
                             <label for="exampleInputPassword1">Thuộc danh mục</label>
                             <select name="category_parent" class="form-control input-sm m-bot15">
                                 <option value="0">-----------Danh mục cha-----------</option>
-                                @foreach($category as $key => $val)
-                                @if($val->category_id==$edit_value->category_id)
-                                <option selected value="{{$val->category_id}}">{{$val->category_name}}</option>
-                                @else
-                                <option value="{{$val->category_id}}">{{$val->category_name}}</option>
-                                @endif
-                                @endforeach
+                                {!! $htmlOption !!}
                             </select>
                         </div>
                         <div class="form-group col-md-4">

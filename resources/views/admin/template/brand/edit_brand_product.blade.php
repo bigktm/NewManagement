@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label>Logo Thương Hiệu</label>
                             <div class="input-group form-control">
-                                <input id="upload" type="file" onchange="readURL(this);" required name="brand_logo" class="form-control">
+                                <input id="upload" type="file" onchange="readURL(this);" name="brand_logo" class="form-control">
                                 <label id="upload-label" for="upload" class="font-weight-light text-muted">{{$edit_value->brand_logo}}</label>
                                 <div class="input-group-append">
                                     <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> 
@@ -44,7 +44,7 @@
                                 </div>
                             </div>
                             <!-- Uploaded image area-->
-                            <div class="image-area mt-4" style="display: none;">
+                            <div class="image-area mt-4">
                                 <img id="imageResult" src="{{asset('public/uploads/brands/'. $edit_value->brand_logo)}}" alt="" class="img-fluid ">
                             </div>
                         </div>

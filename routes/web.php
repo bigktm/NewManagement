@@ -33,8 +33,8 @@ Route::get('/delete-order/{order_id}', 'OrderController@delete_order');
 
 
 // Category Product
-Route::get('/add-category-product', 'CategoryProduct@AddCategory');
-Route::get('/all-category-product', 'CategoryProduct@AllCategory');
+Route::get('/add-category-product', 'CategoryProduct@add_category_product');
+Route::get('/all-category-product', 'CategoryProduct@all_category_product');
 Route::post('/save-category-product', 'CategoryProduct@save_category_product');
 
 Route::get('/edit-category-product/{category_product_id}', 'CategoryProduct@edit_category_product');
@@ -59,8 +59,9 @@ Route::get('/active-brand-product/{brand_product_id}', 'BrandProduct@active_bran
 Route::get('/inactive-brand-product/{brand_product_id}', 'BrandProduct@inactive_brand_product');
 
 // Products
-Route::get('/add-new-product', 'ProductController@AddProduct');
-Route::get('/all-product-list', 'ProductController@AllProduct');
+Route::post('/product/add', 'ProductController@add');
+Route::get('/add-new-product', 'ProductController@add_product');
+Route::get('/all-product-list', 'ProductController@all_product');
 Route::post('/save-product', 'ProductController@save_product');
 
 Route::get('/edit-product/{product_id}', 'ProductController@edit_product');
@@ -97,6 +98,14 @@ Route::get('/edit-coupon/{coupon_id}','CouponProduct@edit_coupon');
 Route::post('/update-coupon/{coupon_id}', 'CouponProduct@update_coupon');
 Route::get('/delete-coupon/{coupon_id}','CouponProduct@delete_coupon');
 
+// Coupon
+Route::get('/add-delivery', 'ManageDelivery@add_delivery');
+Route::get('/all-delivery', 'ManageDelivery@all_delivery');
+Route::post('/save-delivery', 'ManageDelivery@save_delivery');
+Route::post('/update-feeship/{fee_id}', 'ManageDelivery@update_delivery');
+Route::get('/delete-delivery/{fee_id}','ManageDelivery@delete_delivery');
+Route::post('/delivery/select-delivery', 'ManageDelivery@select_delivery' );
+
 // Front End
 Route::get('/', 'HomeController@Index' );
 
@@ -109,6 +118,10 @@ Route::get('/customer/login', 'CustomerController@customer_index' );
 Route::post('/customer/register-form', 'CustomerController@register_form' );
 Route::post('/customer/login-form', 'CustomerController@login_form' );
 Route::get('/customer/logout', 'CustomerController@logout_customer' );
+Route::get('/my-account/orders', 'CustomerController@your_orders' );
+Route::get('/my-account/orders/view-order-detail/{order_id}', 'CustomerController@view_your_order' );
+Route::get('/my-account/edit-account', 'CustomerController@edit_account' );
+Route::post('/customer/update-account', 'CustomerController@update_account' );
 
 
 // Cart
@@ -127,10 +140,13 @@ Route::get('/delete-cart-item/{session_id}', 'CartController@remove_cartItem_aja
 Route::get('/your-cart', 'CartController@showCart' );
 Route::get('/count-cart', 'CartController@count_cart' );
 Route::get('/mini-cart', 'CartController@mini_cart' );
-Route::post('/check-coupon', 'CartController@check_coupon' );
 
 // Checkout
 
 Route::get('/checkout', 'CheckoutController@checkout' );
 Route::post('/save-order-form', 'CheckoutController@save_order_form' );
 Route::get('/place-order/', 'CheckoutController@place_order' );
+Route::post('/check-coupon', 'CheckoutController@check_coupon' );
+Route::post('/select-delivery', 'CheckoutController@select_delivery' );
+Route::post('/calculator-fee', 'CheckoutController@calculator_fee' );
+Route::get('/fee-feeship', 'CheckoutController@fee_feeship' );

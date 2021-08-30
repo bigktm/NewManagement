@@ -17,6 +17,10 @@
     @include('site.layout.css_file')
 </head>
 <body class="">
+    <a href="#" class="scroll-top dark">
+        <span class="text-bttop">Về đầu trang</span>
+        <i class="fal fa-long-arrow-right"></i>
+    </a>
     <div class="wrap">
         @include('site.layout.header')
         <div id="main-content">
@@ -29,7 +33,7 @@
 <script>
 {{--  --}}  
 
-    
+    {{-- AJAX CART --}}
     $(function () {
         $('.ajax_add_to_cart').on('click', addToCart);
         count_cart();
@@ -86,19 +90,6 @@
             success: function (data) { 
                 seff.find('.fa-cog').remove();
                 seff.append('<i class="fal fa-check"></i>');
-                // swal({
-                //     title: "Đã thêm vào giỏ hàng",
-                //     text: "Bạn có thể đi tới trang giỏ hàng để thanh toán",
-                //     type: "success",
-                //     showCancelButton: true,
-                //     successMode: true,
-                //     cancelButtonClass: '#000',
-                //     cancelButtonText: 'Mua tiếp',
-                //     confirmButtonColor: '#dc9814',
-                //     confirmButtonText: 'Xem Giỏ Hàng',
-                // }, function(){
-                //     window.location.href = "{{url('your-cart')}}";
-                // });
                 count_cart();
                 mini_cart();
             },
@@ -108,6 +99,74 @@
         });
     };
 
+
+    
+    $('.select_address').on('change', function() {
+        var action = $(this).attr('id');
+        var ma_id = $(this).val();
+        var result = '';
+
+        if(action == 'city'){
+            result = 'province';
+        }else {
+            result = 'ward';
+        }
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: '{{url('/select-delivery')}}',
+            crossDomain: true,
+            data:{action:action, ma_id:ma_id},
+            success: function (data) { 
+                $('#'+result).html(data);
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+
+    });
+
+    // function fee_feeship() {
+    //     $.ajax({
+    //         url:'{{url('/fee-feeship')}}',
+    //         method:"GET",
+    //         success:function(data){
+    //             $('#ship_fee').html(data);
+    //         }
+    //     }); 
+    // };
+
+    // $('.ward').on('change', function() {
+    //     var matp = $('.city').val();
+    //     var maqh = $('.province').val();
+    //     var xaid = $('.ward').val();
+
+    //     $.ajaxSetup({
+    //         headers: {
+    //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //         }
+    //     });
+
+    //     $.ajax({
+    //         type: "POST",
+    //         url: '{{url('/calculator-fee')}}',
+    //         crossDomain: true,
+    //         data:{matp:matp, maqh:maqh, xaid:xaid},
+    //         success: function (data) {
+    //             fee_feeship();
+    //         },
+    //         error: function (data) {
+    //             console.log('Error:', data);
+    //         }
+    //     }); 
+
+    // });
 
 </script>
 </html>

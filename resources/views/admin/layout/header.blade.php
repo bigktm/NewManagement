@@ -9,7 +9,7 @@
         </a>
     </div>
     <div class="page-title">@yield('title-page')</div>
-    <form class="search-form">
+    {{-- <form class="search-form">
         <div class="input-group">
             <button class="btn btn-outline-light" type="button" id="button-addon1">
                 <i class="bi bi-search"></i>
@@ -20,11 +20,11 @@
                 <i class="bi bi-x"></i>
             </a>
         </div>
-    </form>
+    </form> --}}
     <div class="header-bar ms-auto">
         <ul class="navbar-nav justify-content-end">
             <li class="nav-item">
-                <a href="#" class="nav-link nav-link-notify" data-count="2" data-sidebar-target="#notifications">
+                <a href="#" class="nav-link nav-link-notify" data-count="2">
                     <i class="bi bi-bell icon-lg"></i>
                 </a>
             </li>

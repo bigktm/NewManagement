@@ -34,7 +34,7 @@ class OrderController extends Controller
     	$this->CheckLogin();
 
     	$order_all = Order::join('tbl_customers','tbl_customers.customer_id','=','tbl_order.customer_id')
-   		->select('tbl_order.*','tbl_customers.customer_name')->orderBy('tbl_order.order_id', 'desc')->paginate(10);
+   		->select('tbl_order.*','tbl_customers.customer_name')->orderBy('tbl_order.order_id', 'desc')->get();
         return view('admin.template.orders.orders', compact('order_all'));
     }
 
@@ -44,7 +44,7 @@ class OrderController extends Controller
     	$this->CheckLogin();
 
         $order_items = OrderDetail::join('tbl_order','tbl_order.order_id','=','tbl_order_details.order_id')
-        ->join('tbl_product','tbl_product.product_id','=','tbl_order_details.product_id')->where('tbl_order_details.order_id', $order_id)->select('tbl_order.order_id','tbl_order_details.*', 'tbl_product.product_image')->get();
+        ->join('tbl_product','tbl_product.product_id','=','tbl_order_details.product_id')->where('tbl_order_details.order_id', $order_id)->select('tbl_order.order_id','tbl_order_details.*', 'tbl_product.product_image_path')->get();
 
         $data_order = Order::join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
         ->join('tbl_shipping','tbl_order.shipping_id','=','tbl_shipping.shipping_id')->where('tbl_order.order_id', $order_id)
@@ -60,7 +60,7 @@ class OrderController extends Controller
         $this->CheckLogin();
 
         $order_items = OrderDetail::join('tbl_order','tbl_order.order_id','=','tbl_order_details.order_id')
-        ->join('tbl_product','tbl_product.product_id','=','tbl_order_details.product_id')->where('tbl_order_details.order_id', $order_id)->select('tbl_order.order_id','tbl_order_details.*', 'tbl_product.product_image')->get();
+        ->join('tbl_product','tbl_product.product_id','=','tbl_order_details.product_id')->where('tbl_order_details.order_id', $order_id)->select('tbl_order.order_id','tbl_order_details.*', 'tbl_product.product_image_path')->get();
 
         $data_order = Order::join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')
         ->join('tbl_shipping','tbl_order.shipping_id','=','tbl_shipping.shipping_id')->where('tbl_order.order_id', $order_id)

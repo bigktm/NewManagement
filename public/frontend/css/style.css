@@ -945,6 +945,7 @@ input[type=text]{
     padding: 0 8px;
     width: 100%;
     border-radius: 5px;
+    font-size: 14px;
 }
 textarea{
     border: 1px solid #e5e5e5;
@@ -5006,11 +5007,19 @@ a.dm-color.active{
     visibility: visible;
     transform: translateY(0);
 }
-
+.dropdown-menu li {
+    padding-bottom: 5px;
+}
 .dropdown-menu a {
-    display: block;
-    padding: 5px 10px;
+    display: flex;
+    padding: 10px 15px;
     font-size: 14px;
+    align-items: center;
+}
+.dropdown-menu a i {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 18px;
 }
 .s-icon, .mini-cart-link, .open-login-form{
     font-size: 20px;
@@ -8043,10 +8052,10 @@ input[name=apply_for_vendor_submit],
     font-weight: normal;
     font-size: 14px;
     color: #333;
-    height: 60px;
-    line-height: 60px;
+    height: 50px;
+    line-height: 50px;
     padding: 0px 48px;
-    letter-spacing: 6px;
+    letter-spacing: 1;
     text-indent: 6px;
     text-transform: uppercase;
     border-radius: 5px;
@@ -9219,7 +9228,7 @@ color: #ccc;
     margin-top: 25px;
 }
 
-.customer_item_wrap .input-group-text {
+.input-group-text {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -9227,6 +9236,7 @@ color: #ccc;
     border: 0;
     background: none;
     cursor: pointer;
+    font-size: 13px;
 }
 .item-info {
     display: block;

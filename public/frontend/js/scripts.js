@@ -1148,10 +1148,4 @@
 		}
 
 	});
-
-	// $(document).ready(function(){
-	// 	$(".ajax_add_to_cart").click(function(){
-	// 		swal("Sản phẩm đã thêm thành công!", "You clicked the button!", "success");
-	// 	});
-	// });
 })(jQuery);

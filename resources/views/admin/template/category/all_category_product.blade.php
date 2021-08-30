@@ -19,30 +19,23 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-md-flex gap-4 align-items-center">
-                        @if($all_category_product->count())
-                        <div class="d-none d-md-flex">Tất cả danh mục sản phẩm</div>
-                        @endif
-                        <div class="dropdown ms-auto">
-                            <a href="{{URL::to('/add-category-product')}}" class="btn btn-primary btn-icon">
-                                <i class="bi bi-plus-circle"></i> Thêm danh mục
-                            </a>
-                        </div>
-                    </div>
+            <?php
+            $message = Session::get('message');
+            if($message){
+                echo '<div class="alert alert-success mt-4"><span class="text-alert">'.$message.'</span></div>';
+                Session::put('message',null);
+            }
+            ?>
+            <div class="d-md-flex gap-4 mb-4 align-items-center">
+                <div class="dropdown ms-auto">
+                    <a href="{{URL::to('/add-category-product')}}" class="btn btn-primary btn-icon">
+                        <i class="bi bi-plus-circle"></i> Thêm danh mục
+                    </a>
                 </div>
             </div>
             @if($all_category_product->count())
             <div class="table-responsive">
-                <?php
-                $message = Session::get('message');
-                if($message){
-                    echo '<div class="alert alert-success mt-4"><span class="text-alert">'.$message.'</span></div>';
-                    Session::put('message',null);
-                }
-                ?>
-                <table class="table table-custom table-lg mb-0" id="products">
+                <table class="table table-custom table-lg mb-0" id="datatable-search">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -99,9 +92,9 @@
                     </tbody>
                 </table>
             </div>
-            <div class="navigation-end" >
+            {{-- <div class="navigation-end" >
                 {{$all_category_product->links()}}
-            </div>
+            </div> --}}
             @else
             <div class="pd-5 empty-product">
                 <i class="bi bi-wallet2"></i>

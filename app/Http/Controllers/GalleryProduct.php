@@ -9,6 +9,9 @@ use App\Exports\ExcelExports;
 use App\Imports\ExcelImports;
 use Session;
 use Auth;
+use Input;
+use Storage;
+use App\Traits\UploadImageStrait;
 use App\Gallery;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
@@ -16,6 +19,7 @@ session_start();
 
 class GalleryProduct extends Controller
 {
+    use UploadImageStrait;
 	public function CheckLogin() {
         if(Session::get('admin_id')){
             $admin_id = Session::get('admin_id');
@@ -38,24 +42,20 @@ class GalleryProduct extends Controller
 	}
 	public function insert_gallery(Request $request,$product_id){
 
-		$get_image = $request->file('gallery_image');
+        $data = array();
+        $get_image = array();
+        $get_image = $request->file('gallery_image');
+        if( $get_image) {
+            foreach($get_image as $fileItem) {
+                $dataUploadProductGallery = $this->StorageImageUploadMultiple($fileItem, $folderName = $product_id);
+                Gallery::where('product_id', $product_id)->update([
+                    'gallery_image' => $dataUploadProductGallery['file_name'],
+                    'gallery_image_path' => $dataUploadProductGallery['file_path'],
+                ]);
+            }
+            return redirect()->back();   
 
-        if($get_image) {
-
-        	$get_image_name = $get_image->getClientOriginalName();
-        	$name_image = current(explode('.', $get_image_name));
-        	$new_image = $name_image.rand(0,99).'.'.$get_image->getClientOriginalExtension();
-
-        	$get_image->move('public/uploads/gallery_product', $new_image);
-
-        	$data['gallery_image'] = $new_image;
-        	$data['product_id'] = $product_id;
-
-        	DB::table('tbl_gallery')->insert($data);
-        	Session::put('message','Thêm hình ảnh sản phẩm thành công');
-        	return redirect()->back();
-        }
-
+        } 
 	}
 	public function delete_gallery($gallery_id){ 
 		DB::table('tbl_gallery')->where('gallery_id', $gallery_id)->delete();

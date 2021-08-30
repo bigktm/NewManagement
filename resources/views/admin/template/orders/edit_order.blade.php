@@ -65,14 +65,17 @@
 					<div class="row g-4">
 						<div class="col-md-6 col-sm-12">
 							<div class="card">
-								<div class="card-body d-flex flex-column gap-3">
+								<div class="card-body address-shipping-content d-flex flex-column gap-3">
 									<div class="d-flex justify-content-between">
 										<h5 class="mb-0">Địa chỉ giao hàng</h5>
 									</div>
-									<div><i class="fal fa-money-check-alt me-2"></i> Phương thức thanh toán: {{$data_order->shipping_method}}</div>
-									<div><i class="fal fa-user me-2"></i>{{$data_order->shipping_name}}</div>
-									<div><i class="fal fa-map-marker-alt me-2"></i> {{$data_order->shipping_address}}</div>
-									<div>
+									<div class="d-flex align-center"><i class="fal fa-money-check-alt me-2"></i> Phương thức thanh toán: {{$data_order->shipping_method}}</div>
+									<div class="d-flex align-center"><i class="fal fa-user me-2"></i>{{$data_order->shipping_name}}</div>
+									<div class="d-flex">
+										<i class="fal fa-map-marker-alt me-2"></i> 
+										<span>{{$data_order->shipping_address}}</span>
+									</div>
+									<div class="d-flex align-center">
 										<i class="bi bi-telephone me-2"></i> {{$data_order->shipping_phone}}
 									</div>
 								</div>
@@ -110,7 +113,7 @@
 								@foreach($order_items as $item)
 								<tr>
 									<td>
-										<img src="{{asset('public/uploads/products/'.$item->product_image)}}" class="rounded" width="60" alt="...">
+										<img src="{{asset('public/'.$item->product_image_path)}}" class="rounded" width="60" alt="...">
 									</td>
 									<td>{{$item->product_name}}</td>
 									<td>{{$item->product_qty}}</td>

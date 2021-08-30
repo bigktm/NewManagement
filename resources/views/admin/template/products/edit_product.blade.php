@@ -41,9 +41,23 @@
                                 </div>
                                 <!-- Uploaded image area-->
                                 <div class="image-area mt-4">
-                                    <img id="imageResult" src="{{asset('public/uploads/products/'. $edit_value->product_image)}}" alt="" class="img-fluid ">
+                                    <img id="imageResult" src="{{asset('public/'. $edit_value->product_image_path)}}" alt="" class="img-fluid ">
                                 </div>
                             </div>
+                            {{-- <div class="form-group">
+                                <label for="product_image">Gallery hình ảnh sản phẩm</label>
+                                <input type="file" id="gallery-product" multiple required name="gallery_image[]" class="form-control">
+                                <div class="preview-gallery mt-4">
+                                    @foreach($gallerys as $galleryItem)
+                                    <span class="gallery-item">
+                                        <img class="imageThumb" src="{{asset('public/'. $galleryItem->gallery_image_path)}}" title="undefined">
+                                        <br>
+                                        <span class="remove"><i class="fad fa-trash text-danger"></i>
+                                        </span>
+                                    </span>
+                                    @endforeach
+                                </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mô tả sản phẩm</label>
                                 <textarea style="resize: none" rows="4" class="form-control" required name="product_desc" id="exampleInputPassword1" placeholder="Mô tả danh mục">{{$edit_value->product_desc}}</textarea>
@@ -95,13 +109,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputPassword1">Danh mục</label>
                                     <select name="category_product" class="form-control input-sm select2-example ">
-                                        @foreach($category as $key => $cate)
-                                            @if($cate->category_id==$edit_value->category_id)
-                                            <option selected value="{{$cate->category_id}}">{{$cate->category_name}}</option>
-                                            @else
-                                            <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
-                                            @endif
-                                        @endforeach
+                                        {!! $htmlOption !!}
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -121,7 +129,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Chi tiết sản phẩm</label>
-                                <textarea style="resize: none" rows="8" class="form-control" name="product_content"  id="editor" placeholder="Nội dung sản phẩm"></textarea>
+                                <textarea style="resize: none" rows="8" class="form-control" name="product_content"  id="editor" placeholder="Nội dung sản phẩm">{{$edit_value->product_content}}</textarea>
                             </div>
                         </div>
                         <div class="form-group col-md-4">

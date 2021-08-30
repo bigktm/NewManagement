@@ -38,7 +38,7 @@ $fee = 30000;
 							<tr>
 								<td>
 									<span>{{$val->product_name}}<span>
-									<strong class="product-quantity">× {{$val->product_qty}}</strong>	
+									<strong class="product-quantity">× {{$val->qty}}</strong>	
 								</td>
 								<td class="woocommerce-table__product-total product-total">
 									<span>{{number_format($val->product_price)}} ₫</span>
@@ -51,6 +51,12 @@ $fee = 30000;
 								<th scope="row">Tạm tính:</th>
 								<td><span>{{number_format($order_info->order_total)}} ₫</span></td>
 							</tr>
+							@if($order_info->order_coupon > 0)
+							<tr>
+								<th scope="row">Mã khuyễn mãi:</th>
+								<td><span>- {{number_format($order_info->order_coupon)}} ₫</span></td>
+							</tr>
+							@endif
 							<tr>
 								<th scope="row">Phí giao hàng:</th>
 								<td><span>{{number_format($fee)}} ₫</span></td>

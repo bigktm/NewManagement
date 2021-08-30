@@ -24,7 +24,7 @@
                 <?php
                 $message = Session::get('message');
                 if($message){
-                    echo '<div class="alert alert-success"><span class="text-alert">'.$message.'</span></div>';
+                    echo '<div class="alert alert-success"><span class="text-alert"><i class="fas fa-check-circle"></i>'.$message.'</span></div>';
                     Session::put('message',null);
                 }
                 ?>
@@ -34,20 +34,8 @@
                         <div class="col-md-5 ">
                             <div class="form-group">
                                 <h3 style="margin-bottom:2rem ">Tải hình ảnh</h3>
-                                <div class="input-group form-control">
-                                    <input id="upload" type="file" onchange="readURL(this);" required name="gallery_image" class="form-control">
-                                    <label id="upload-label" for="upload" class="font-weight-light text-muted"></label>
-                                    <div class="input-group-append">
-                                        <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> 
-                                            <i class="fa fa-cloud-upload mr-2 text-muted"></i>
-                                            <small class="text-uppercase font-weight-bold text-muted">Chọn hình ảnh</small>
-                                        </label>
-                                    </div>
-                                </div>
-                                <!-- Uploaded image area-->
-                                <div class="image-area mt-4" style="display: none;">
-                                    <img id="imageResult" src="#" alt="" class="img-fluid ">
-                                </div>
+                                <input type="file" id="gallery-product" multiple required name="gallery_image[]" class="form-control">
+                                <div class="preview-gallery mt-4"></div>
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -56,8 +44,8 @@
                                 <ul class="gallery_product_list">
                                     @foreach($show_gallery as $gallery)
                                     <li>
-                                        <img src="{{asset('public/uploads/gallery_product/' . $gallery->gallery_image )}}">
-                                        <a data-id="{{$gallery->gallery_id}}" data-action="{{URL::to('/delete-gallery/'.$gallery->gallery_id)}}" class="del_gal delete-product"><i class="fad fa-trash text-danger"></i></a>
+                                        <img src="{{asset('public/' . $gallery->gallery_image_path )}}">
+                                        <a data-id="{{$gallery->gallery_id}}" data-action="{{URL::to('/delete-gallery/'.$gallery->gallery_id)}}" class="del_gal delete-item"><i class="fad fa-trash text-danger"></i></a>
                                     </li>
                                     @endforeach
                                 </ul>

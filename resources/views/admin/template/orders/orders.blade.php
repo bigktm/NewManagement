@@ -26,14 +26,14 @@
     ?>
     @if($order_all->count())
     <div class="table-responsive">
-        <table class="table table-custom table-lg mb-0" id="orders">
+        <table class="table table-custom table-lg mb-0" id="datatable-search">
             <thead>
                 <tr>
                     <th>
                         <input class="form-check-input select-all" type="checkbox" data-select-all-target="#orders"
                         id="defaultCheck1">
                     </th>
-                    <th>ID</th>
+                    <th>Mã đơn hàng</th>
                     <th>Người đặt</th>
                     <th>Ngày đặt</th>
                     <th>Tổng tiền</th>
@@ -83,9 +83,9 @@
             </tbody>
         </table>
     </div>
-    <div class="navigation-end">
+    {{-- <div class="navigation-end">
         {{$order_all->links()}}
-    </div>
+    </div> --}}
     @else
     <div class="pd-5 empty-product">
         <i class="fal fa-clipboard-list"></i>

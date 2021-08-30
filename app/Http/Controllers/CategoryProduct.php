@@ -14,11 +14,17 @@ use Session;
 use Auth;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use App\Components\Recusive;
 session_start();
 
 
 class CategoryProduct extends Controller
 {
+    private $category;
+    public function __construct(CategoryProductModel $category) {
+        $this->category = $category;
+    }
+
     public function CheckLogin() {
         if(Session::get('admin_id')){
             $admin_id = Session::get('admin_id');
@@ -31,16 +37,26 @@ class CategoryProduct extends Controller
             return Redirect::to('admin')->send();
         } 
     }
-    public function AddCategory () {
+
+    public function all_category_product () {
         $this->CheckLogin();
-    	$category = CategoryProductModel::orderBy('category_name', 'ASC')->get();
-        return view('admin.template.category.add_category_product', compact('category'));
+        $all_category_product = CategoryProductModel::orderBy('category_id', 'ASC')->get();
+        return view('admin.template.category.all_category_product', compact('all_category_product'));
     }
-    public function AllCategory () {
+
+    public function getCategory($CategoryParent) {
+        $data = $this->category->all();
+        $recusive = new Recusive($data);
+        $htmlOption = $recusive->CategoryRecusive($CategoryParent);
+        return $htmlOption;
+    }
+
+    public function add_category_product () {
         $this->CheckLogin();
-        $all_category_product = CategoryProductModel::orderBy('category_id', 'ASC')->paginate(10);
-    	return view('admin.template.category.all_category_product', compact('all_category_product'));
+        $htmlOption = $this->getCategory($CategoryParent = '');
+        return view('admin.template.category.add_category_product', compact('htmlOption'));
     }
+
     public function save_category_product(Request $request){
         $data = array();
 
@@ -55,27 +71,16 @@ class CategoryProduct extends Controller
         Session::put('message','Thêm danh mục sản phẩm thành công');
         return Redirect::to('add-category-product');
     }
-
-    public function active_category_product($category_product_id) {
-    	DB::table('tbl_category_product')->where('category_id', $category_product_id)->update(['category_status' => 1]);
-    	Session::put('message','Danh mục này đã được hiển thị');
-        return Redirect::to('all-category-product');
-    }
-    public function inactive_category_product($category_product_id) {
-    	DB::table('tbl_category_product')->where('category_id', $category_product_id)->update(['category_status' => 0]);
-    	Session::put('message','Danh mục này đã được ẩn');
-        return Redirect::to('all-category-product');
-    }
-
     public function edit_category_product($category_product_id) {
         $this->CheckLogin();
-        $category = CategoryProductModel::orderBy('category_name','ASC')->get();
-
-        $edit_category_product = DB::table('tbl_category_product')->where('category_id',$category_product_id)->get();
-
-    	$manage_category_product = view('admin.template.category.edit_category_product')->with('edit_category_product', $edit_category_product)->with('category',$category);
-    	return view('admin.dashboard')->with('admin.template.category.edit_category_product', $manage_category_product);
+        $category_by_id = $this->category->where('category_id',$category_product_id)->get();
+        foreach($category_by_id as $val) {
+            $parentID = $val->category_parent;
+        }
+        $htmlOption = $this->getCategory($parentID);
+        return view('admin.template.category.edit_category_product', compact('category_by_id','htmlOption'));
     }
+
     public function update_category_product(Request $request,$category_product_id) {
     	$data = array();
 
@@ -92,6 +97,18 @@ class CategoryProduct extends Controller
     public function delete_category_product($category_product_id) {
         DB::table('tbl_category_product')->where('category_id', $category_product_id)->delete();
         Session::put('message','Xoá danh mục sản phẩm thành công');
+        return Redirect::to('all-category-product');
+    }
+
+
+    public function active_category_product($category_product_id) {
+        DB::table('tbl_category_product')->where('category_id', $category_product_id)->update(['category_status' => 1]);
+        Session::put('message','Danh mục này đã được hiển thị');
+        return Redirect::to('all-category-product');
+    }
+    public function inactive_category_product($category_product_id) {
+        DB::table('tbl_category_product')->where('category_id', $category_product_id)->update(['category_status' => 0]);
+        Session::put('message','Danh mục này đã được ẩn');
         return Redirect::to('all-category-product');
     }
 

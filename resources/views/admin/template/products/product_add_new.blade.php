@@ -51,6 +51,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label for="product_image">Gallery hình ảnh sản phẩm</label>
+                                <input type="file" id="gallery-product" multiple required name="gallery_image[]" class="form-control">
+                                <div class="preview-gallery mt-4"></div>
+                            </div>
+                            <div class="form-group">
                                 <label for="">Mô tả sản phẩm</label>
                                 <textarea style="resize: none" rows="4" required class="form-control" name="product_desc"  placeholder="Mô tả danh mục"></textarea>
                             </div>
@@ -58,7 +63,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="exampleInputPassword1">Danh mục</label>
                                     <select name="category_product" class="form-control input-sm select2-example ">
-                                        <?php showCategories($cat_product)?>
+                                        {!! $htmlOption !!}
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -110,6 +115,13 @@
                                     <input type="text" class="form-control tagsinput-example" name="product_keywords" placeholder="Từ khoá" value="">
                                 </div>
                             </div>
+                            <h3 class="mb-4" style="font-size: 17px">Thuộc tính sản phẩm</h3>
+                            <div class="attributes_product_content">
+                                <div class="mb-4">
+                                    <a href="javascript:;" class="btn attributes_add--row"><i class="fal fa-plus-circle"></i> Thêm thuộc tính</a>
+                                </div>
+                                <div class="attributes_rows"></div>
+                            </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
@@ -129,23 +141,3 @@
 </div>
 <!-- ./ content -->
 @endsection
-<?php
-
-function showCategories($cat_product, $category_parent = 0, $char = '')
-{
-    foreach ($cat_product as $key => $item)
-    {
-        // Nếu là chuyên mục con thì hiển thị
-        if ($item->category_parent == $category_parent)
-        {
-            echo '<option value="'.$item->category_id.'">'.$char.$item->category_name.'</option>';
-            // Xóa chuyên mục đã lặp
-            unset($cat_product[$key]);
-
-            // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
-            showCategories($cat_product, $item->category_id, $char.' &nbsp;&nbsp;&nbsp;  ');
-        }
-    }
-}
-
-?>

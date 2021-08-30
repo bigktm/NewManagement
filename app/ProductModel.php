@@ -8,7 +8,7 @@ class ProductModel extends Model
 {
     public $timestamps = false; //set time to false
     protected $fillable = [
-    	'product_name', 'product_slug','category_id','brand_id','product_desc','product_sku','product_content','product_price','product_price_sale','product_qty','product_image','product_status','product_keywords'
+    	'product_name', 'product_slug','category_id','brand_id','product_desc','product_sku','product_content','product_price','product_price_sale','product_qty','product_image','product_status','product_keywords', 'product_image_path'
     ];
     protected $primaryKey = 'product_id';
     protected $table = 'tbl_product';
@@ -26,5 +26,9 @@ class ProductModel extends Model
 
     public function gallery(){
         return $this->hasOne('App\Gallery');
+    }
+
+    public function attributes(){
+        return $this->hasMany('App\AttributesProduct');
     }
 }

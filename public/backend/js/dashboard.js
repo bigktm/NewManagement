@@ -502,3 +502,42 @@ $(document).ready(function(){
         });
     });
 });
+
+
+
+
+$(document).ready(function(){
+    $('.edit_feeship').click(function () {
+        $(this).hide();
+        $(this).parent().find('.update_feeship').show();
+    });
+});
+
+
+$(document).ready(function() {
+  if (window.File && window.FileList && window.FileReader) {
+    $("#gallery-product").on("change", function(e) {
+      var files = e.target.files,
+        filesLength = files.length;
+      for (var i = 0; i < filesLength; i++) {
+        var f = files[i]
+        var fileReader = new FileReader();
+        fileReader.onload = (function(e) {
+          var file = e.target;
+          $('.preview-gallery').append("<span class=\"gallery-item\">" +
+            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+            "<br/><span class=\"remove\"><i class=\"fad fa-trash text-danger\"></i></span>" +
+            "</span>");
+          $(".remove").click(function(){
+            $(this).parent(".gallery-item").remove();
+          });
+          
+        });
+        fileReader.readAsDataURL(f);
+      }
+    });
+  } else {
+    alert("Trình duyệt của bạn không hỗ trợ API tệp")
+  }
+});
+ 

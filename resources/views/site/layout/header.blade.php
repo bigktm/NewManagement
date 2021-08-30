@@ -81,7 +81,13 @@
                                                     <span class="title-cart">Giỏ Hàng</span>
                                                     <span class="close-minicart"><i class="fal fa-times"></i></span>
                                                 </div>
-                                                <span class="textCartSide">Bạn đang có <b class="set-cart-number"></b> sản phẩm trong giỏ hàng.</span>
+                                                <span class="textCartSide">Bạn đang có 
+                                                    @if(Session::get('cart'))
+                                                    <b class="set-cart-number"></b> 
+                                                    @else
+                                                    <b class="set-cart-number">0</b>
+                                                    @endif
+                                                    sản phẩm trong giỏ hàng.</span>
                                                 <div class="mini-cart-main-content">
                                                     @if(!Session::get('cart'))
                                                         <div class="mini-cart-empty">
@@ -104,7 +110,13 @@
                                             </a>
                                             <ul class="dropdown-menu" role="menu">
                                                 <li>
-                                                    <a href="{{ URL::to('/customer/logout') }}">Đăng xuất</a>
+                                                    <a href="{{ URL::to('/my-account/orders') }}"><i class="fal fa-clipboard-list"></i> Đơn hàng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ URL::to('/my-account/edit-account') }}"><i class="fal fa-user"></i> Tài khoản</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ URL::to('/customer/logout') }}"><i class="fal fa-sign-out"></i> Đăng xuất</a>
                                                 </li>
                                             </ul>
                                             @else

@@ -46,8 +46,8 @@
 								<div class="item-product item-product-grid item-product-style2">
 									<div class="product-thumb">
 										<a href="{{URL::to('/san-pham/'.$product->product_slug)}}" class="product-thumb-link rotate-thumb" >
-											<img  src="{{asset('/public/uploads/products/'.$product->product_image)}}" alt="{{$product->product_name}}" />
-											<img  src="{{asset('/public/uploads/products/'.$product->product_image)}}" alt="{{$product->product_name}}" />
+											<img  src="{{asset('/public/'.$product->product_image_path)}}" alt="{{$product->product_name}}" />
+											<img  src="{{asset('/public/'.$product->product_image_path)}}" alt="{{$product->product_name}}" />
 										</a>  
 										<div class="product-label">
 											@if($product->product_price_sale)

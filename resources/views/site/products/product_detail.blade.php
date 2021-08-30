@@ -38,23 +38,23 @@
 					<div class="detail-gallery has-gallery">
 						<div class="wrap-detail-gallery images zoom-style3">
 							<div class="mid woocommerce-product-gallery__image image-lightbox true" data-gallery="">
-								<a href="{{asset('/public/uploads/products/'.$product->product_image)}}" class="img_url">
-									<img width="600" height="686" src="{{asset('/public/uploads/products/'.$product->product_image)}}" class="wp-post-image wp-post-image" alt="{{$product->product_name}}" srcset="{{asset('/public/uploads/products/'.$product->product_image)}}" />
+								<a href="{{asset('/public/'.$product->product_image_path)}}" class="img_url">
+									<img width="600" height="686" src="{{asset('/public/'.$product->product_image_path)}}" class="wp-post-image wp-post-image" alt="{{$product->product_name}}" srcset="{{asset('/public/'.$product->product_image_path)}}" />
 								</a>
 							</div>
 							<div class="gallery-control true">
 								<a href="#" class="prev"><i class="fal fa-arrow-down"></i></a>
-								<div class="carousel" data-visible="4" data-vertical="true">
+								<div class="carousel" data-visible="6" data-vertical="true">
 									<ul class="list-none">
 										<li data-number="">
-											<a class="active" href="{{asset('/public/uploads/products/'.$product->product_image)}}">
-												<img width="100" height="114" src="{{asset('/public/uploads/products/'.$product->product_image)}}" class="attachment-100x114 size-100x114" alt="{{$product->product_name}}" data-src="{{asset('/public/uploads/products/'.$product->product_image)}}" data-srcset="{{asset('/public/uploads/products/'.$product->product_image)}}" />
+											<a class="active" href="{{asset('/public/'.$product->product_image_path)}}">
+												<img width="100" height="114" src="{{asset('/public/'.$product->product_image_path)}}" class="attachment-100x114 size-100x114" alt="{{$product->product_name}}" data-src="{{asset('/public/'.$product->product_image_path)}}" data-srcset="{{asset('/public/'.$product->product_image_path)}}" />
 											</a>
 										</li>
 										@foreach($galery_product_thumb as $thumb)
 										<li data-number="">
-											<a  href="{{asset('/public/uploads/gallery_product/'.$thumb->gallery_image)}}">
-												<img width="100" height="114" src="{{asset('/public/uploads/gallery_product/'.$thumb->gallery_image)}}" class="attachment-100x114 size-100x114" alt="{{$product->product_name}}" data-src="{{asset('/public/uploads/gallery_product/'.$thumb->gallery_image)}}" data-srcset="{{asset('/public/uploads/gallery_product/'.$thumb->gallery_image)}}" />
+											<a  href="{{asset('/public/'.$thumb->gallery_image_path)}}">
+												<img width="100" height="114" src="{{asset('/public/'.$thumb->gallery_image_path)}}" class="attachment-100x114 size-100x114" alt="{{$product->product_name}}" data-src="{{asset('/public/'.$thumb->gallery_image_path)}}" data-srcset="{{asset('/public/'.$thumb->gallery_image_path)}}" />
 											</a>
 										</li>
 										@endforeach                  
@@ -148,6 +148,9 @@
 						</div>
 					</div>
 				</div>
+				{{-- <div class="single-products">
+					{!!$product->product_content!!}
+				</div> --}}
 				@endforeach
 			</div>
 		</div>
@@ -224,7 +227,7 @@
 										<div class="item-product item-product-grid item-product-style2">
 											<div class="product-thumb">
 												<a href="{{URL::to('/san-pham/'.$product->product_slug)}}">
-													<img width="252" height="288" src="{{asset('/public/uploads/products/'.$product->product_image)}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
+													<img width="252" height="288" src="{{asset('/public/'.$product->product_image_path)}}" class="attachment-252x288 size-252x288 wp-post-image" alt="" />
 												</a>        
 											</div>
 											<div class="product-info">
@@ -239,9 +242,9 @@
 													<span class="Price-amount">{{number_format($product->product_price)}} đ</span>
 													@endif
 												</div>         
-												<div class="product-extra-link">
+												{{-- <div class="product-extra-link">
 													<a href="#"  title="Add to cart" class="btn btn-primary btn-add-cart"><span>Thêm vào giỏ hàng</span></a>
-												</div>
+												</div> --}}
 											</div>
 										</div>
 									</div>

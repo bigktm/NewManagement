@@ -33,7 +33,7 @@ class BrandProduct extends Controller
     }
     public function AllBrand () {
         $this->CheckLogin();
-    	$all_brand_product = DB::table('tbl_brand')->paginate(5);
+    	$all_brand_product = DB::table('tbl_brand')->get();
     	$manage_brand_product = view('admin.template.brand.all_brand_product')->with('all_brand_product', $all_brand_product);
     	return view('admin.dashboard')->with('admin.brand.category.all_brand_product', $manage_brand_product);
     }
